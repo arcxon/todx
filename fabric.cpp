@@ -5,24 +5,26 @@
 using namespace std;
 
 class Todo{
-
-public:
+  public:
     char content[200];
     char status;
-     int _index;
+    int _index;
 };
 
 class List {
   public:
     Todo list[20];
-     int _listIndex;
-     int _tagIndex;
+
     char title[100];
     char tags[10][20];
 
+    int _listIndex; // Variable to count the filling of list
+    int _tagIndex;  // Variable to count the filling of tags
+
     List() {
+        // Asks for #title(required) and #tags(can be skipped).
         _listIndex = 0;
-         _tagIndex = 0;
+        _tagIndex = 0;
 
         cout << "Enter title for your list\n *> ";
         cin.getline(title, sizeof(title));
@@ -49,15 +51,14 @@ class List {
                 else {
                     break;
                 }
-
-
             }
         }
     }
 
     List(char Title[100]) {
+        // Initialize the #list with #title
         _listIndex = 0;
-         _tagIndex = 0;
+        _tagIndex = 0;
 
         strcpy(title, Title);
     }
@@ -71,6 +72,7 @@ class List {
     }
 
     void view() {
+        // View the list's #title #tags and #content
         cout << title << endl;
         cout << "============" << endl;
 
@@ -88,18 +90,20 @@ class List {
     }
 
     void append() {
+        // append a new ToDo in the #list
         char Content[200];
         cout << "Enter the content of ToDo \n *> ";
         cin.getline(Content, 200);
-        cout << "content is : " << Content << endl;
 
         strcpy(list[_listIndex].content, Content);
+
         list[_listIndex].status = ' ';
         list[_listIndex]._index = _listIndex;
         _listIndex++;
     }
 
     void changeStatus(int index, char status){
+        // Changes Status of the Item of #index to #status
         list[index].status = status;
     }
 
@@ -115,5 +119,6 @@ int main() {
     Myl.append();
 
     Myl.view();
+
     return 0;
 }
