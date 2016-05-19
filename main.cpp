@@ -88,13 +88,14 @@ int parse(char command[80]){
     }
 
     else if (!(strcmp(command, "save")*strcmp(command, "s"))) {
-        // Append a new Todo to the currently opened list
+        // Save the data to the file
         arrayL[_currentLindex] = currentL;
         finish();
         success = 1;
     }
 
     else if (!(strcmp(command, "quit")*strcmp(command, "q"))) {
+        // exit the program
         arrayL[_currentLindex] = currentL;
         finish();
         success = -1;
@@ -116,7 +117,7 @@ int main() {
     cout << "TodX" << endl;
     cout << "Hi" << endl;
     char command[80];
-    for (size_t i = 0; i < 4; i++) {
+    while (1) {
         cout << " *> ";
         cin.getline(command, 80);
         int result = parse(command);
