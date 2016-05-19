@@ -36,6 +36,8 @@ class List {
 
     void view();    // View the list's #title #tags and #content
 
+    void indexView();   // View the contents with the index
+
     void append();  // append a new ToDo in the #list
 
     void changeStatus(int index, char status){
@@ -101,6 +103,23 @@ void List::view() {
 
     for (int i = 0; i < _listIndex; i++) {
         cout << "  [" << list[i].status << "]  ";
+        cout << list[i].content << endl;
+    }
+}
+
+void List::indexView() {
+    cout << title << endl;
+    cout << "============" << endl;
+
+    cout << "Tags : ";
+    for (int i = 0; i < _tagIndex; i++) {
+        cout << tags[i] << " ";
+    }
+
+    cout << endl;
+
+    for (int i = 0; i < _listIndex; i++) {
+        cout << i << ". [" << list[i].status << "]  ";
         cout << list[i].content << endl;
     }
 }
