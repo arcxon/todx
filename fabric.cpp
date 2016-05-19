@@ -1,5 +1,4 @@
 #include <iostream>
-#include <fstream>
 #include <cstring>
 
 using namespace std;
@@ -21,47 +20,11 @@ class List {
     int _listIndex; // Variable to count the filling of list
     int _tagIndex;  // Variable to count the filling of tags
 
-    List() {
-        // Asks for #title(required) and #tags(can be skipped).
-        _listIndex = 0;
-        _tagIndex = 0;
+    List();         // Asks for #title(required) and #tags(can be skipped).
 
-        cout << "Enter title for your list\n *> ";
-        cin.getline(title, sizeof(title));
+    List(char Title[100]);  // Initialize the #list with #title
 
-        char choice;
-        cout << "Do you want some tags?(y/n)" << endl << " *> ";
-        cin >> choice;
-        cin.ignore();
-
-        if (choice == 'y') {
-            char tagTemp[220];
-            int k = 0, j = 0;
-
-            cout << "Enter the tag one at a time \n 'd' when done \n *> ";
-
-            while (1) {
-                cin.getline(tagTemp, 20);
-
-                if (strcmp(tagTemp, "d") != 0) {
-                    addTag(tagTemp);
-                    cout << " *> ";
-                }
-
-                else {
-                    break;
-                }
-            }
-        }
-    }
-
-    List(char Title[100]) {
-        // Initialize the #list with #title
-        _listIndex = 0;
-        _tagIndex = 0;
-
-        strcpy(title, Title);
-    }
+    void enter(); // Enter the info given by user
 
     void addTag(char Tag[20]) {
         strcpy(tags[_tagIndex++], Tag);
@@ -71,36 +34,9 @@ class List {
         strcpy(title, Title);
     }
 
-    void view() {
-        // View the list's #title #tags and #content
-        cout << title << endl;
-        cout << "============" << endl;
+    void view();    // View the list's #title #tags and #content
 
-        cout << "Tags : ";
-        for (size_t i = 0; i < _tagIndex; i++) {
-            cout << tags[i] << " ";
-        }
-
-        cout << endl;
-
-        for (int i = 0; i < _listIndex; i++) {
-            cout << "  [" << list[i].status << "]  ";
-            cout << list[i].content << endl;
-        }
-    }
-
-    void append() {
-        // append a new ToDo in the #list
-        char Content[200];
-        cout << "Enter the content of ToDo \n *> ";
-        cin.getline(Content, 200);
-
-        strcpy(list[_listIndex].content, Content);
-
-        list[_listIndex].status = ' ';
-        list[_listIndex]._index = _listIndex;
-        _listIndex++;
-    }
+    void append();  // append a new ToDo in the #list
 
     void changeStatus(int index, char status){
         // Changes Status of the Item of #index to #status
@@ -110,15 +46,86 @@ class List {
     ~List() {}
 };
 
-int main() {
-    // NOTE
-    //      This main function is just for testing the stuff
-    List Myl;
-
-    Myl.append();
-    Myl.append();
-
-    Myl.view();
-
-    return 0;
+List::List(){
+    _listIndex = 0;
+    _tagIndex = 0;
 }
+
+List::List(char Title[100]) {
+    _listIndex = 0;
+    _tagIndex = 0;
+
+    strcpy(title, Title);
+}
+
+void List::enter(){
+    cout << "Enter title for your list\n *> ";
+    cin.getline(title, sizeof(title));
+
+    char choice;
+    cout << "Do you want some tags?(y/n)" << endl << " *> ";
+    cin >> choice;
+    cin.ignore();
+
+    if (choice == 'y') {
+        char tagTemp[220];
+
+        cout << "Enter the tag one at a time \n 'd' when done \n *> ";
+
+        while (1) {
+            cin.getline(tagTemp, 20);
+
+            if (strcmp(tagTemp, "d") != 0) {
+                addTag(tagTemp);
+                cout << " *> ";
+            }
+
+            else {
+                break;
+            }
+        }
+    }
+
+}
+
+void List::view() {
+    cout << title << endl;
+    cout << "============" << endl;
+
+    cout << "Tags : ";
+    for (int i = 0; i < _tagIndex; i++) {
+        cout << tags[i] << " ";
+    }
+
+    cout << endl;
+
+    for (int i = 0; i < _listIndex; i++) {
+        cout << "  [" << list[i].status << "]  ";
+        cout << list[i].content << endl;
+    }
+}
+
+void List::append(){
+    char Content[200];
+    cout << "Enter the content of ToDo \n *> ";
+    cin.getline(Content, 200);
+
+    strcpy(list[_listIndex].content, Content);
+
+    list[_listIndex].status = ' ';
+    list[_listIndex]._index = _listIndex;
+    _listIndex++;
+}
+
+// int main() {
+//     // NOTE
+//     //      This main function is just for testing the stuff
+//     List Myl;
+//
+//     Myl.append();
+//     Myl.append();
+//
+//     Myl.view();
+//
+//     return 0;
+// }
