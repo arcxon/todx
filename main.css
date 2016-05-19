@@ -49,10 +49,7 @@ html {
           html body .header h2 {
             margin-top: 8%; } }
     html body .menu {
-      position: sticky;
-      top: 0;
-      padding: 1%;
-      background-color: rgba(255, 255, 255, 0.95); }
+      padding: 1%; }
       @media (orientation: portrait) {
         html body .menu {
           padding: 1%; } }

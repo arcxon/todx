@@ -155,12 +155,7 @@ html{
         }
 
         .menu{
-            position: sticky;
-            top: 0;
-
             padding: 1%;
-
-            background-color: fade-out($white, 0.05);
 
             @media #{$mobile}{
                 padding: 1%;
