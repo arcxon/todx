@@ -29,7 +29,7 @@ html {
         text-align: center;
         margin: 0;
         padding: 0;
-        font-weight: 200; }
+        font-weight: 100; }
         @media (orientation: portrait) {
           html body .header h1 {
             margin-top: 8%; } }
@@ -225,23 +225,6 @@ html {
             box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.25); }
           html body .page .button-wrapper a.green-button:active, html body .page .button-wrapper input.green-button:active {
             background-color: #58b616; }
-        html body .page .button-wrapper a.cyan-button, html body .page .button-wrapper input.cyan-button {
-          margin: 2%;
-          padding: 2% 3%;
-          transition: all 0.2s;
-          text-decoration: none;
-          color: white;
-          border-radius: 4px;
-          border: none;
-          background-color: #47ddd8;
-          font-size: 1.2em; }
-          @media (orientation: portrait) {
-            html body .page .button-wrapper a.cyan-button, html body .page .button-wrapper input.cyan-button {
-              font-size: 1.4em; } }
-          html body .page .button-wrapper a.cyan-button:hover, html body .page .button-wrapper input.cyan-button:hover {
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.25); }
-          html body .page .button-wrapper a.cyan-button:active, html body .page .button-wrapper input.cyan-button:active {
-            background-color: #1ea09c; }
         html body .page .button-wrapper a.yellow-button, html body .page .button-wrapper input.yellow-button {
           margin: 2%;
           padding: 2% 3%;
@@ -259,23 +242,6 @@ html {
             box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.25); }
           html body .page .button-wrapper a.yellow-button:active, html body .page .button-wrapper input.yellow-button:active {
             background-color: #c38a00; }
-        html body .page .button-wrapper a.teal-button, html body .page .button-wrapper input.teal-button {
-          margin: 2%;
-          padding: 2% 3%;
-          transition: all 0.2s;
-          text-decoration: none;
-          color: white;
-          border-radius: 4px;
-          border: none;
-          background-color: #4bec9a;
-          font-size: 1.2em; }
-          @media (orientation: portrait) {
-            html body .page .button-wrapper a.teal-button, html body .page .button-wrapper input.teal-button {
-              font-size: 1.4em; } }
-          html body .page .button-wrapper a.teal-button:hover, html body .page .button-wrapper input.teal-button:hover {
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.25); }
-          html body .page .button-wrapper a.teal-button:active, html body .page .button-wrapper input.teal-button:active {
-            background-color: #14bd67; }
         html body .page .button-wrapper a.black-button, html body .page .button-wrapper input.black-button {
           margin: 2%;
           padding: 2% 3%;
@@ -344,160 +310,6 @@ html {
               font-size: 2em; }
             html body .page table.feature-list tbody tr td p {
               text-indent: 0; }
-      html body .page fieldset {
-        text-align: center;
-        border: none;
-        border-top: solid 4px #FFD05D; }
-        html body .page fieldset legend {
-          font-size: 2em; }
-        html body .page fieldset form {
-          margin: 1% 1%;
-          text-align: center;
-          line-height: 3em;
-          font-size: 0.8em;
-          line-height: 1.5em; }
-          html body .page fieldset form a.main-button, html body .page fieldset form input.main-button {
-            margin: 2%;
-            padding: 2% 3%;
-            transition: all 0.2s;
-            text-decoration: none;
-            color: white;
-            border-radius: 4px;
-            border: none;
-            background-color: #FFD05D;
-            font-size: 1.2em; }
-            @media (orientation: portrait) {
-              html body .page fieldset form a.main-button, html body .page fieldset form input.main-button {
-                font-size: 1.4em; } }
-            html body .page fieldset form a.main-button:hover, html body .page fieldset form input.main-button:hover {
-              box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.25); }
-            html body .page fieldset form a.main-button:active, html body .page fieldset form input.main-button:active {
-              background-color: #f6af00; }
-          html body .page fieldset form a.blue-button, html body .page fieldset form input.blue-button {
-            margin: 2%;
-            padding: 2% 3%;
-            transition: all 0.2s;
-            text-decoration: none;
-            color: white;
-            border-radius: 4px;
-            border: none;
-            background-color: #1ca2ed;
-            font-size: 1.2em; }
-            @media (orientation: portrait) {
-              html body .page fieldset form a.blue-button, html body .page fieldset form input.blue-button {
-                font-size: 1.4em; } }
-            html body .page fieldset form a.blue-button:hover, html body .page fieldset form input.blue-button:hover {
-              box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.25); }
-            html body .page fieldset form a.blue-button:active, html body .page fieldset form input.blue-button:active {
-              background-color: #0c6597; }
-          html body .page fieldset form a.red-button, html body .page fieldset form input.red-button {
-            margin: 2%;
-            padding: 2% 3%;
-            transition: all 0.2s;
-            text-decoration: none;
-            color: white;
-            border-radius: 4px;
-            border: none;
-            background-color: #e86a42;
-            font-size: 1.2em; }
-            @media (orientation: portrait) {
-              html body .page fieldset form a.red-button, html body .page fieldset form input.red-button {
-                font-size: 1.4em; } }
-            html body .page fieldset form a.red-button:hover, html body .page fieldset form input.red-button:hover {
-              box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.25); }
-            html body .page fieldset form a.red-button:active, html body .page fieldset form input.red-button:active {
-              background-color: #af3a15; }
-          html body .page fieldset form a.green-button, html body .page fieldset form input.green-button {
-            margin: 2%;
-            padding: 2% 3%;
-            transition: all 0.2s;
-            text-decoration: none;
-            color: white;
-            border-radius: 4px;
-            border: none;
-            background-color: #8be949;
-            font-size: 1.2em; }
-            @media (orientation: portrait) {
-              html body .page fieldset form a.green-button, html body .page fieldset form input.green-button {
-                font-size: 1.4em; } }
-            html body .page fieldset form a.green-button:hover, html body .page fieldset form input.green-button:hover {
-              box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.25); }
-            html body .page fieldset form a.green-button:active, html body .page fieldset form input.green-button:active {
-              background-color: #58b616; }
-          html body .page fieldset form a.cyan-button, html body .page fieldset form input.cyan-button {
-            margin: 2%;
-            padding: 2% 3%;
-            transition: all 0.2s;
-            text-decoration: none;
-            color: white;
-            border-radius: 4px;
-            border: none;
-            background-color: #47ddd8;
-            font-size: 1.2em; }
-            @media (orientation: portrait) {
-              html body .page fieldset form a.cyan-button, html body .page fieldset form input.cyan-button {
-                font-size: 1.4em; } }
-            html body .page fieldset form a.cyan-button:hover, html body .page fieldset form input.cyan-button:hover {
-              box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.25); }
-            html body .page fieldset form a.cyan-button:active, html body .page fieldset form input.cyan-button:active {
-              background-color: #1ea09c; }
-          html body .page fieldset form a.yellow-button, html body .page fieldset form input.yellow-button {
-            margin: 2%;
-            padding: 2% 3%;
-            transition: all 0.2s;
-            text-decoration: none;
-            color: white;
-            border-radius: 4px;
-            border: none;
-            background-color: #ffc12a;
-            font-size: 1.2em; }
-            @media (orientation: portrait) {
-              html body .page fieldset form a.yellow-button, html body .page fieldset form input.yellow-button {
-                font-size: 1.4em; } }
-            html body .page fieldset form a.yellow-button:hover, html body .page fieldset form input.yellow-button:hover {
-              box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.25); }
-            html body .page fieldset form a.yellow-button:active, html body .page fieldset form input.yellow-button:active {
-              background-color: #c38a00; }
-          html body .page fieldset form a.teal-button, html body .page fieldset form input.teal-button {
-            margin: 2%;
-            padding: 2% 3%;
-            transition: all 0.2s;
-            text-decoration: none;
-            color: white;
-            border-radius: 4px;
-            border: none;
-            background-color: #4bec9a;
-            font-size: 1.2em; }
-            @media (orientation: portrait) {
-              html body .page fieldset form a.teal-button, html body .page fieldset form input.teal-button {
-                font-size: 1.4em; } }
-            html body .page fieldset form a.teal-button:hover, html body .page fieldset form input.teal-button:hover {
-              box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.25); }
-            html body .page fieldset form a.teal-button:active, html body .page fieldset form input.teal-button:active {
-              background-color: #14bd67; }
-          html body .page fieldset form a.black-button, html body .page fieldset form input.black-button {
-            margin: 2%;
-            padding: 2% 3%;
-            transition: all 0.2s;
-            text-decoration: none;
-            color: white;
-            border-radius: 4px;
-            border: none;
-            background-color: #323028;
-            font-size: 1.2em; }
-            @media (orientation: portrait) {
-              html body .page fieldset form a.black-button, html body .page fieldset form input.black-button {
-                font-size: 1.4em; } }
-            html body .page fieldset form a.black-button:hover, html body .page fieldset form input.black-button:hover {
-              box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.25); }
-            html body .page fieldset form a.black-button:active, html body .page fieldset form input.black-button:active {
-              background-color: black; }
-          html body .page fieldset form input {
-            font-size: 1em;
-            border: 1px solid #c8c8c8;
-            margin: 1% 2% 2%; }
-            html body .page fieldset form input:active, html body .page fieldset form input:focus {
-              border: 1px solid #FFD05D; }
     html body .footer {
       padding: 1% 0%;
       text-align: center;

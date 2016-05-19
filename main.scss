@@ -9,8 +9,6 @@ Created by adiultra for esencia
 $blue: rgb(28, 162, 237);
 $green: rgb(139, 233, 73);
 $red: rgb(232, 106, 66);
-$cyan: rgb(71, 221, 216);
-$teal: rgb(75, 236, 154);
 $yellow: #FFD05D;
 
 
@@ -90,11 +88,7 @@ $desktop: "(orientation: landscape)";
 
         &.green-button{ @include button($green); };
 
-        &.cyan-button{ @include button($cyan); };
-
         &.yellow-button{ @include button(darken($yellow, 10%)); };
-
-        &.teal-button{ @include button($teal); };
 
         &.black-button{ @include button($dark-grey); };
     }
@@ -139,7 +133,7 @@ html{
                 margin: 0;
                 padding: 0;
 
-                font-weight: 200;
+                font-weight: 100;
                 @media #{$mobile}{
                     font-size: 6em;
                 }
@@ -318,27 +312,6 @@ html{
                             }
                         }
                     }
-                }
-            }
-            fieldset{
-                text-align: center;
-                border: none;
-                border-top: solid 4px $main-color;
-                legend{
-                    font-size: 2em;
-                }
-                form{
-                    @include special;
-                    font-size: 0.8em;
-                    input{
-                        font-size: 1em;
-                        border: 1px solid $light-grey;
-                        margin: 1% 2% 2%;
-                        &:active, &:focus{
-                            border: 1px solid $main-color;
-                        }
-                    }
-                    line-height: 1.5em;
                 }
             }
         }
