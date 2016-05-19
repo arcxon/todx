@@ -1,0 +1,368 @@
+/*
+Created by adiultra for esencia
+*/
+
+
+// Variables
+
+
+$blue: rgb(28, 162, 237);
+$green: rgb(139, 233, 73);
+$red: rgb(232, 106, 66);
+$cyan: rgb(71, 221, 216);
+$teal: rgb(75, 236, 154);
+$yellow: rgb(245, 231, 106);
+
+
+$white: rgb(255, 255, 255);
+$light: rgb(230, 230, 230);
+$light-grey: rgb(200, 200, 200);
+$grey: rgb(175, 175, 175);
+$dark-grey: rgb(46, 48, 50);
+$dark: rgb(30, 37, 45);
+
+$main-color: $yellow;
+
+$shadow: rgba(0, 0, 0, 0.25);
+$shadow-dark: rgba(0, 0, 0, 0.5);
+
+$font-sans: "Raleway", "Open Sans", "Roboto", sans;
+$font-color: $dark-grey;
+
+// Media Queries
+
+$mobile: "(orientation: portrait)";
+$desktop: "(orientation: landscape)";
+
+
+// Mixins
+
+@mixin button($color) {
+    margin: 2%;
+    padding: 1% 2%;
+
+    transition: all 0.2s;
+    text-decoration: none;
+
+    color: $white;
+    border-radius: 4px;
+
+    border: none;
+    border-bottom: solid 0.2em darken($color, 20%);
+    border-radius: 4px;
+    background-color: $color;
+    @media #{$mobile}{
+        font-size: 1.4em;
+    }
+    &:hover{
+        box-shadow: 0px 8px 16px $shadow;
+    }
+
+    &:active{
+        background-color: darken($color, 20%);
+    }
+}
+
+@mixin heading($size) {
+    margin: 0;
+    margin-top: 2%;
+    padding: 2% 0;
+
+    font-size: $size;
+    font-weight: lighter;
+    text-align: center;
+    @media #{$mobile}{
+        margin-top: 8%;
+    }
+}
+@mixin special {
+    margin: 1% 1%;
+
+    text-align: center;
+    line-height: 3em;
+
+    a, input{
+        &.main-button{ @include button($main-color); };
+
+        &.blue-button{ @include button($blue); };
+
+        &.red-button{ @include button($red); };
+
+        &.green-button{ @include button($green); };
+
+        &.cyan-button{ @include button($cyan); };
+
+        &.yellow-button{ @include button(darken($yellow, 10%)); };
+
+        &.teal-button{ @include button($teal); };
+
+        &.black-button{ @include button($dark-grey); };
+    }
+}
+
+
+// ███████ ████████ ██    ██ ██      ███████
+// ██         ██     ██  ██  ██      ██
+// ███████    ██      ████   ██      █████
+//      ██    ██       ██    ██      ██
+// ███████    ██       ██    ███████ ███████
+
+
+html{
+    font-family: $font-sans;
+    font-size: 1.2em;
+    @media #{$mobile}{
+        font-size: 1em;
+    }
+
+    body{
+        margin: 0px;
+
+        .header{
+            padding-top: 1%;
+            padding-bottom: 2%;
+
+            text-align: center;
+
+            color: $white;
+            border-bottom: 16px solid rgba(55, 55, 55, 0.25);
+            background: $main-color;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+
+            h1{
+                @include heading(8em);
+
+                font-weight: lighter;
+                @media #{$mobile}{
+                    font-size: 6em;
+                }
+            }
+
+            h3{
+                @include heading(1.3em);
+                font-weight: normal;
+                padding: 0;
+            }
+        }
+
+        .menu{
+            position: sticky;
+            top: 0;
+
+            padding: 1%;
+
+            background-color: fade-out($white, 0.05);
+            box-shadow: 0px 4px 6px $shadow;
+
+            @media #{$mobile}{
+                padding: 1%;
+            }
+
+            ul{
+                margin: 0;
+                padding: 0;
+
+                list-style: none;
+
+                text-align: center;
+                @media #{$mobile}{
+                    padding: 2% 0;
+                }
+                li{
+                    display: inline;
+
+                    margin-right: 1%;
+                    margin-left: 1%;
+                    padding: 0;
+
+                    a{
+                        text-decoration: none;
+
+                        padding: 1%;
+
+                        color: #444;
+
+                        transition: 0.2s;
+                        font-size: 20px;
+                        &:hover{
+                            color: $main-color;
+                            background-color: rgba(0, 0, 0, 0.05);
+                        }
+                        &:active{
+                            background-color: rgba(0, 0, 0, 0.1);
+                        }
+                    }
+                }
+            }
+        }
+
+        .page{
+            padding: 5% 20%;
+            color: $font-color;
+
+            border-bottom: solid 16px $main-color;
+            @media #{$mobile}{
+                padding: 4%;
+            }
+            p{
+                text-indent: 2em;
+
+                font-size: 1.2em;
+
+                line-height: 1.5;
+
+            }
+
+            h1{ @include heading(2.4em); }
+
+            h2{ @include heading(2em); }
+
+            h3{ @include heading(1.8em); }
+
+            h4{ @include heading(1.5em); }
+
+            h5{ @include heading(1.3em); }
+
+            h6{ @include heading(1.2em); }
+
+            blockquote{
+                font-style: italic;
+                font-size: 1.4em;
+                text-align: center;
+                color: $dark;
+                padding: 3%;
+                background-color: lighten($light, 6);
+            }
+
+            .button-wrapper{ @include special; }
+
+
+            pre{
+                font-size: 1.2em;
+            }
+
+            img{
+                display: block;
+                width: 100%;
+                padding: 1%;
+                margin: auto;
+
+                &:hover{
+                    box-shadow: 0px 2px 6px $shadow;
+                }
+
+                &.screen-shot{
+                    padding: 0%;
+                    box-shadow: 0px 10px 20px $shadow-dark;
+                    border-radius: 4px;
+
+                    &:hover{ box-shadow: 0px 10px 20px $shadow-dark; }
+                }
+            }
+            table{
+                overflow: hidden;
+
+                width: auto;
+                text-align: center;
+                border-collapse: collapse;
+                margin: 4% auto;
+
+                thead{
+                    th{
+                        padding: 0.3em 3em;
+
+                        border-left: 0px solid;
+                        border-bottom: 2px solid $main-color;
+
+                        font-size: 1.4em;
+                        font-weight: normal;
+                        @media #{$mobile}{
+                            padding: 2% 0;
+                        }
+                    }
+                }
+
+                tr{
+                    padding: 1%;
+
+                    td{
+                        padding: 0.2em 2em;
+
+                        border-bottom: 1px solid $grey;
+                    }
+
+
+                }
+                &.feature-list{
+                    width: 100%;
+                    tbody{
+                        tr{
+                            td{
+                                border: none;
+                                padding: 2% 0;
+
+                                img{
+                                    text-align: left;
+                                    border: 0 !important;
+                                    padding: 0 !important;
+                                    width: auto;
+
+                                    &:hover{ box-shadow: none; }
+                                }
+
+                                h1{
+                                    font-size: 2em;
+                                }
+
+                                p{
+                                    text-indent: 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            fieldset{
+                text-align: center;
+                border: none;
+                border-top: solid 4px $main-color;
+                legend{
+                    font-size: 2em;
+                }
+                form{
+                    @include special;
+                    font-size: 0.8em;
+                    input{
+                        font-size: 1em;
+                        border: 1px solid $light-grey;
+                        margin: 1% 2% 2%;
+                        &:active, &:focus{
+                            border: 1px solid $main-color;
+                        }
+                    }
+                    line-height: 1.5em;
+                }
+            }
+        }
+
+        .footer{
+            padding: 1% 0%;
+
+            text-align: center;
+
+            color: $light;
+            background-color: $dark;
+
+            font-size: 0.8em;
+
+            h1{
+                font-size: 1.3em;
+                font-weight: normal;
+            }
+
+            p{
+                margin: 0;
+            }
+        }
+    }
+}
