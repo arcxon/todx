@@ -39,7 +39,7 @@ $desktop: "(orientation: landscape)";
 
 @mixin button($color) {
     margin: 2%;
-    padding: 1% 2%;
+    padding: 2% 3%;
 
     transition: all 0.2s;
     text-decoration: none;
@@ -51,6 +51,8 @@ $desktop: "(orientation: landscape)";
     border-bottom: solid 0.2em darken($color, 20%);
     border-radius: 4px;
     background-color: $color;
+
+    font-size: 1.2em;
     @media #{$mobile}{
         font-size: 1.4em;
     }
@@ -111,24 +113,33 @@ $desktop: "(orientation: landscape)";
 html{
     font-family: $font-sans;
     font-size: 1.2em;
+    height: 100%;
+
     @media #{$mobile}{
         font-size: 1em;
     }
 
+
     body{
         margin: 0px;
+        height: 100%;
 
         .header{
-            padding-top: 1%;
+            height: 100%;
             padding-bottom: 2%;
 
             text-align: center;
 
             color: $white;
             background: $main-color;
-
+            img{
+                margin-left: 4%;
+                margin-top: 10%;
+            }
             h1{
                 @include heading(8em);
+                margin: 0;
+                padding: 0;
 
                 font-weight: 200;
                 @media #{$mobile}{
@@ -136,8 +147,8 @@ html{
                 }
             }
 
-            h3{
-                @include heading(1.3em);
+            h2{
+                @include heading(2em);
                 font-weight: 300;
                 padding: 0;
             }
@@ -183,10 +194,7 @@ html{
                         font-size: 20px;
                         &:hover{
                             color: $main-color;
-                            background-color: rgba(0, 0, 0, 0.05);
-                        }
-                        &:active{
-                            background-color: rgba(0, 0, 0, 0.1);
+                            border-bottom: solid 2px $main-color;
                         }
                     }
                 }
