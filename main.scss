@@ -18,8 +18,8 @@ $white: rgb(255, 255, 255);
 $light: rgb(230, 230, 230);
 $light-grey: rgb(200, 200, 200);
 $grey: rgb(175, 175, 175);
-$dark-grey: rgb(46, 48, 50);
-$dark: rgb(30, 37, 45);
+$dark-grey: rgb(50, 48, 40);
+$dark: rgb(40, 37, 35);
 
 $main-color: $yellow;
 
@@ -48,8 +48,6 @@ $desktop: "(orientation: landscape)";
     border-radius: 4px;
 
     border: none;
-    border-bottom: solid 0.2em darken($color, 20%);
-    border-radius: 4px;
     background-color: $color;
 
     font-size: 1.2em;
@@ -71,7 +69,7 @@ $desktop: "(orientation: landscape)";
     padding: 2% 0;
 
     font-size: $size;
-    font-weight: 200;
+    font-weight: 300;
     text-align: center;
     @media #{$mobile}{
         margin-top: 8%;
@@ -231,7 +229,7 @@ html{
                 text-align: center;
                 color: $dark;
                 padding: 3%;
-                background-color: lighten($light, 6);
+                background-color: lighten($light, 2);
             }
 
             .button-wrapper{ @include special; }
