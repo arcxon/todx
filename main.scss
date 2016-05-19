@@ -11,7 +11,7 @@ $green: rgb(139, 233, 73);
 $red: rgb(232, 106, 66);
 $cyan: rgb(71, 221, 216);
 $teal: rgb(75, 236, 154);
-$yellow: rgb(245, 231, 106);
+$yellow: #FFD05D;
 
 
 $white: rgb(255, 255, 255);
@@ -26,7 +26,7 @@ $main-color: $yellow;
 $shadow: rgba(0, 0, 0, 0.25);
 $shadow-dark: rgba(0, 0, 0, 0.5);
 
-$font-sans: "Raleway", "Open Sans", "Roboto", sans;
+$font-sans: "Lato", "Open Sans", sans;
 $font-color: $dark-grey;
 
 // Media Queries
@@ -69,7 +69,7 @@ $desktop: "(orientation: landscape)";
     padding: 2% 0;
 
     font-size: $size;
-    font-weight: lighter;
+    font-weight: 200;
     text-align: center;
     @media #{$mobile}{
         margin-top: 8%;
@@ -125,14 +125,12 @@ html{
             text-align: center;
 
             color: $white;
-            border-bottom: 16px solid rgba(55, 55, 55, 0.25);
             background: $main-color;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 
             h1{
                 @include heading(8em);
 
-                font-weight: lighter;
+                font-weight: 200;
                 @media #{$mobile}{
                     font-size: 6em;
                 }
@@ -140,7 +138,7 @@ html{
 
             h3{
                 @include heading(1.3em);
-                font-weight: normal;
+                font-weight: 300;
                 padding: 0;
             }
         }
@@ -152,7 +150,6 @@ html{
             padding: 1%;
 
             background-color: fade-out($white, 0.05);
-            box-shadow: 0px 4px 6px $shadow;
 
             @media #{$mobile}{
                 padding: 1%;

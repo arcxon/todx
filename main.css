@@ -1,0 +1,525 @@
+/*
+Created by adiultra for esencia
+*/
+html {
+  font-family: "Lato", "Open Sans", sans;
+  font-size: 1.2em; }
+  @media (orientation: portrait) {
+    html {
+      font-size: 1em; } }
+  html body {
+    margin: 0px; }
+    html body .header {
+      padding-top: 1%;
+      padding-bottom: 2%;
+      text-align: center;
+      color: white;
+      background: #FFD05D; }
+      html body .header h1 {
+        margin: 0;
+        margin-top: 2%;
+        padding: 2% 0;
+        font-size: 8em;
+        font-weight: 200;
+        text-align: center;
+        font-weight: 200; }
+        @media (orientation: portrait) {
+          html body .header h1 {
+            margin-top: 8%; } }
+        @media (orientation: portrait) {
+          html body .header h1 {
+            font-size: 6em; } }
+      html body .header h3 {
+        margin: 0;
+        margin-top: 2%;
+        padding: 2% 0;
+        font-size: 1.3em;
+        font-weight: 200;
+        text-align: center;
+        font-weight: 300;
+        padding: 0; }
+        @media (orientation: portrait) {
+          html body .header h3 {
+            margin-top: 8%; } }
+    html body .menu {
+      position: sticky;
+      top: 0;
+      padding: 1%;
+      background-color: rgba(255, 255, 255, 0.95); }
+      @media (orientation: portrait) {
+        html body .menu {
+          padding: 1%; } }
+      html body .menu ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-align: center; }
+        @media (orientation: portrait) {
+          html body .menu ul {
+            padding: 2% 0; } }
+        html body .menu ul li {
+          display: inline;
+          margin-right: 1%;
+          margin-left: 1%;
+          padding: 0; }
+          html body .menu ul li a {
+            text-decoration: none;
+            padding: 1%;
+            color: #444;
+            transition: 0.2s;
+            font-size: 20px; }
+            html body .menu ul li a:hover {
+              color: #FFD05D;
+              background-color: rgba(0, 0, 0, 0.05); }
+            html body .menu ul li a:active {
+              background-color: rgba(0, 0, 0, 0.1); }
+    html body .page {
+      padding: 5% 20%;
+      color: #2e3032;
+      border-bottom: solid 16px #FFD05D; }
+      @media (orientation: portrait) {
+        html body .page {
+          padding: 4%; } }
+      html body .page p {
+        text-indent: 2em;
+        font-size: 1.2em;
+        line-height: 1.5; }
+      html body .page h1 {
+        margin: 0;
+        margin-top: 2%;
+        padding: 2% 0;
+        font-size: 2.4em;
+        font-weight: 200;
+        text-align: center; }
+        @media (orientation: portrait) {
+          html body .page h1 {
+            margin-top: 8%; } }
+      html body .page h2 {
+        margin: 0;
+        margin-top: 2%;
+        padding: 2% 0;
+        font-size: 2em;
+        font-weight: 200;
+        text-align: center; }
+        @media (orientation: portrait) {
+          html body .page h2 {
+            margin-top: 8%; } }
+      html body .page h3 {
+        margin: 0;
+        margin-top: 2%;
+        padding: 2% 0;
+        font-size: 1.8em;
+        font-weight: 200;
+        text-align: center; }
+        @media (orientation: portrait) {
+          html body .page h3 {
+            margin-top: 8%; } }
+      html body .page h4 {
+        margin: 0;
+        margin-top: 2%;
+        padding: 2% 0;
+        font-size: 1.5em;
+        font-weight: 200;
+        text-align: center; }
+        @media (orientation: portrait) {
+          html body .page h4 {
+            margin-top: 8%; } }
+      html body .page h5 {
+        margin: 0;
+        margin-top: 2%;
+        padding: 2% 0;
+        font-size: 1.3em;
+        font-weight: 200;
+        text-align: center; }
+        @media (orientation: portrait) {
+          html body .page h5 {
+            margin-top: 8%; } }
+      html body .page h6 {
+        margin: 0;
+        margin-top: 2%;
+        padding: 2% 0;
+        font-size: 1.2em;
+        font-weight: 200;
+        text-align: center; }
+        @media (orientation: portrait) {
+          html body .page h6 {
+            margin-top: 8%; } }
+      html body .page blockquote {
+        font-style: italic;
+        font-size: 1.4em;
+        text-align: center;
+        color: #1e252d;
+        padding: 3%;
+        background-color: whitesmoke; }
+      html body .page .button-wrapper {
+        margin: 1% 1%;
+        text-align: center;
+        line-height: 3em; }
+        html body .page .button-wrapper a.main-button, html body .page .button-wrapper input.main-button {
+          margin: 2%;
+          padding: 1% 2%;
+          transition: all 0.2s;
+          text-decoration: none;
+          color: white;
+          border-radius: 4px;
+          border: none;
+          border-bottom: solid 0.2em #f6af00;
+          border-radius: 4px;
+          background-color: #FFD05D; }
+          @media (orientation: portrait) {
+            html body .page .button-wrapper a.main-button, html body .page .button-wrapper input.main-button {
+              font-size: 1.4em; } }
+          html body .page .button-wrapper a.main-button:hover, html body .page .button-wrapper input.main-button:hover {
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.25); }
+          html body .page .button-wrapper a.main-button:active, html body .page .button-wrapper input.main-button:active {
+            background-color: #f6af00; }
+        html body .page .button-wrapper a.blue-button, html body .page .button-wrapper input.blue-button {
+          margin: 2%;
+          padding: 1% 2%;
+          transition: all 0.2s;
+          text-decoration: none;
+          color: white;
+          border-radius: 4px;
+          border: none;
+          border-bottom: solid 0.2em #0c6597;
+          border-radius: 4px;
+          background-color: #1ca2ed; }
+          @media (orientation: portrait) {
+            html body .page .button-wrapper a.blue-button, html body .page .button-wrapper input.blue-button {
+              font-size: 1.4em; } }
+          html body .page .button-wrapper a.blue-button:hover, html body .page .button-wrapper input.blue-button:hover {
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.25); }
+          html body .page .button-wrapper a.blue-button:active, html body .page .button-wrapper input.blue-button:active {
+            background-color: #0c6597; }
+        html body .page .button-wrapper a.red-button, html body .page .button-wrapper input.red-button {
+          margin: 2%;
+          padding: 1% 2%;
+          transition: all 0.2s;
+          text-decoration: none;
+          color: white;
+          border-radius: 4px;
+          border: none;
+          border-bottom: solid 0.2em #af3a15;
+          border-radius: 4px;
+          background-color: #e86a42; }
+          @media (orientation: portrait) {
+            html body .page .button-wrapper a.red-button, html body .page .button-wrapper input.red-button {
+              font-size: 1.4em; } }
+          html body .page .button-wrapper a.red-button:hover, html body .page .button-wrapper input.red-button:hover {
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.25); }
+          html body .page .button-wrapper a.red-button:active, html body .page .button-wrapper input.red-button:active {
+            background-color: #af3a15; }
+        html body .page .button-wrapper a.green-button, html body .page .button-wrapper input.green-button {
+          margin: 2%;
+          padding: 1% 2%;
+          transition: all 0.2s;
+          text-decoration: none;
+          color: white;
+          border-radius: 4px;
+          border: none;
+          border-bottom: solid 0.2em #58b616;
+          border-radius: 4px;
+          background-color: #8be949; }
+          @media (orientation: portrait) {
+            html body .page .button-wrapper a.green-button, html body .page .button-wrapper input.green-button {
+              font-size: 1.4em; } }
+          html body .page .button-wrapper a.green-button:hover, html body .page .button-wrapper input.green-button:hover {
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.25); }
+          html body .page .button-wrapper a.green-button:active, html body .page .button-wrapper input.green-button:active {
+            background-color: #58b616; }
+        html body .page .button-wrapper a.cyan-button, html body .page .button-wrapper input.cyan-button {
+          margin: 2%;
+          padding: 1% 2%;
+          transition: all 0.2s;
+          text-decoration: none;
+          color: white;
+          border-radius: 4px;
+          border: none;
+          border-bottom: solid 0.2em #1ea09c;
+          border-radius: 4px;
+          background-color: #47ddd8; }
+          @media (orientation: portrait) {
+            html body .page .button-wrapper a.cyan-button, html body .page .button-wrapper input.cyan-button {
+              font-size: 1.4em; } }
+          html body .page .button-wrapper a.cyan-button:hover, html body .page .button-wrapper input.cyan-button:hover {
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.25); }
+          html body .page .button-wrapper a.cyan-button:active, html body .page .button-wrapper input.cyan-button:active {
+            background-color: #1ea09c; }
+        html body .page .button-wrapper a.yellow-button, html body .page .button-wrapper input.yellow-button {
+          margin: 2%;
+          padding: 1% 2%;
+          transition: all 0.2s;
+          text-decoration: none;
+          color: white;
+          border-radius: 4px;
+          border: none;
+          border-bottom: solid 0.2em #c38a00;
+          border-radius: 4px;
+          background-color: #ffc12a; }
+          @media (orientation: portrait) {
+            html body .page .button-wrapper a.yellow-button, html body .page .button-wrapper input.yellow-button {
+              font-size: 1.4em; } }
+          html body .page .button-wrapper a.yellow-button:hover, html body .page .button-wrapper input.yellow-button:hover {
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.25); }
+          html body .page .button-wrapper a.yellow-button:active, html body .page .button-wrapper input.yellow-button:active {
+            background-color: #c38a00; }
+        html body .page .button-wrapper a.teal-button, html body .page .button-wrapper input.teal-button {
+          margin: 2%;
+          padding: 1% 2%;
+          transition: all 0.2s;
+          text-decoration: none;
+          color: white;
+          border-radius: 4px;
+          border: none;
+          border-bottom: solid 0.2em #14bd67;
+          border-radius: 4px;
+          background-color: #4bec9a; }
+          @media (orientation: portrait) {
+            html body .page .button-wrapper a.teal-button, html body .page .button-wrapper input.teal-button {
+              font-size: 1.4em; } }
+          html body .page .button-wrapper a.teal-button:hover, html body .page .button-wrapper input.teal-button:hover {
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.25); }
+          html body .page .button-wrapper a.teal-button:active, html body .page .button-wrapper input.teal-button:active {
+            background-color: #14bd67; }
+        html body .page .button-wrapper a.black-button, html body .page .button-wrapper input.black-button {
+          margin: 2%;
+          padding: 1% 2%;
+          transition: all 0.2s;
+          text-decoration: none;
+          color: white;
+          border-radius: 4px;
+          border: none;
+          border-bottom: solid 0.2em black;
+          border-radius: 4px;
+          background-color: #2e3032; }
+          @media (orientation: portrait) {
+            html body .page .button-wrapper a.black-button, html body .page .button-wrapper input.black-button {
+              font-size: 1.4em; } }
+          html body .page .button-wrapper a.black-button:hover, html body .page .button-wrapper input.black-button:hover {
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.25); }
+          html body .page .button-wrapper a.black-button:active, html body .page .button-wrapper input.black-button:active {
+            background-color: black; }
+      html body .page pre {
+        font-size: 1.2em; }
+      html body .page img {
+        display: block;
+        width: 100%;
+        padding: 1%;
+        margin: auto; }
+        html body .page img:hover {
+          box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25); }
+        html body .page img.screen-shot {
+          padding: 0%;
+          box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+          border-radius: 4px; }
+          html body .page img.screen-shot:hover {
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5); }
+      html body .page table {
+        overflow: hidden;
+        width: auto;
+        text-align: center;
+        border-collapse: collapse;
+        margin: 4% auto; }
+        html body .page table thead th {
+          padding: 0.3em 3em;
+          border-left: 0px solid;
+          border-bottom: 2px solid #FFD05D;
+          font-size: 1.4em;
+          font-weight: normal; }
+          @media (orientation: portrait) {
+            html body .page table thead th {
+              padding: 2% 0; } }
+        html body .page table tr {
+          padding: 1%; }
+          html body .page table tr td {
+            padding: 0.2em 2em;
+            border-bottom: 1px solid #afafaf; }
+        html body .page table.feature-list {
+          width: 100%; }
+          html body .page table.feature-list tbody tr td {
+            border: none;
+            padding: 2% 0; }
+            html body .page table.feature-list tbody tr td img {
+              text-align: left;
+              border: 0 !important;
+              padding: 0 !important;
+              width: auto; }
+              html body .page table.feature-list tbody tr td img:hover {
+                box-shadow: none; }
+            html body .page table.feature-list tbody tr td h1 {
+              font-size: 2em; }
+            html body .page table.feature-list tbody tr td p {
+              text-indent: 0; }
+      html body .page fieldset {
+        text-align: center;
+        border: none;
+        border-top: solid 4px #FFD05D; }
+        html body .page fieldset legend {
+          font-size: 2em; }
+        html body .page fieldset form {
+          margin: 1% 1%;
+          text-align: center;
+          line-height: 3em;
+          font-size: 0.8em;
+          line-height: 1.5em; }
+          html body .page fieldset form a.main-button, html body .page fieldset form input.main-button {
+            margin: 2%;
+            padding: 1% 2%;
+            transition: all 0.2s;
+            text-decoration: none;
+            color: white;
+            border-radius: 4px;
+            border: none;
+            border-bottom: solid 0.2em #f6af00;
+            border-radius: 4px;
+            background-color: #FFD05D; }
+            @media (orientation: portrait) {
+              html body .page fieldset form a.main-button, html body .page fieldset form input.main-button {
+                font-size: 1.4em; } }
+            html body .page fieldset form a.main-button:hover, html body .page fieldset form input.main-button:hover {
+              box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.25); }
+            html body .page fieldset form a.main-button:active, html body .page fieldset form input.main-button:active {
+              background-color: #f6af00; }
+          html body .page fieldset form a.blue-button, html body .page fieldset form input.blue-button {
+            margin: 2%;
+            padding: 1% 2%;
+            transition: all 0.2s;
+            text-decoration: none;
+            color: white;
+            border-radius: 4px;
+            border: none;
+            border-bottom: solid 0.2em #0c6597;
+            border-radius: 4px;
+            background-color: #1ca2ed; }
+            @media (orientation: portrait) {
+              html body .page fieldset form a.blue-button, html body .page fieldset form input.blue-button {
+                font-size: 1.4em; } }
+            html body .page fieldset form a.blue-button:hover, html body .page fieldset form input.blue-button:hover {
+              box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.25); }
+            html body .page fieldset form a.blue-button:active, html body .page fieldset form input.blue-button:active {
+              background-color: #0c6597; }
+          html body .page fieldset form a.red-button, html body .page fieldset form input.red-button {
+            margin: 2%;
+            padding: 1% 2%;
+            transition: all 0.2s;
+            text-decoration: none;
+            color: white;
+            border-radius: 4px;
+            border: none;
+            border-bottom: solid 0.2em #af3a15;
+            border-radius: 4px;
+            background-color: #e86a42; }
+            @media (orientation: portrait) {
+              html body .page fieldset form a.red-button, html body .page fieldset form input.red-button {
+                font-size: 1.4em; } }
+            html body .page fieldset form a.red-button:hover, html body .page fieldset form input.red-button:hover {
+              box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.25); }
+            html body .page fieldset form a.red-button:active, html body .page fieldset form input.red-button:active {
+              background-color: #af3a15; }
+          html body .page fieldset form a.green-button, html body .page fieldset form input.green-button {
+            margin: 2%;
+            padding: 1% 2%;
+            transition: all 0.2s;
+            text-decoration: none;
+            color: white;
+            border-radius: 4px;
+            border: none;
+            border-bottom: solid 0.2em #58b616;
+            border-radius: 4px;
+            background-color: #8be949; }
+            @media (orientation: portrait) {
+              html body .page fieldset form a.green-button, html body .page fieldset form input.green-button {
+                font-size: 1.4em; } }
+            html body .page fieldset form a.green-button:hover, html body .page fieldset form input.green-button:hover {
+              box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.25); }
+            html body .page fieldset form a.green-button:active, html body .page fieldset form input.green-button:active {
+              background-color: #58b616; }
+          html body .page fieldset form a.cyan-button, html body .page fieldset form input.cyan-button {
+            margin: 2%;
+            padding: 1% 2%;
+            transition: all 0.2s;
+            text-decoration: none;
+            color: white;
+            border-radius: 4px;
+            border: none;
+            border-bottom: solid 0.2em #1ea09c;
+            border-radius: 4px;
+            background-color: #47ddd8; }
+            @media (orientation: portrait) {
+              html body .page fieldset form a.cyan-button, html body .page fieldset form input.cyan-button {
+                font-size: 1.4em; } }
+            html body .page fieldset form a.cyan-button:hover, html body .page fieldset form input.cyan-button:hover {
+              box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.25); }
+            html body .page fieldset form a.cyan-button:active, html body .page fieldset form input.cyan-button:active {
+              background-color: #1ea09c; }
+          html body .page fieldset form a.yellow-button, html body .page fieldset form input.yellow-button {
+            margin: 2%;
+            padding: 1% 2%;
+            transition: all 0.2s;
+            text-decoration: none;
+            color: white;
+            border-radius: 4px;
+            border: none;
+            border-bottom: solid 0.2em #c38a00;
+            border-radius: 4px;
+            background-color: #ffc12a; }
+            @media (orientation: portrait) {
+              html body .page fieldset form a.yellow-button, html body .page fieldset form input.yellow-button {
+                font-size: 1.4em; } }
+            html body .page fieldset form a.yellow-button:hover, html body .page fieldset form input.yellow-button:hover {
+              box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.25); }
+            html body .page fieldset form a.yellow-button:active, html body .page fieldset form input.yellow-button:active {
+              background-color: #c38a00; }
+          html body .page fieldset form a.teal-button, html body .page fieldset form input.teal-button {
+            margin: 2%;
+            padding: 1% 2%;
+            transition: all 0.2s;
+            text-decoration: none;
+            color: white;
+            border-radius: 4px;
+            border: none;
+            border-bottom: solid 0.2em #14bd67;
+            border-radius: 4px;
+            background-color: #4bec9a; }
+            @media (orientation: portrait) {
+              html body .page fieldset form a.teal-button, html body .page fieldset form input.teal-button {
+                font-size: 1.4em; } }
+            html body .page fieldset form a.teal-button:hover, html body .page fieldset form input.teal-button:hover {
+              box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.25); }
+            html body .page fieldset form a.teal-button:active, html body .page fieldset form input.teal-button:active {
+              background-color: #14bd67; }
+          html body .page fieldset form a.black-button, html body .page fieldset form input.black-button {
+            margin: 2%;
+            padding: 1% 2%;
+            transition: all 0.2s;
+            text-decoration: none;
+            color: white;
+            border-radius: 4px;
+            border: none;
+            border-bottom: solid 0.2em black;
+            border-radius: 4px;
+            background-color: #2e3032; }
+            @media (orientation: portrait) {
+              html body .page fieldset form a.black-button, html body .page fieldset form input.black-button {
+                font-size: 1.4em; } }
+            html body .page fieldset form a.black-button:hover, html body .page fieldset form input.black-button:hover {
+              box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.25); }
+            html body .page fieldset form a.black-button:active, html body .page fieldset form input.black-button:active {
+              background-color: black; }
+          html body .page fieldset form input {
+            font-size: 1em;
+            border: 1px solid #c8c8c8;
+            margin: 1% 2% 2%; }
+            html body .page fieldset form input:active, html body .page fieldset form input:focus {
+              border: 1px solid #FFD05D; }
+    html body .footer {
+      padding: 1% 0%;
+      text-align: center;
+      color: #e6e6e6;
+      background-color: #1e252d;
+      font-size: 0.8em; }
+      html body .footer h1 {
+        font-size: 1.3em;
+        font-weight: normal; }
+      html body .footer p {
+        margin: 0; }
