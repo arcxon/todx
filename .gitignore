@@ -26,3 +26,6 @@
 *.exe
 *.out
 *.app
+
+#sass map files
+*.css.map

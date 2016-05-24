@@ -16,9 +16,9 @@ html {
       padding-bottom: 2%;
       text-align: center;
       color: white;
-      background: #FFD05D; }
+      background: linear-gradient(to left, #F06C6C, #FFD05D); }
       html body .header img {
-        margin-left: 4%;
+        margin-left: 10%;
         margin-top: 10%; }
       html body .header h1 {
         margin: 0;
@@ -77,8 +77,7 @@ html {
               border-bottom: solid 2px #FFD05D; }
     html body .page {
       padding: 5% 20%;
-      color: #323028;
-      border-bottom: solid 16px #FFD05D; }
+      color: #323028; }
       @media (orientation: portrait) {
         html body .page {
           padding: 4%; } }
@@ -313,11 +312,15 @@ html {
     html body .footer {
       padding: 1% 0%;
       text-align: center;
-      color: #e6e6e6;
-      background-color: #282523;
-      font-size: 0.8em; }
+      color: white;
+      background: linear-gradient(to left, #F06C6C, #FFD05D);
+      font-size: 0.8em;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); }
       html body .footer h1 {
         font-size: 1.3em;
         font-weight: normal; }
       html body .footer p {
+        color: #e6e6e6;
         margin: 0; }
+
+/*# sourceMappingURL=main.css.map */
