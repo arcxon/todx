@@ -20,6 +20,9 @@ html {
       html body .header img {
         margin-left: 10%;
         margin-top: 10%; }
+        @media (orientation: portrait) {
+          html body .header img {
+            margin-top: 30%; } }
       html body .header h1 {
         margin: 0;
         margin-top: 2%;

@@ -127,6 +127,9 @@ html{
             img{
                 margin-left: 10%;
                 margin-top: 10%;
+                @media #{$mobile}{
+                    margin-top: 30%;
+                }
             }
             h1{
                 @include heading(8em);

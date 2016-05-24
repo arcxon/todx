@@ -29,3 +29,5 @@
 
 #sass map files
 *.css.map
+
+main.css.map
