@@ -35,7 +35,7 @@ html {
             margin-top: 8%; } }
         @media (orientation: portrait) {
           html body .header h1 {
-            font-size: 6em; } }
+            font-size: 10em; } }
       html body .header h2 {
         margin: 0;
         margin-top: 2%;
@@ -48,6 +48,9 @@ html {
         @media (orientation: portrait) {
           html body .header h2 {
             margin-top: 8%; } }
+        @media (orientation: portrait) {
+          html body .header h2 {
+            font-size: 3em; } }
     html body .menu {
       padding: 1%; }
       @media (orientation: portrait) {

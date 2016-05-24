@@ -135,7 +135,7 @@ html{
 
                 font-weight: 100;
                 @media #{$mobile}{
-                    font-size: 6em;
+                    font-size: 10em;
                 }
             }
 
@@ -143,6 +143,10 @@ html{
                 @include heading(2em);
                 font-weight: 300;
                 padding: 0;
+
+                @media #{$mobile}{
+                    font-size: 3em;
+                }
             }
         }
 
