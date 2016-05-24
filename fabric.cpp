@@ -61,25 +61,25 @@ List::List(char Title[100]) {
 }
 
 void List::enter(){
-    cout << "Enter title for your list\n *> ";
+    cout << "Enter title for your list\n +> ";
     cin.getline(title, sizeof(title));
 
     char choice;
-    cout << "Do you want some tags?(y/n)" << endl << " *> ";
+    cout << "Do you want some tags?(y/n)" << endl << " ?> ";
     cin >> choice;
     cin.ignore();
 
     if (choice == 'y') {
         char tagTemp[220];
 
-        cout << "Enter the tag one at a time \n 'd' when done \n *> ";
+        cout << "Enter the tag one at a time \n 'd' when done \n +> ";
 
         while (1) {
             cin.getline(tagTemp, 20);
 
             if (strcmp(tagTemp, "d") != 0) {
                 addTag(tagTemp);
-                cout << " *> ";
+                cout << " +> ";
             }
 
             else {
@@ -126,7 +126,7 @@ void List::indexView() {
 
 void List::append(){
     char Content[200];
-    cout << "Enter the content of ToDo \n *> ";
+    cout << "Enter the content of ToDo \n +> ";
     cin.getline(Content, 200);
 
     strcpy(list[_listIndex].content, Content);

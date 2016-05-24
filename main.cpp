@@ -13,6 +13,7 @@ int isOpenL = 0;
 
 void initiate();
 int parse(char []);
+void empty();
 void finish();
 
 void initiate() {
@@ -29,7 +30,7 @@ void initiate() {
 
 int parse(char command[80]){
     // Fxn to Parse(execute) the command passed
-    /// Here a crazy fun expression is used
+    /// Here a crazy fun expression is used in if to compare strings
     /// Since we wanted any of them to be zero they were multiplied
     /// to give zero. Mathematically it is quite accurate and syntactically
     /// beautiful.
@@ -44,24 +45,36 @@ int parse(char command[80]){
 
     else if (!(strcmp(command, "open")*strcmp(command, "o"))) {
         // Open existing lists
-        int choice;
-        cout << "Enter The No. of List to be opened" << endl;
+        if (_arrayLindex) {
+            int choice;
+            cout << "Enter The No. of List to be opened" << endl;
 
-        for (int i = 0; i < _arrayLindex; i++) {
-            cout << i << " " << arrayL[i].title << endl;
-        }
-        cout << " *> ";
-        cin >> choice;
-        cin.ignore();
+            for (int i = 0; i < _arrayLindex; i++) {
+                cout << i << " " << arrayL[i].title << endl;
+            }
 
-        if ( 0 <= choice && choice <= _arrayLindex) {
+            cout << " #> ";
+            cin >> choice;
+            cin.ignore();
+
+            while ( !(0 <= choice && choice < _arrayLindex) ) {
+                cout << "Invalid choice choose again" << endl;
+                cout << " #> ";
+                cin >> choice;
+                cin.ignore();
+            }
+
             currentL = arrayL[choice];
             _currentLindex = choice;
 
             cout << "Opened : " << currentL.title << endl;
-            currentL.view();}
+            currentL.view();
 
-        isOpenL = 1;
+            isOpenL = 1;
+        }
+        else {
+            cout << "No List found, create a new one with \'n\' or \'new\'" << endl;
+        }
         success = 1;
     }
 
@@ -70,6 +83,7 @@ int parse(char command[80]){
         if (isOpenL) {
             currentL.append();
         }
+
         else {
             cout << "No List is opened, Open a list first" << endl;
         }
@@ -81,15 +95,20 @@ int parse(char command[80]){
         if (isOpenL) {
             int choice;
             currentL.indexView();
-            cout << "Choose the Todo to mark : " << endl << " *> ";
+
+            cout << "Choose the Todo to mark : " << endl << " #> ";
             cin >> choice;
+
             while (choice >= currentL._listIndex || choice < 0) {
-                cout << "Invalid Choice Try again" << endl << " *>";
+                cout << "Invalid Choice Try again" << endl << " #>";
                 cin >> choice;
             }
+
             char status;
-            cout << "Enter The new Status" << endl << " *> ";
+
+            cout << "Enter The new Status" << endl << " +> ";
             cin >> status;
+
             cin.ignore();
             currentL.changeStatus(choice, status);
         }
@@ -120,24 +139,33 @@ int parse(char command[80]){
     else if (!(strcmp(command, "clear")*strcmp(command, "del"))) {
         // Refresh the data file
         char confirm[10];
-        cout << "Enter \'yes\' to continue" << endl << " *> ";
+        cout << "Enter \'yes\' to continue" << endl << " ?> ";
         cin.getline(confirm, 10);
         if (!strcmp(confirm, "yes")) {
-            fstream file("data.tdx", ios::trunc);
+            ofstream file("data.tdx", ios::trunc|ios::binary|ios::out);
+            file.write("", 0);
             file.close();
+            empty();
             initiate();
         }
         success = 1;
     }
 
     else if (!(strcmp(command, "quit")*strcmp(command, "q"))) {
-        // exit the program
+        // exit the program after saving it to the file
         arrayL[_currentLindex] = currentL;
         finish();
         success = -1;
     }
 
     return success;
+}
+
+void empty() {
+    List tarrayL[20];
+    memcpy(arrayL, tarrayL, sizeof(arrayL));
+    _arrayLindex = 0;
+    isOpenL = 0;
 }
 
 void finish() {
@@ -154,7 +182,7 @@ int main() {
     cout << "Hi" << endl;
     char command[80];
     while (1) {
-        cout << " *> ";
+        cout << "\n *> ";
         cin.getline(command, 80);
         int result = parse(command);
         if(result > 0)
