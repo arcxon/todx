@@ -99,7 +99,7 @@ void List::view() {
         cout << tags[i] << " ";
     }
 
-    cout << endl;
+    cout << endl << endl;
 
     for (int i = 0; i < _listIndex; i++) {
         cout << "  [" << list[i].status << "]  ";
@@ -116,7 +116,7 @@ void List::indexView() {
         cout << tags[i] << " ";
     }
 
-    cout << endl;
+    cout << endl << endl;
 
     for (int i = 0; i < _listIndex; i++) {
         cout << i << ". [" << list[i].status << "]  ";

@@ -170,8 +170,15 @@ int parse(char command[80]){
 
     else if (!(strcmp(command, "quit")*strcmp(command, "q"))) {
         // exit the program after saving it to the file
-        arrayL[_currentLindex] = currentL;
-        finish();
+        char confirm[10];
+        cout << "Enter \'yes\' to continue" << endl << " ?> ";
+        cin.getline(confirm, 10);
+
+        if (!strcmp(confirm, "yes")) {
+            arrayL[_currentLindex] = currentL;
+            finish();
+        }
+
         success = -1;
     }
 
@@ -222,6 +229,7 @@ int main() {
             cout << "Internal Error" << endl;
         }
         else if (result == -1) {
+            cout << "Closing the Program, Have a Great Day :)" << endl;
             break;
         }
     }
