@@ -10,6 +10,7 @@ $blue: rgb(28, 162, 237);
 $green: rgb(139, 233, 73);
 $red: rgb(232, 106, 66);
 $yellow: #FFD05D;
+$pink: #F06C6C;
 $rtfd: #8BA0AE;
 
 
@@ -126,22 +127,18 @@ html{
             text-align: center;
 
             color: $white;
-            background: linear-gradient(to left, #F06C6C, $main-color);
+            background: linear-gradient(to left, $pink, $main-color);
             img{
                 margin-left: 10%;
-                position: relative;
-                top: 40%;
-                transform: translateY(-50%);
+                margin-top: 10%;
                 @media #{$mobile}{
                     margin-top: 30%;
                 }
             }
             h1{
                 @include heading(8em);
-                margin: 5% 0 0 0;
+                margin: -5% 0 0 0;
                 padding: 0;
-                position: relative;
-
                 font-weight: 100;
                 @media #{$mobile}{
                     font-size: 10em;
@@ -153,9 +150,6 @@ html{
                 font-weight: 300;
                 padding: 0;
                 margin: 0;
-                position: relative;
-
-
                 @media #{$mobile}{
                     font-size: 3em;
                 }
@@ -337,7 +331,7 @@ html{
             text-align: center;
 
             color: $white;
-            background: linear-gradient(to left, #F06C6C, $main-color);
+            background: linear-gradient(to left, $pink, $main-color);
             font-size: 0.8em;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 
