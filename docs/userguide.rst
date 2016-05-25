@@ -8,14 +8,6 @@ User Guide
 ..  toctree::
     :maxdepth: 2
 
-    entry-modes
     basic-commands
-
-
-Data Concepts
--------------
-
-..  toctree::
-    :maxdepth: 1
-
-    list
+    entry-modes
+    data-concepts
