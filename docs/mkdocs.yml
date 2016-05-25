@@ -1,5 +1,5 @@
 
 pages:
-- [index.md]
-- [userguide.md]
-- [development.md]
+- Home: 'index.md'
+- User Guide: 'userguide.md'
+- Developer: 'development.md'
