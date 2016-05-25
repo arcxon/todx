@@ -4,7 +4,7 @@
 
 TodX is a simple and to the point ToDo list app which enhances productivity and doesn't come in between you.
 
-## Features :
+## Features
 
 - Fast
 - Simple
@@ -17,3 +17,4 @@ TodX is a simple and to the point ToDo list app which enhances productivity and 
 
 ### Contents:
 - [User Guide](userguide.md)
+- [Development Guide]()
