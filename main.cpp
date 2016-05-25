@@ -13,6 +13,8 @@ int isOpenL = 0;
 
 void initiate();
 int parse(char []);
+void openL(int);
+void displayL();
 void empty();
 void finish();
 
@@ -49,9 +51,7 @@ int parse(char command[80]){
             int choice;
             cout << "Enter The No. of List to be opened" << endl;
 
-            for (int i = 0; i < _arrayLindex; i++) {
-                cout << i << " " << arrayL[i].title << endl;
-            }
+            displayL();
 
             cout << " #> ";
             cin >> choice;
@@ -64,11 +64,7 @@ int parse(char command[80]){
                 cin.ignore();
             }
 
-            currentL = arrayL[choice];
-            _currentLindex = choice;
-
-            cout << "Opened : " << currentL.title << endl;
-            currentL.view();
+            openL(choice);
 
             isOpenL = 1;
         }
@@ -108,13 +104,15 @@ int parse(char command[80]){
 
             cout << "Enter The new Status" << endl << " +> ";
             cin >> status;
-
             cin.ignore();
+
             currentL.changeStatus(choice, status);
         }
+
         else {
             cout << "No List is opened, Open a list first" << endl;
         }
+
         success = 1;
     }
 
@@ -123,9 +121,24 @@ int parse(char command[80]){
         if (isOpenL) {
             currentL.view();
         }
+
         else {
             cout << "No List is opened, Open a list first" << endl;
         }
+
+        success = 1;
+    }
+
+    else if (!(strcmp(command, "iview")*strcmp(command, "iv"))) {
+        // view todo's of the current list with index
+        if (isOpenL) {
+            currentL.indexView();
+        }
+
+        else {
+            cout << "No List is opened, Open a list first" << endl;
+        }
+
         success = 1;
     }
 
@@ -141,13 +154,17 @@ int parse(char command[80]){
         char confirm[10];
         cout << "Enter \'yes\' to continue" << endl << " ?> ";
         cin.getline(confirm, 10);
+
         if (!strcmp(confirm, "yes")) {
             ofstream file("data.tdx", ios::trunc|ios::binary|ios::out);
+
             file.write("", 0);
             file.close();
+
             empty();
             initiate();
         }
+
         success = 1;
     }
 
@@ -159,6 +176,20 @@ int parse(char command[80]){
     }
 
     return success;
+}
+
+void openL(int index) {
+    currentL = arrayL[index];
+    _currentLindex = index;
+
+    cout << "Opened : " << currentL.title << endl;
+    currentL.view();
+}
+
+void displayL() {
+    for (int i = 0; i < _arrayLindex; i++) {
+        cout << i << ". " << arrayL[i].title << endl;
+    }
 }
 
 void empty() {
