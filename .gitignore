@@ -31,3 +31,5 @@
 *.css.map
 
 main.css.map
+
+docs/*

@@ -10,6 +10,7 @@ $blue: rgb(28, 162, 237);
 $green: rgb(139, 233, 73);
 $red: rgb(232, 106, 66);
 $yellow: #FFD05D;
+$rtfd: #8BA0AE;
 
 
 $white: rgb(255, 255, 255);
@@ -91,6 +92,8 @@ $desktop: "(orientation: landscape)";
         &.yellow-button{ @include button(darken($yellow, 10%)); };
 
         &.black-button{ @include button($dark-grey); };
+
+        &.rtfd-button{@include button($rtfd);}
     }
 }
 
@@ -126,15 +129,18 @@ html{
             background: linear-gradient(to left, #F06C6C, $main-color);
             img{
                 margin-left: 10%;
-                margin-top: 10%;
+                position: relative;
+                top: 40%;
+                transform: translateY(-50%);
                 @media #{$mobile}{
                     margin-top: 30%;
                 }
             }
             h1{
                 @include heading(8em);
-                margin: 0;
+                margin: 5% 0 0 0;
                 padding: 0;
+                position: relative;
 
                 font-weight: 100;
                 @media #{$mobile}{
@@ -146,6 +152,9 @@ html{
                 @include heading(2em);
                 font-weight: 300;
                 padding: 0;
+                margin: 0;
+                position: relative;
+
 
                 @media #{$mobile}{
                     font-size: 3em;
@@ -203,7 +212,7 @@ html{
                 padding: 4%;
             }
             p{
-                text-indent: 2em;
+                text-align: center;
 
                 font-size: 1.2em;
 
