@@ -1,3 +1,7 @@
+========
+Index
+========
+
 Welcome to TodX's documentation!
 ================================
 
@@ -7,12 +11,13 @@ TodX is a simple and to the point ToDo list app which enhances productivity and 
 
 
 Contents
-=========
+--------
 
 .. toctree::
     :maxdepth: 2
 
     userguide
+    list
 
 Features
 
