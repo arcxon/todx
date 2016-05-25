@@ -162,10 +162,10 @@ int parse(char command[80]){
         cout << "Enter \'yes\' to continue" << endl << " ?> ";
         cin.getline(confirm, 10);
 
-        if (!strcmp(confirm, "yes")) {
+        if (!(strcmp(confirm, "yes")*strcmp(confirm, "y"))) {
             ofstream file("data.tdx", ios::trunc|ios::binary|ios::out);
 
-            file.write("", 0);
+            file.write("", sizeof(arrayL));
             file.close();
 
             empty();
@@ -181,12 +181,14 @@ int parse(char command[80]){
         cout << "Enter \'yes\' to continue" << endl << " ?> ";
         cin.getline(confirm, 10);
 
-        if (!strcmp(confirm, "yes")) {
+        if (!(strcmp(confirm, "yes")*strcmp(confirm, "y"))) {
             arrayL[_currentLindex] = currentL;
             finish();
+            success = -1;
         }
-
-        success = -1;
+        else {
+            success = 1;
+        }
     }
 
     return success;

@@ -64,12 +64,11 @@ void List::enter(){
     cout << "Enter title for your list\n +> ";
     cin.getline(title, sizeof(title));
 
-    char choice;
-    cout << "Do you want some tags?(y/n)" << endl << " ?> ";
-    cin >> choice;
-    cin.ignore();
+    char choice[10];
+    cout << "Do you want some tags? (yes/no)" << endl << " ?> ";
+    cin.getline(choice, sizeof(choice));
 
-    if (choice == 'y') {
+    if (!(strcmp(choice, "yes")*strcmp(choice, "y"))) {
         char tagTemp[220];
 
         cout << "Enter the tag one at a time \n 'd' when done \n +> ";
