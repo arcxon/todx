@@ -13,6 +13,7 @@ int isOpenL = 0;
 
 void initiate();
 int parse(char []);
+void status();
 void openL(int);
 void displayL();
 void empty();
@@ -42,6 +43,12 @@ int parse(char command[80]){
     if (!(strcmp(command, "new")*strcmp(command, "n"))) {
         // Create a new List
         arrayL[_arrayLindex++].enter();
+        success = 1;
+    }
+
+    else if (!(strcmp(command, "status")*strcmp(command, "stat"))) {
+        // Display the status
+        status();
         success = 1;
     }
 
@@ -183,6 +190,15 @@ int parse(char command[80]){
     }
 
     return success;
+}
+
+void status(){
+    if (isOpenL) {
+        cout << "This List is open : " << currentL.title << endl;
+    }
+    else {
+        cout << "No list is open" << endl;
+    }
 }
 
 void openL(int index) {
