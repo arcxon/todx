@@ -28,3 +28,5 @@
 *.app
 
 compiling_error.txt
+
+docs/_build/*
