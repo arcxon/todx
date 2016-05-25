@@ -21,6 +21,7 @@ Contents
     userguide
 
 Features
+--------
 
 - Fast
 - Simple

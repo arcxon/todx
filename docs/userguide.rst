@@ -8,6 +8,7 @@ User Guide
 ..  toctree::
     :maxdepth: 2
 
+    install
     basic-commands
     entry-modes
     data-concepts
