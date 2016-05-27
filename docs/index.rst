@@ -11,21 +11,12 @@ TodX is a simple and to the point ToDo list app which enhances productivity and 
 
 ..  Warning::   This documentation is **Not Complete**. the Quickstart, although, is usable.
 
+
 Contents
 --------
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 3
 
     quickstart
     userguide
-
-Features
---------
-
-- Fast
-- Simple
-- Inituitive
-- Easy to Use
-- Offline
-- Open Source
