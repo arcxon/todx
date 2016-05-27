@@ -79,8 +79,11 @@ int main() {
     strcpy(array[6].tags[3], "iSscis");
     array[6]._tagIndex = 4;
 
+    char term[20];
 
-    search("ad", array); // this SHOULD give note 0
-    cout << endl << array[4].tags[1];
+    strcpy(term, "ad");
+
+    search(term, array); // this SHOULD give note 0
+    
     return 0;
 }
