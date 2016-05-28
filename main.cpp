@@ -1,13 +1,20 @@
 #include <fstream>
-#include "fabric.cpp"
+#include "search.cpp"
+// "fabric.cpp" is included in "search.cpp"
+// <iostream.h> is included in "fabric.cpp"
 
 using namespace std;
 
+// Variables used throughout the program
+
 List arrayL[20];
 List currentL;
+
 int _arrayLindex = 0;
 int _currentLindex;
 int isOpenL = 0;
+
+char filename[20] = "data.tdx";
 
 // Fxns Used
 
@@ -21,7 +28,7 @@ void finish();
 
 void initiate() {
     // Fxn to read data from external file int the array of Lists
-    fstream file("data.tdx", ios::in|ios::binary);
+    fstream file(filename, ios::in|ios::binary);
     List tempOb; // temperary object
 
     while (file.read((char*)&tempOb, sizeof(tempOb))) {
@@ -33,8 +40,8 @@ void initiate() {
 
 int parse(char command[80]){
     // Fxn to Parse(execute) the command passed
-    /// Here a crazy fun expression is used in if to compare strings
-    /// Since we wanted any of them to be zero they were multiplied
+    /// Here a crazy fun expression is used in if () {} to compare strings
+    /// Since we wanted any of them to be zero, hence, they were multiplied
     /// to give zero. Mathematically it is quite accurate and syntactically
     /// beautiful.
 
@@ -149,6 +156,16 @@ int parse(char command[80]){
         success = 1;
     }
 
+    else if (!(strcmp(command, "search")*strcmp(command, "grep"))) {
+        // Search the Database
+        char term[40];
+
+        cout << "Enter the search term " << endl << " +> ";
+        cin.getline(term, sizeof(term));
+        search(term, arrayL);
+        success = 1;
+    }
+
     else if (!(strcmp(command, "save")*strcmp(command, "s"))) {
         // Save the data to the file
         arrayL[_currentLindex] = currentL;
@@ -156,14 +173,25 @@ int parse(char command[80]){
         success = 1;
     }
 
-    else if (!(strcmp(command, "clear")*strcmp(command, "del"))) {
+    else if (!(strcmp(command, "delete")*strcmp(command, "del"))) {
+        // Delete Things
+        char choice[10];
+        cout << "What do you want to delete? (list/todo)" << endl;
+        cin.getline(choice, sizeof(choice));
+        finish();
+        success = 1;
+    }
+
+
+    else if (!(strcmp(command, "clear")*strcmp(command, "clr"))) {
         // Refresh the data file
+        // WARN -> Strictly, Not to be used By users, It deletes all the data
         char confirm[10];
         cout << "Enter \'yes\' to continue" << endl << " ?> ";
         cin.getline(confirm, 10);
 
         if (!(strcmp(confirm, "yes")*strcmp(confirm, "y"))) {
-            ofstream file("data.tdx", ios::trunc|ios::binary|ios::out);
+            ofstream file(filename, ios::trunc|ios::binary|ios::out);
 
             file.write("", sizeof(arrayL));
             file.close();
@@ -226,7 +254,7 @@ void empty() {
 
 void finish() {
     // Write the changes back to file
-    ofstream file ("data.tdx", ios::out);
+    ofstream file (filename, ios::out);
     for (int i = 0; i < _arrayLindex; i++) {
         file.write((char*)&arrayL[i], sizeof(arrayL[i]));
     }
@@ -234,20 +262,27 @@ void finish() {
 
 int main() {
     initiate();
-    cout << "TodX" << endl;
-    cout << "Hi" << endl;
+
+    cout << "=== --- --> TodX <-- --- ===" << endl;
+    cout << "Welcome to TodX the ultimate Todo list" << endl;
+    cout << "v0.01a = Linux Build, docs at -> http://todx.rtfd.io" << endl;
+
     char command[80];
+
     while (1) {
         cout << "\n *> ";
         cin.getline(command, 80);
         int result = parse(command);
+
         if(result > 0)
             continue;
+
         else if (result == 0) {
             cout << "Internal Error" << endl;
         }
+
         else if (result == -1) {
-            cout << "Closing the Program, Have a Great Day :)" << endl;
+            cout << "Data Saved, Have a Great Day :)" << endl;
             break;
         }
     }
