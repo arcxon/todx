@@ -120,32 +120,32 @@ void search(char term[], List arrayL[20]){
 
 }
 
-int main() {
-    // Just for testing the search
-    List array[20];
-    strcpy(array[0].title, "Note 0: iadtya good");
-
-    strcpy(array[2].title, "Note 2");
-    strcpy(array[2].tags[2], "t2: xtrem");
-    array[2]._tagIndex = 4;
-
-    strcpy(array[3].title, "Note 3");
-    strcpy(array[3].list[0].content, "lop adsc ");
-    array[3]._listIndex = 1;
-
-    strcpy(array[4].title, "Note 4");
-    strcpy(array[4].tags[1], "dsc cisadd hyuc");
-    array[4]._tagIndex = 4;
-
-    strcpy(array[6].title, "Note 6");
-    strcpy(array[6].tags[3], "ad scis");
-    array[6]._tagIndex = 4;
-
-    char term[20];
-
-    strcpy(term, "lop");
-
-    search(term, array);
-
-    return 0;
-}
+// int main() {
+//     // Just for testing the search
+//     List array[20];
+//     strcpy(array[0].title, "Note 0: iadtya good");
+//
+//     strcpy(array[2].title, "Note 2");
+//     strcpy(array[2].tags[2], "t2: xtrem");
+//     array[2]._tagIndex = 4;
+//
+//     strcpy(array[3].title, "Note 3");
+//     strcpy(array[3].list[0].content, "lop adsc ");
+//     array[3]._listIndex = 1;
+//
+//     strcpy(array[4].title, "Note 4");
+//     strcpy(array[4].tags[1], "dsc cisadd hyuc");
+//     array[4]._tagIndex = 4;
+//
+//     strcpy(array[6].title, "Note 6");
+//     strcpy(array[6].tags[3], "ad scis");
+//     array[6]._tagIndex = 4;
+//
+//     char term[20];
+//
+//     strcpy(term, "lop");
+//
+//     search(term, array);
+//
+//     return 0;
+// }

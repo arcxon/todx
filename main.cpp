@@ -1,6 +1,5 @@
 #include <fstream>
-#include "fabric.cpp"
-// #include "search.cpp"
+#include "search.cpp"
 
 using namespace std;
 
@@ -235,18 +234,25 @@ void finish() {
 
 int main() {
     initiate();
-    cout << "TodX" << endl;
-    cout << "Hi" << endl;
+
+    cout << "=== --- --> TodX <-- --- ===" << endl;
+    cout << "Welcome to TodX the ultimate Todo list" << endl;
+    cout << "v0.01a = Linux Build, docs at -> http://todx.rtfd.io" << endl;
+
     char command[80];
+
     while (1) {
         cout << "\n *> ";
         cin.getline(command, 80);
         int result = parse(command);
+
         if(result > 0)
             continue;
+
         else if (result == 0) {
             cout << "Internal Error" << endl;
         }
+
         else if (result == -1) {
             cout << "Closing the Program, Have a Great Day :)" << endl;
             break;
