@@ -3,11 +3,16 @@
 
 using namespace std;
 
+// Variables used throughout the program
+
 List arrayL[20];
 List currentL;
+
 int _arrayLindex = 0;
 int _currentLindex;
 int isOpenL = 0;
+
+char filename[20] = "data.tdx";
 
 // Fxns Used
 
@@ -21,7 +26,7 @@ void finish();
 
 void initiate() {
     // Fxn to read data from external file int the array of Lists
-    fstream file("data.tdx", ios::in|ios::binary);
+    fstream file(filename, ios::in|ios::binary);
     List tempOb; // temperary object
 
     while (file.read((char*)&tempOb, sizeof(tempOb))) {
@@ -149,6 +154,16 @@ int parse(char command[80]){
         success = 1;
     }
 
+    else if (!(strcmp(command, "search")*strcmp(command, "grep"))) {
+        // Search the Database
+        char term[40];
+
+        cout << "Enter the search term " << endl << " +> ";
+        cin.getline(term, sizeof(term));
+        search(term, arrayL);
+        success = 1;
+    }
+
     else if (!(strcmp(command, "save")*strcmp(command, "s"))) {
         // Save the data to the file
         arrayL[_currentLindex] = currentL;
@@ -163,7 +178,7 @@ int parse(char command[80]){
         cin.getline(confirm, 10);
 
         if (!(strcmp(confirm, "yes")*strcmp(confirm, "y"))) {
-            ofstream file("data.tdx", ios::trunc|ios::binary|ios::out);
+            ofstream file(filename, ios::trunc|ios::binary|ios::out);
 
             file.write("", sizeof(arrayL));
             file.close();
@@ -226,7 +241,7 @@ void empty() {
 
 void finish() {
     // Write the changes back to file
-    ofstream file ("data.tdx", ios::out);
+    ofstream file (filename, ios::out);
     for (int i = 0; i < _arrayLindex; i++) {
         file.write((char*)&arrayL[i], sizeof(arrayL[i]));
     }
@@ -254,7 +269,7 @@ int main() {
         }
 
         else if (result == -1) {
-            cout << "Closing the Program, Have a Great Day :)" << endl;
+            cout << "Data Saved, Have a Great Day :)" << endl;
             break;
         }
     }

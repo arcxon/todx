@@ -33,7 +33,7 @@ void search(char term[], List arrayL[20]){
         }
 
         if (found) {
-            cout << "Found at " << i << " title: " << arrayL[i].title << endl;
+            cout << "Found, Index => " << i << endl << arrayL[i].title << endl;
         }
     }
 
@@ -67,11 +67,8 @@ void search(char term[], List arrayL[20]){
             }
 
             if (found) {
-                cout << "Found at " << i << " title: " << arrayL[i].title;
-
-                for (int f = 0; f < arrayL[i]._tagIndex; f++) {
-                    cout << arrayL[i].tags[f] << endl;
-                }
+                cout << "Found, Index => " << i << endl;
+                arrayL[i].tagView();
 
                 break;
             }
@@ -107,11 +104,9 @@ void search(char term[], List arrayL[20]){
             }
 
             if (found) {
-                cout << "Found at " << i << " title: " << arrayL[i].title << endl;
+                cout << "Found, Index =>" << i << endl;
 
-                for (int f = 0; f < arrayL[i]._listIndex; f++) {
-                    cout << arrayL[i].list[f].content << endl;
-                }
+                arrayL[i].view();
 
                 break;
             }
