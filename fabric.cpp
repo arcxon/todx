@@ -20,11 +20,11 @@ class List {
     int _listIndex; // Variable to count the filling of list
     int _tagIndex;  // Variable to count the filling of tags
 
-    List();         // Asks for #title(required) and #tags(can be skipped).
+    List();                 // Asks for #title(required) and #tags(can be skipped).
 
     List(char Title[100]);  // Initialize the #list with #title
 
-    void enter(); // Enter the info given by user
+    void enter();           // Enter the info given by user
 
     void addTag(char Tag[20]) {
         strcpy(tags[_tagIndex++], Tag);
@@ -34,13 +34,17 @@ class List {
         strcpy(title, Title);
     }
 
-    void view();    // View the list's #title #tags and #content
+    void view();            // View the list's #title #tags and #content
 
-    void indexView();   // View the contents with the index
+    void indexView();       // View the contents with the index
 
-    void tagView(); // View only Title and tags
+    void tagView();         // View only Title and tags
 
-    void append();  // append a new ToDo in the #list
+    void todoView(int);     // View the todo of index passed
+
+    void append();          // append a new ToDo in the #list
+
+    void remove(int);       // delete the list at index passed
 
     void changeStatus(int index, char status){
         // Changes Status of the Item of #index to #status
@@ -136,6 +140,11 @@ void List::tagView() {
     cout << endl;
 }
 
+void List::todoView(int index) {
+    cout << index << ".  [" << list[index].status << "]  ";
+    cout << list[index].content << endl;
+}
+
 void List::append(){
     char Content[200];
     cout << "Enter the content of ToDo \n +> ";
@@ -146,6 +155,13 @@ void List::append(){
     list[_listIndex].status = ' ';
     list[_listIndex]._index = _listIndex;
     _listIndex++;
+}
+
+void List::remove(int index) {
+    for (int i = index; i < _listIndex - 1; i++) {
+        list[index] = list[index + 1];
+    }
+    _listIndex--;
 }
 
 // int main() {

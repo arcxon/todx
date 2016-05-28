@@ -23,6 +23,7 @@ int parse(char []);
 void status();
 void openL(int);
 void displayL();
+int confirm();
 void empty();
 void finish();
 
@@ -47,19 +48,19 @@ int parse(char command[80]){
 
     int success = 0;
 
-    if (!(strcmp(command, "new")*strcmp(command, "n"))) {
+    if (!(strcmp(command, "new") * strcmp(command, "n"))) {
         // Create a new List
         arrayL[_arrayLindex++].enter();
         success = 1;
     }
 
-    else if (!(strcmp(command, "status")*strcmp(command, "stat"))) {
+    else if (!(strcmp(command, "status") * strcmp(command, "stat"))) {
         // Display the status
         status();
         success = 1;
     }
 
-    else if (!(strcmp(command, "open")*strcmp(command, "o"))) {
+    else if (!(strcmp(command, "open") * strcmp(command, "o"))) {
         // Open existing lists
         if (_arrayLindex) {
             int choice;
@@ -88,7 +89,7 @@ int parse(char command[80]){
         success = 1;
     }
 
-    else if (!(strcmp(command, "append")*strcmp(command, "a"))) {
+    else if (!(strcmp(command, "append") * strcmp(command, "a"))) {
         // Append a new Todo to the currently opened list
         if (isOpenL) {
             currentL.append();
@@ -100,7 +101,7 @@ int parse(char command[80]){
         success = 1;
     }
 
-    else if (!(strcmp(command, "mark")*strcmp(command, "m"))) {
+    else if (!(strcmp(command, "mark") * strcmp(command, "m"))) {
         // Append a new Todo to the currently opened list
         if (isOpenL) {
             int choice;
@@ -130,7 +131,7 @@ int parse(char command[80]){
         success = 1;
     }
 
-    else if (!(strcmp(command, "view")*strcmp(command, "v"))) {
+    else if (!(strcmp(command, "view") * strcmp(command, "v"))) {
         // view todo's of the current list
         if (isOpenL) {
             currentL.view();
@@ -143,7 +144,7 @@ int parse(char command[80]){
         success = 1;
     }
 
-    else if (!(strcmp(command, "iview")*strcmp(command, "iv"))) {
+    else if (!(strcmp(command, "iview") * strcmp(command, "iv"))) {
         // view todo's of the current list with index
         if (isOpenL) {
             currentL.indexView();
@@ -156,7 +157,7 @@ int parse(char command[80]){
         success = 1;
     }
 
-    else if (!(strcmp(command, "search")*strcmp(command, "grep"))) {
+    else if (!(strcmp(command, "search") * strcmp(command, "grep"))) {
         // Search the Database
         char term[40];
 
@@ -166,31 +167,73 @@ int parse(char command[80]){
         success = 1;
     }
 
-    else if (!(strcmp(command, "save")*strcmp(command, "s"))) {
+    else if (!(strcmp(command, "save") * strcmp(command, "s"))) {
         // Save the data to the file
         arrayL[_currentLindex] = currentL;
         finish();
         success = 1;
     }
 
-    else if (!(strcmp(command, "delete")*strcmp(command, "del"))) {
+    else if (!(strcmp(command, "delete") * strcmp(command, "del"))) {
         // Delete Things
         char choice[10];
         cout << "What do you want to delete? (list/todo)" << endl;
         cin.getline(choice, sizeof(choice));
+
+        if (!(strcmp(choice, "list") * strcmp(choice, "List"))) {
+            int index;
+
+            cout << "Enter the Index of List to Delete " << endl;
+            displayL();
+
+            cout << " #> ";
+            cin >> index;
+            cout << "Are you sure, This cannot be undone, This will delete ->" << endl;
+            arrayL[index].view();
+
+            if ( confirm() ) {
+                for (int i = index; i < _arrayLindex - 1; i++) {
+                    arrayL[i] = arrayL[i+1];
+                }
+                _arrayLindex--;
+            }
+        }
+
+        else if (!(strcmp(choice, "todo") * strcmp(choice, "Todo") * strcmp(choice, "ToDo"))) {
+            if (isOpenL) {
+                currentL.indexView();
+                int index;
+
+                cout << "Enter the Index of List to Delete " << endl;
+                displayL();
+
+                cout << " #> ";
+                cin >> index;
+                cout << "Are you sure, This cannot be undone, This will delete ->" << endl;
+                currentL.todoView(index);
+
+                if ( confirm() ) {
+                    currentL.remove(index);
+                }
+
+                arrayL[_currentLindex] = currentL;
+            }
+
+            else {
+                cout << "No List is opened, Open a list first" << endl;
+            }
+        }
+
         finish();
         success = 1;
     }
 
 
-    else if (!(strcmp(command, "clear")*strcmp(command, "clr"))) {
+    else if (!(strcmp(command, "clear") * strcmp(command, "clr"))) {
         // Refresh the data file
         // WARN -> Strictly, Not to be used By users, It deletes all the data
-        char confirm[10];
-        cout << "Enter \'yes\' to continue" << endl << " ?> ";
-        cin.getline(confirm, 10);
 
-        if (!(strcmp(confirm, "yes")*strcmp(confirm, "y"))) {
+        if ( confirm() ) {
             ofstream file(filename, ios::trunc|ios::binary|ios::out);
 
             file.write("", sizeof(arrayL));
@@ -203,13 +246,10 @@ int parse(char command[80]){
         success = 1;
     }
 
-    else if (!(strcmp(command, "quit")*strcmp(command, "q"))) {
+    else if (!(strcmp(command, "quit") * strcmp(command, "q"))) {
         // exit the program after saving it to the file
-        char confirm[10];
-        cout << "Enter \'yes\' to continue" << endl << " ?> ";
-        cin.getline(confirm, 10);
 
-        if (!(strcmp(confirm, "yes")*strcmp(confirm, "y"))) {
+        if ( confirm() ) {
             arrayL[_currentLindex] = currentL;
             finish();
             success = -1;
@@ -242,6 +282,20 @@ void openL(int index) {
 void displayL() {
     for (int i = 0; i < _arrayLindex; i++) {
         cout << i << ". " << arrayL[i].title << endl;
+    }
+}
+
+int confirm() {
+    char confm[10];
+    cout << "Enter \'yes\' to continue" << endl << " ?> ";
+    cin.getline(confm, 10);
+
+    if (!(strcmp(confm, "yes") * strcmp(confm, "y"))) {
+        return 1;
+    }
+
+    else{
+        return 0;
     }
 }
 
