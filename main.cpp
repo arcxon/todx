@@ -299,10 +299,14 @@ int parse(char command[80]){
 
     else if (!(strcmp(command, "help") * strcmp(command, "-h"))) {
         // View help
+        char line[80];
         ifstream helpfile("help.txt");
+
         while (!helpfile.eof()) {
-            cout << helpfile.readline();
+            helpfile.getline(line, sizeof(line));
+            cout << line << endl;
         }
+
         success = 1;
     }
 
