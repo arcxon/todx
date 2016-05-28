@@ -176,8 +176,9 @@ int parse(char command[80]){
 
     else if (!(strcmp(command, "delete") * strcmp(command, "del"))) {
         // Delete Things
+
         char choice[10];
-        cout << "What do you want to delete? (list/todo)" << endl;
+        cout << "What do you want to delete? (list/todo)" << endl << " ?> ";
         cin.getline(choice, sizeof(choice));
 
         if (!(strcmp(choice, "list") * strcmp(choice, "List"))) {
@@ -188,6 +189,7 @@ int parse(char command[80]){
 
             cout << " #> ";
             cin >> index;
+            cin.ignore();
             cout << "Are you sure, This cannot be undone, This will delete ->" << endl;
             arrayL[index].view();
 
@@ -200,15 +202,16 @@ int parse(char command[80]){
         }
 
         else if (!(strcmp(choice, "todo") * strcmp(choice, "Todo") * strcmp(choice, "ToDo"))) {
+
             if (isOpenL) {
-                currentL.indexView();
                 int index;
 
-                cout << "Enter the Index of List to Delete " << endl;
-                displayL();
+                cout << "Enter the Index of Todo to Delete " << endl;
+                currentL.indexView();
 
                 cout << " #> ";
                 cin >> index;
+                cin.ignore();
                 cout << "Are you sure, This cannot be undone, This will delete ->" << endl;
                 currentL.todoView(index);
 
@@ -228,6 +231,36 @@ int parse(char command[80]){
         success = 1;
     }
 
+    else if (!(strcmp(command, "qdelete") * strcmp(command, "qdel"))) {
+        // Delete Todo of current list using index
+        /// qdelete -> Quick Delete
+
+        if (isOpenL) {
+            int index;
+
+            cout << "Enter the Index of List to Delete " << endl;
+            currentL.indexView();
+
+            cout << " #> ";
+            cin >> index;
+            cin.ignore();
+            cout << "Are you sure, This cannot be undone, This will delete ->" << endl;
+            currentL.todoView(index);
+
+            if ( confirm() ) {
+                currentL.remove(index);
+            }
+
+            arrayL[_currentLindex] = currentL;
+        }
+
+        else {
+            cout << "No List is opened, Open a list first" << endl;
+        }
+
+        finish();
+        success = 1;
+    }
 
     else if (!(strcmp(command, "clear") * strcmp(command, "clr"))) {
         // Refresh the data file
