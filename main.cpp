@@ -1,5 +1,7 @@
 #include <fstream>
 #include "search.cpp"
+// "fabric.cpp" is included in "search.cpp"
+// <iostream.h> is included in "fabric.cpp"
 
 using namespace std;
 
@@ -38,8 +40,8 @@ void initiate() {
 
 int parse(char command[80]){
     // Fxn to Parse(execute) the command passed
-    /// Here a crazy fun expression is used in if to compare strings
-    /// Since we wanted any of them to be zero they were multiplied
+    /// Here a crazy fun expression is used in if () {} to compare strings
+    /// Since we wanted any of them to be zero, hence, they were multiplied
     /// to give zero. Mathematically it is quite accurate and syntactically
     /// beautiful.
 
@@ -171,8 +173,19 @@ int parse(char command[80]){
         success = 1;
     }
 
-    else if (!(strcmp(command, "clear")*strcmp(command, "del"))) {
+    else if (!(strcmp(command, "delete")*strcmp(command, "del"))) {
+        // Delete Things
+        char choice[10];
+        cout << "What do you want to delete? (list/todo)" << endl;
+        cin.getline(choice, sizeof(choice));
+        finish();
+        success = 1;
+    }
+
+
+    else if (!(strcmp(command, "clear")*strcmp(command, "clr"))) {
         // Refresh the data file
+        // WARN -> Strictly, Not to be used By users, It deletes all the data
         char confirm[10];
         cout << "Enter \'yes\' to continue" << endl << " ?> ";
         cin.getline(confirm, 10);
