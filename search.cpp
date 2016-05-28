@@ -1,7 +1,7 @@
 #include "fabric.cpp"
 
 // TODO
-//      [ ] -> The Loop should repeat at every charecter <- hell wit the spelling
+//      [*] -> The Loop should repeat at every charecter <- hell wit the spelling
 
 void search(char term[], List arrayL[20]){
     int len = strlen(term);
@@ -12,14 +12,18 @@ void search(char term[], List arrayL[20]){
     for (int i = 0; i < 20 ; i++) {
         int z = 0;
         found = 0;
+
         for (unsigned int k = 0; k < strlen(arrayL[i].title); k++) {
             if (tolower(term[z++]) == tolower(arrayL[i].title[k])) {
                 found = 1;
                 // cout << "Found title" << endl;
             }
+
             else {
                 found = 0;
+                z = 0;
             }
+
             if (z == len) {
                 if (found) {
                     break;
@@ -27,7 +31,8 @@ void search(char term[], List arrayL[20]){
                 z = 0;
             }
         }
-        if(found){
+
+        if (found) {
             cout << "Found at " << i << " title: " << arrayL[i].title << endl;
         }
     }
@@ -38,25 +43,80 @@ void search(char term[], List arrayL[20]){
         int z = 0;
         found = 0;
         for (int k = 0; k < arrayL[i]._tagIndex; k++) {
+            z = 0;
+
             for (unsigned int c = 0; c < strlen(arrayL[i].tags[k]); c++) {
-                z = 0;
+
                 if (tolower(term[z++]) == tolower(arrayL[i].tags[k][c])) {
                     found = 1;
                 }
+
                 else {
                     found = 0;
+                    z = 0;
                 }
+
                 if (z == len) {
+
+                    if (found) {
+                        break;
+                    }
+
                     z = 0;
                 }
             }
-        }
-        if(found){
-            cout << "Found at " << i << " title: " << arrayL[i].title;
-            cout << "\n taged ";
+
+            if (found) {
+                cout << "Found at " << i << " title: " << arrayL[i].title;
+
+                for (int f = 0; f < arrayL[i]._tagIndex; f++) {
+                    cout << arrayL[i].tags[f] << endl;
+                }
+
+                break;
+            }
         }
     }
 
+    // Search in Todos
+
+    for (int i = 0; i < 20 ; i++) {
+        int z = 0;
+        found = 0;
+        for (int k = 0; k < arrayL[i]._listIndex; k++) {
+            z = 0;
+            for (unsigned int c = 0; c < strlen(arrayL[i].list[k].content); c++) {
+
+                if (tolower(term[z++]) == tolower(arrayL[i].list[k].content[c])) {
+                    found = 1;
+                }
+
+                else {
+                    found = 0;
+                    z = 0;
+                }
+
+                if (z == len) {
+
+                    if (found) {
+                        break;
+                    }
+
+                    z = 0;
+                }
+            }
+
+            if (found) {
+                cout << "Found at " << i << " title: " << arrayL[i].title << endl;
+
+                for (int f = 0; f < arrayL[i]._listIndex; f++) {
+                    cout << arrayL[i].list[f].content << endl;
+                }
+
+                break;
+            }
+        }
+    }
 
 }
 
@@ -70,20 +130,22 @@ int main() {
     array[2]._tagIndex = 4;
 
     strcpy(array[3].title, "Note 3");
+    strcpy(array[3].list[0].content, "lop adsc ");
+    array[3]._listIndex = 1;
 
     strcpy(array[4].title, "Note 4");
-    strcpy(array[4].tags[1], "dsc cisdd hyuc");
+    strcpy(array[4].tags[1], "dsc cisadd hyuc");
     array[4]._tagIndex = 4;
 
     strcpy(array[6].title, "Note 6");
-    strcpy(array[6].tags[3], "iSscis");
+    strcpy(array[6].tags[3], "ad scis");
     array[6]._tagIndex = 4;
 
     char term[20];
 
-    strcpy(term, "ad");
+    strcpy(term, "lop");
 
-    search(term, array); // this SHOULD give note 0
-    
+    search(term, array);
+
     return 0;
 }
