@@ -63,6 +63,11 @@ int parse(char command[80]){
     else if (!(strcmp(command, "open") * strcmp(command, "o"))) {
         // Open existing lists
         if (_arrayLindex) {
+            if (isOpenL) {
+                arrayL[_currentLindex] = currentL;
+                finish();
+            }
+
             int choice;
             cout << "Enter The No. of List to be opened" << endl;
 
@@ -219,7 +224,7 @@ int parse(char command[80]){
                     currentL.remove(index);
                 }
 
-                arrayL[_currentLindex] = currentL;
+                arrayL[_currentLindex] = currentL;  // To Help Improving Finalization
             }
 
             else {
@@ -292,6 +297,15 @@ int parse(char command[80]){
         }
     }
 
+    else if (!(strcmp(command, "help") * strcmp(command, "-h"))) {
+        // View help
+        ifstream helpfile("help.txt");
+        while (!helpfile.eof()) {
+            cout << helpfile.readline();
+        }
+        success = 1;
+    }
+
     return success;
 }
 
@@ -319,6 +333,7 @@ void displayL() {
 }
 
 int confirm() {
+    // can be used as if( confirm() ) /// Improves yes/no prompts
     char confm[10];
     cout << "Enter \'yes\' to continue" << endl << " ?> ";
     cin.getline(confm, 10);
