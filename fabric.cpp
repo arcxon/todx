@@ -3,7 +3,7 @@
 
 using namespace std;
 
-// Color variables
+// Color variables using ANSI sequences
 
 const char Bred[12] = "\033[1;31m";
 const char Bgreen[12] = "\033[1;32m";
@@ -11,6 +11,13 @@ const char Byellow[12] = "\033[1;33m";
 const char Bblue[12] = "\033[1;34m";
 const char Bmagenta[12] = "\033[1;35m";
 const char Bcyan[12] = "\033[1;36m";
+
+const char red[12] = "\033[;31m";
+const char green[12] = "\033[;32m";
+const char yellow[12] = "\033[;33m";
+const char blue[12] = "\033[;34m";
+const char magenta[12] = "\033[;35m";
+const char cyan[12] = "\033[;36m";
 
 const char normal[12]  = "\033[0;m";
 
@@ -78,7 +85,7 @@ List::List(char Title[100]) {
 }
 
 void List::enter(){
-    cout << "Enter title for your list" << endl << Bgreen << " +> " << normal;
+    cout << "Enter title for your list" << endl << green << " +> " << normal;
     cin.getline(title, sizeof(title));
 
     char choice[10];
@@ -89,14 +96,14 @@ void List::enter(){
         char tagTemp[220];
 
         cout << "Enter the tag one at a time" << endl << "\'d\' when done " << endl;
-        cout << Bgreen << " +> " << normal;
+        cout << green << " +> " << normal;
 
         while (1) {
             cin.getline(tagTemp, 20);
 
             if (strcmp(tagTemp, "d") != 0) {
                 addTag(tagTemp);
-                cout << Bgreen << " +> " << normal;
+                cout << green << " +> " << normal;
             }
 
             else {
@@ -159,7 +166,7 @@ void List::todoView(int index) {
 
 void List::append(){
     char Content[200];
-    cout << "Enter the content of ToDo" << endl << Bgreen << " +> " << normal;
+    cout << "Enter the content of ToDo" << endl << green << " +> " << normal;
     cin.getline(Content, 200);
 
     strcpy(list[_listIndex].content, Content);

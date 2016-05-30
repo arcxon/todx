@@ -123,7 +123,7 @@ int parse(char command[80]){
 
             char status;
 
-            cout << "Enter The new Status" << endl << Bgreen << " +> " << normal;
+            cout << "Enter The new Status" << endl << green << " +> " << normal;
             cin >> status;
             cin.ignore();
 
@@ -167,7 +167,7 @@ int parse(char command[80]){
         // Search the Database
         char term[40];
 
-        cout << "Enter the search term " << endl << Bgreen << " +> " << normal;
+        cout << "Enter the search term " << endl << green << " +> " << normal;
         cin.getline(term, sizeof(term));
         search(term, arrayL);
         success = 1;
@@ -370,14 +370,14 @@ void finish() {
 int main() {
     initiate();
 
-    cout << "=== --- --> TodX <-- --- ===" << endl;
+    cout << "=== --- --> \033[5;33;1m TodX \033[0;m <-- --- ===" << endl;
     cout << "Welcome to TodX the ultimate Todo list" << endl;
     cout << "v0.01a = Linux Build, docs at -> http://todx.rtfd.io" << endl;
 
     char command[80];
 
     while (1) {
-        cout << Byellow << "\n *> " << normal;
+        cout << yellow << "\n *> " << normal;
         cin.getline(command, 80);
         int result = parse(command);
 
