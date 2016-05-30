@@ -3,6 +3,17 @@
 
 using namespace std;
 
+// Color variables
+
+const char Bred[12] = "\033[1;31m";
+const char Bgreen[12] = "\033[1;32m";
+const char Byellow[12] = "\033[1;33m";
+const char Bblue[12] = "\033[1;34m";
+const char Bmagenta[12] = "\033[1;35m";
+const char Bcyan[12] = "\033[1;36m";
+
+const char normal[12]  = "\033[0;m";
+
 class Todo{
   public:
     char content[200];
@@ -67,24 +78,25 @@ List::List(char Title[100]) {
 }
 
 void List::enter(){
-    cout << "Enter title for your list\n +> ";
+    cout << "Enter title for your list" << endl << Bgreen << " +> " << normal;
     cin.getline(title, sizeof(title));
 
     char choice[10];
-    cout << "Do you want some tags? (yes/no)" << endl << " ?> ";
+    cout << "Do you want some tags? (yes/no)" << endl << Bred << " ?> " << normal;
     cin.getline(choice, sizeof(choice));
 
     if (!(strcmp(choice, "yes")*strcmp(choice, "y"))) {
         char tagTemp[220];
 
-        cout << "Enter the tag one at a time \n 'd' when done \n +> ";
+        cout << "Enter the tag one at a time" << endl << "\'d\' when done " << endl;
+        cout << Bgreen << " +> " << normal;
 
         while (1) {
             cin.getline(tagTemp, 20);
 
             if (strcmp(tagTemp, "d") != 0) {
                 addTag(tagTemp);
-                cout << " +> ";
+                cout << Bgreen << " +> " << normal;
             }
 
             else {
@@ -147,7 +159,7 @@ void List::todoView(int index) {
 
 void List::append(){
     char Content[200];
-    cout << "Enter the content of ToDo \n +> ";
+    cout << "Enter the content of ToDo" << endl << Bgreen << " +> " << normal;
     cin.getline(Content, 200);
 
     strcpy(list[_listIndex].content, Content);
@@ -158,8 +170,8 @@ void List::append(){
 }
 
 void List::remove(int index) {
-    for (int i = index; i < _listIndex - 1; i++) {
-        list[index] = list[index + 1];
+    for (int i = index; i < _listIndex; i++) {
+        list[i] = list[i + 1];
     }
     _listIndex--;
 }
