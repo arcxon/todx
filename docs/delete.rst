@@ -11,11 +11,11 @@ Command
 Function
 --------
 
-This deletes
+This deletes the List/Todo/Tag specified
 
 Explanation
 -----------
 
-It shows the currently available lists, that can be opened. Enter the Number/Index in the prompt to open that list.
+It deletes the **Title** , **Todo** or **Tag** specified by the user. It takes input of index and asks confirmation (`yes`/`no`) before deleting.
 
-After Opening other commands like ``append`` and ``view`` can be used on the opened list.
+..  Warning::   This command can not be reversed. After deletion, the data is lost. Please use the command carefully.

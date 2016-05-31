@@ -1,20 +1,20 @@
 ====
-View
+Mark
 ====
 
 Command
 -------
 
-``view`` or ``v``
+``mark`` or ``m``
 
 ..  Warning:: You can use this command only when a list is open, use ``open`` to open a list.
 
 Function
 --------
 
-View the contents of Opened List.
+This marks status of specified Todo to the input character.
 
 Explanation
 -----------
 
-This shows the **Title**, **Tags** and **ToDos** that belong to the currently _opened_ list.
+This modifies the status, (the thing between ``[]``) to the character provided.

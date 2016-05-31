@@ -11,5 +11,7 @@ There are various Basic commands in the app. These commands are entered with the
     open
     view
     append
+    mark
     search
     delete
+    qdelete
