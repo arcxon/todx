@@ -239,16 +239,16 @@ int parse(char command[80]){
                 int index;
 
                 cout << "Enter the Index of Tag to Delete " << endl;
-                currentL.indexView();
+                currentL.tagIndexView();
 
                 cout << Bblue << " #> " << normal;
                 cin >> index;
                 cin.ignore();
                 cout << "Are you sure, This cannot be undone, This will delete ->" << endl;
-                currentL.todoView(index);
+                cout << currentL.tags[index] << endl;
 
                 if ( confirm() ) {
-                    currentL.removeTodo(index);
+                    currentL.removeTag(index);
                 }
 
                 arrayL[_currentLindex] = currentL;  // To Help Improving Finalization
