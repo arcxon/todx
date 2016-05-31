@@ -60,9 +60,13 @@ class List {
 
     void todoView(int);     // View the todo of index passed
 
+    void tagIndexView();    // View the Title and Tags with the index
+
     void append();          // append a new ToDo in the #list
 
-    void remove(int);       // delete the list at index passed
+    void removeTodo(int);   // delete the list at index passed
+
+    void removeTag(int);   // delete the tag at index passed
 
     void changeStatus(int index, char status){
         // Changes Status of the Item of #index to #status
@@ -164,6 +168,16 @@ void List::todoView(int index) {
     cout << list[index].content << endl;
 }
 
+void List::tagIndexView() {
+    cout << title << endl;
+    cout << "============" << endl;
+
+    cout << "Tags : ";
+    for (int i = 0; i < _tagIndex; i++) {
+        cout << i << ". " << tags[i] << endl;
+    }
+}
+
 void List::append(){
     char Content[200];
     cout << "Enter the content of ToDo" << endl << green << " +> " << normal;
@@ -176,12 +190,20 @@ void List::append(){
     _listIndex++;
 }
 
-void List::remove(int index) {
+void List::removeTodo(int index) {
     for (int i = index; i < _listIndex; i++) {
         list[i] = list[i + 1];
     }
     _listIndex--;
 }
+
+void List::removeTag(int index) {
+    for (int i = index; i < _listIndex; i++) {
+        list[i] = list[i + 1];
+    }
+    _listIndex--;
+}
+
 
 // int main() {
 //     // NOTE

@@ -222,7 +222,33 @@ int parse(char command[80]){
                 currentL.todoView(index);
 
                 if ( confirm() ) {
-                    currentL.remove(index);
+                    currentL.removeTodo(index);
+                }
+
+                arrayL[_currentLindex] = currentL;  // To Help Improving Finalization
+            }
+
+            else {
+                cout << "No List is opened, Open a list first" << endl;
+            }
+        }
+
+        else if (!(strcmp(choice, "tag") * strcmp(choice, "tags") * strcmp(choice, "Tag"))) {
+
+            if (isOpenL) {
+                int index;
+
+                cout << "Enter the Index of Tag to Delete " << endl;
+                currentL.indexView();
+
+                cout << Bblue << " #> " << normal;
+                cin >> index;
+                cin.ignore();
+                cout << "Are you sure, This cannot be undone, This will delete ->" << endl;
+                currentL.todoView(index);
+
+                if ( confirm() ) {
+                    currentL.removeTodo(index);
                 }
 
                 arrayL[_currentLindex] = currentL;  // To Help Improving Finalization
@@ -254,7 +280,7 @@ int parse(char command[80]){
             currentL.todoView(index);
 
             if ( confirm() ) {
-                currentL.remove(index);
+                currentL.removeTodo(index);
             }
 
             arrayL[_currentLindex] = currentL;
