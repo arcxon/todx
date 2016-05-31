@@ -184,7 +184,7 @@ int parse(char command[80]){
         // Delete Things
 
         char choice[10];
-        cout << "What do you want to delete? (list/todo)" << endl << Bred << " ?> " << normal;
+        cout << "What do you want to delete? (list/todo/tag)" << endl << Bred << " ?> " << normal;
         cin.getline(choice, sizeof(choice));
 
         if (!(strcmp(choice, "list") * strcmp(choice, "List"))) {
@@ -196,7 +196,7 @@ int parse(char command[80]){
             cout << Bblue << " #> " << normal;
             cin >> index;
             cin.ignore();
-            cout << "Are you sure, This cannot be undone, This will delete ->" << endl;
+            cout << "Are you sure, This cannot be undone, This will delete the List ->" << endl;
             arrayL[index].view();
 
             if ( confirm() ) {
@@ -218,7 +218,7 @@ int parse(char command[80]){
                 cout << Bblue << " #> " << normal;
                 cin >> index;
                 cin.ignore();
-                cout << "Are you sure, This cannot be undone, This will delete ->" << endl;
+                cout << "Are you sure, This cannot be undone, This will delete the ToDo ->" << endl;
                 currentL.todoView(index);
 
                 if ( confirm() ) {
@@ -239,16 +239,16 @@ int parse(char command[80]){
                 int index;
 
                 cout << "Enter the Index of Tag to Delete " << endl;
-                currentL.indexView();
+                currentL.tagIndexView();
 
                 cout << Bblue << " #> " << normal;
                 cin >> index;
                 cin.ignore();
-                cout << "Are you sure, This cannot be undone, This will delete ->" << endl;
-                currentL.todoView(index);
+                cout << "Are you sure, This cannot be undone, This will delete the Tag ->" << endl;
+                cout << currentL.tags[index] << endl;
 
                 if ( confirm() ) {
-                    currentL.removeTodo(index);
+                    currentL.removeTag(index);
                 }
 
                 arrayL[_currentLindex] = currentL;  // To Help Improving Finalization

@@ -147,7 +147,7 @@ void List::indexView() {
     cout << endl << endl;
 
     for (int i = 0; i < _listIndex; i++) {
-        cout << i << ". [" << list[i].status << "]  ";
+        cout << " " << i << ". [" << list[i].status << "]  ";
         cout << list[i].content << endl;
     }
 }
@@ -172,9 +172,9 @@ void List::tagIndexView() {
     cout << title << endl;
     cout << "============" << endl;
 
-    cout << "Tags : ";
+    cout << "Tags :" << endl;
     for (int i = 0; i < _tagIndex; i++) {
-        cout << i << ". " << tags[i] << endl;
+        cout << " " << i << ". " << tags[i] << endl;
     }
 }
 
@@ -198,10 +198,10 @@ void List::removeTodo(int index) {
 }
 
 void List::removeTag(int index) {
-    for (int i = index; i < _listIndex; i++) {
-        list[i] = list[i + 1];
+    for (int i = index; i < _tagIndex; i++) {
+        strcpy(tags[i], tags[i + 1]);
     }
-    _listIndex--;
+    _tagIndex--;
 }
 
 
