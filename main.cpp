@@ -5,6 +5,7 @@
 
 using namespace std;
 
+
 // Variables used throughout the program
 
 List arrayL[20];
@@ -73,13 +74,13 @@ int parse(char command[80]){
 
             displayL();
 
-            cout << " #> ";
+            cout << Bblue << " #> " << normal;
             cin >> choice;
             cin.ignore();
 
             while ( !(0 <= choice && choice < _arrayLindex) ) {
                 cout << "Invalid choice choose again" << endl;
-                cout << " #> ";
+                cout << Bblue << " #> " << normal;
                 cin >> choice;
                 cin.ignore();
             }
@@ -112,17 +113,17 @@ int parse(char command[80]){
             int choice;
             currentL.indexView();
 
-            cout << "Choose the Todo to mark : " << endl << " #> ";
+            cout << "Choose the Todo to mark : " << endl << Bblue << " #> " << normal;
             cin >> choice;
 
             while (choice >= currentL._listIndex || choice < 0) {
-                cout << "Invalid Choice Try again" << endl << " #>";
+                cout << "Invalid Choice Try again" << endl << Bblue << " #> " << normal;
                 cin >> choice;
             }
 
             char status;
 
-            cout << "Enter The new Status" << endl << " +> ";
+            cout << "Enter The new Status" << endl << green << " +> " << normal;
             cin >> status;
             cin.ignore();
 
@@ -166,7 +167,7 @@ int parse(char command[80]){
         // Search the Database
         char term[40];
 
-        cout << "Enter the search term " << endl << " +> ";
+        cout << "Enter the search term " << endl << green << " +> " << normal;
         cin.getline(term, sizeof(term));
         search(term, arrayL);
         success = 1;
@@ -183,7 +184,7 @@ int parse(char command[80]){
         // Delete Things
 
         char choice[10];
-        cout << "What do you want to delete? (list/todo)" << endl << " ?> ";
+        cout << "What do you want to delete? (list/todo/tag)" << endl << Bred << " ?> " << normal;
         cin.getline(choice, sizeof(choice));
 
         if (!(strcmp(choice, "list") * strcmp(choice, "List"))) {
@@ -192,10 +193,10 @@ int parse(char command[80]){
             cout << "Enter the Index of List to Delete " << endl;
             displayL();
 
-            cout << " #> ";
+            cout << Bblue << " #> " << normal;
             cin >> index;
             cin.ignore();
-            cout << "Are you sure, This cannot be undone, This will delete ->" << endl;
+            cout << "Are you sure, This cannot be undone, This will delete the List ->" << endl;
             arrayL[index].view();
 
             if ( confirm() ) {
@@ -214,14 +215,40 @@ int parse(char command[80]){
                 cout << "Enter the Index of Todo to Delete " << endl;
                 currentL.indexView();
 
-                cout << " #> ";
+                cout << Bblue << " #> " << normal;
                 cin >> index;
                 cin.ignore();
-                cout << "Are you sure, This cannot be undone, This will delete ->" << endl;
+                cout << "Are you sure, This cannot be undone, This will delete the ToDo ->" << endl;
                 currentL.todoView(index);
 
                 if ( confirm() ) {
-                    currentL.remove(index);
+                    currentL.removeTodo(index);
+                }
+
+                arrayL[_currentLindex] = currentL;  // To Help Improving Finalization
+            }
+
+            else {
+                cout << "No List is opened, Open a list first" << endl;
+            }
+        }
+
+        else if (!(strcmp(choice, "tag") * strcmp(choice, "tags") * strcmp(choice, "Tag"))) {
+
+            if (isOpenL) {
+                int index;
+
+                cout << "Enter the Index of Tag to Delete " << endl;
+                currentL.tagIndexView();
+
+                cout << Bblue << " #> " << normal;
+                cin >> index;
+                cin.ignore();
+                cout << "Are you sure, This cannot be undone, This will delete the Tag ->" << endl;
+                cout << currentL.tags[index] << endl;
+
+                if ( confirm() ) {
+                    currentL.removeTag(index);
                 }
 
                 arrayL[_currentLindex] = currentL;  // To Help Improving Finalization
@@ -246,14 +273,14 @@ int parse(char command[80]){
             cout << "Enter the Index of List to Delete " << endl;
             currentL.indexView();
 
-            cout << " #> ";
+            cout << Bblue << " #> " << normal;
             cin >> index;
             cin.ignore();
             cout << "Are you sure, This cannot be undone, This will delete ->" << endl;
             currentL.todoView(index);
 
             if ( confirm() ) {
-                currentL.remove(index);
+                currentL.removeTodo(index);
             }
 
             arrayL[_currentLindex] = currentL;
@@ -339,7 +366,7 @@ void displayL() {
 int confirm() {
     // can be used as if( confirm() ) /// Improves yes/no prompts
     char confm[10];
-    cout << "Enter \'yes\' to continue" << endl << " ?> ";
+    cout << "Enter \'yes\' to continue" << endl << Bred << " ?> " << normal;
     cin.getline(confm, 10);
 
     if (!(strcmp(confm, "yes") * strcmp(confm, "y"))) {
@@ -369,14 +396,14 @@ void finish() {
 int main() {
     initiate();
 
-    cout << "=== --- --> TodX <-- --- ===" << endl;
+    cout << "=== --- --> \033[5;33;1m TodX \033[0;m <-- --- ===" << endl;
     cout << "Welcome to TodX the ultimate Todo list" << endl;
-    cout << "v0.01a = Linux Build, docs at -> http://todx.rtfd.io" << endl;
+    cout << "v0.02a = Linux Build, docs at -> http://todx.rtfd.io" << endl;
 
     char command[80];
 
     while (1) {
-        cout << "\n *> ";
+        cout << yellow << "\n *> " << normal;
         cin.getline(command, 80);
         int result = parse(command);
 
