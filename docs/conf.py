@@ -270,7 +270,7 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
     (master_doc, 'TodX', 'TodX Documentation',
-     author, 'TodX', 'One line description of project.',
+     author, 'TodX', 'The Cool Todo app',
      'Miscellaneous'),
 ]
 
