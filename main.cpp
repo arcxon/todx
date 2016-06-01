@@ -432,7 +432,7 @@ int main() {
             continue;
 
         else if (result == 0) {
-            cout << "Internal Error" << endl;
+            cout << "Command not found, try `help` for help" << endl;
         }
 
         else if (result == -1) {
