@@ -20,10 +20,12 @@
 
 
 #include <fstream>
+#include <iostream>
+
+// some local files
 #include "fabric.h"
 #include "search.cpp"
 #include "export.cpp"
-// <iostream.h> is included in "fabric.cpp"
 
 using namespace std;
 
