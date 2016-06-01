@@ -355,6 +355,8 @@ int parse(char command[80]){
             cout << line << endl;
         }
 
+        helpfile.close();
+
         success = 1;
     }
 
@@ -412,6 +414,8 @@ void finish() {
     for (int i = 0; i < _arrayLindex; i++) {
         file.write((char*)&arrayL[i], sizeof(arrayL[i]));
     }
+
+    file.close();
 }
 
 int main() {
@@ -438,6 +442,10 @@ int main() {
         else if (result == -1) {
             cout << "Data Saved, Have a Great Day :)" << endl;
             break;
+        }
+
+        else {
+            cout << "Something went terribly wrong, we are sorry for it. :(" << endl;
         }
     }
 
