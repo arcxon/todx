@@ -20,8 +20,9 @@
 
 
 #include <fstream>
+#include "fabric.h"
 #include "search.cpp"
-// "fabric.cpp" is included in "search.cpp"
+#include "export.cpp"
 // <iostream.h> is included in "fabric.cpp"
 
 using namespace std;

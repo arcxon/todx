@@ -1,3 +1,6 @@
+#ifndef INC_FABRIC_H
+#define INC_FABRIC_H
+
 #include <iostream>
 #include <cstring>
 
@@ -217,3 +220,7 @@ void List::removeTag(int index) {
 //
 //     return 0;
 // }
+
+
+
+#endif /* INC_FABRIC_H */
