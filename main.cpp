@@ -37,7 +37,7 @@ List currentL;
 
 int _arrayLindex = 0;
 int _currentLindex;
-int isOpenL = 0; // For checking wether a list is open or not 
+int isOpenL = 0; // For checking wether a list is open or not
 
 char filename[20] = "data.tdx";
 
@@ -113,9 +113,11 @@ int parse(char command[80]){
 
             isOpenL = 1;
         }
+
         else {
             cout << "No List found, create a new one with \'n\' or \'new\'" << endl;
         }
+
         success = 1;
     }
 
@@ -199,14 +201,19 @@ int parse(char command[80]){
 
     else if (!(strcmp(command, "save") * strcmp(command, "s"))) {
         // Save the data to the file
-        arrayL[_currentLindex] = currentL;
+        if (isOpenL) {
+            arrayL[_currentLindex] = currentL;
+        }
+
         finish();
         success = 1;
     }
 
     else if (!(strcmp(command, "export") * strcmp(command, "exp"))) {
         // Export the data to a text file
-        arrayL[_currentLindex] = currentL;
+        if (isOpenL) {
+            arrayL[_currentLindex] = currentL;
+        }
 
         Export(arrayL, _arrayLindex);
 
@@ -348,7 +355,10 @@ int parse(char command[80]){
         // exit the program after saving it to the file
 
         if ( confirm() ) {
-            arrayL[_currentLindex] = currentL;
+            if (isOpenL) {
+                arrayL[_currentLindex] = currentL;
+            }
+
             finish();
             success = -1;
         }
