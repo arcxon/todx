@@ -345,5 +345,57 @@ html{
                 margin: 0;
             }
         }
+
+
+        &#blog{
+            background: linear-gradient(to left, $pink, $main-color);
+
+            .header{
+                height: 70%;
+                background: none;
+                img{
+                    margin-top: 4%;
+                    margin-left: 10%;
+                    @media #{$mobile}{
+                        margin-top: 10%;
+                    }
+                }
+                h1{
+                    @media #{$mobile}{
+                        font-size: 8em;
+                        margin-top: -10%;
+                    }
+                }
+                h2{
+                    @media #{$mobile}{
+                        font-size: 2em;
+                        margin-top: -3%;
+                    }
+                }
+            }
+
+            .page{
+                .article{
+                    padding: 4% 8%;
+                    background-color: rgba(255, 255, 255, 0.5);
+                    border-radius: 6px;
+                    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+                    h2{
+                        margin: 0;
+                        padding-top: 0;
+                        font-size: 1.4em;
+                        font-style: italic;
+                    }
+                    p{
+                        text-align: justify;
+                        font-weight: 300;
+                    }
+                }
+            }
+
+            .footer{
+                background: rgba(25, 25, 25, 0.5);
+            }
+        }
     }
 }
