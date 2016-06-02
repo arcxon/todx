@@ -51,6 +51,12 @@ Command : ``mark`` or ``m``
 
 Mark a Todo as done using charcters like ``*`` or ``#``.
 
+Export
+~~~~~~
+Command : ``export`` or ``exp``
+
+Export the data to a readable text file.
+
 Quit
 ~~~~
 Command : ``quit`` or ``q``
