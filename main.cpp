@@ -135,7 +135,7 @@ int parse(char command[80]){
     }
 
     else if (!(strcmp(command, "mark") * strcmp(command, "m"))) {
-        // Append a new Todo to the currently opened list
+        // Mark/(change status) a Todo with a given charater
         if (isOpenL) {
             int choice;
             currentL.indexView();
