@@ -1,16 +1,17 @@
 TodX v0.01a, Build = Linux
 ===========================
-Full Documentation available at http://todx.rtfd.io
+Documentation at http://todx.rtfd.io , Licensed GPLv3
 
-Commands                       Function
---------                       --------
-new     / n                 Create a new list
-open    / o          Open a List for further editing
-append  / a        Append a todo to the opened list
-mark    / m             Mark a todo with a symbol
-view    / v          View the contents of opened list
-status  / s        View the currently opened list
-save    / s            Save the lists to datafile
-quit    / q            Save and quit the program
-
-help    / -h                View this Help
+Commands                          Function
+--------                          --------
+new     / n               Create a new list
+open    / o               Open a List for further editing
+append  / a               Append a todo to the opened list
+mark    / m               Mark a todo with a symbol
+view    / v               View the contents of opened list
+status  / stat            View the currently opened list
+search  / grep            Search the Data for string
+delete  / del             Delete List, Todo or Tags
+export  / exp             Export the lists to a text file
+quit    / q               Save and quit the program
+> help    / -h                   View this Help

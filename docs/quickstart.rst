@@ -4,9 +4,9 @@ Quick Start
 
 TodX is a great Todo app. But you need to first learn a tool to use it. Learn it below.
 
-For installation, refer to the `install instructions_`
+For installation, refer to the `install instructions`_
 
-:ref: `install`
+.. _install instructions:: Installation
 
 Basic Commands
 --------------
@@ -50,6 +50,12 @@ Mark*
 Command : ``mark`` or ``m``
 
 Mark a Todo as done using charcters like ``*`` or ``#``.
+
+Export
+~~~~~~
+Command : ``export`` or ``exp``
+
+Export the data to a readable text file.
 
 Quit
 ~~~~

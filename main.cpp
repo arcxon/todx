@@ -1,7 +1,32 @@
+/*
+
+    TodX - The cool ToDo app
+    Copyright (C) 2016  adiultra
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+*/
+
+
 #include <fstream>
+#include <iostream>
+#include <cstring>
+
+// some local files
+#include "fabric.h"
 #include "search.cpp"
-// "fabric.cpp" is included in "search.cpp"
-// <iostream.h> is included in "fabric.cpp"
+#include "export.cpp"
 
 using namespace std;
 
@@ -13,7 +38,7 @@ List currentL;
 
 int _arrayLindex = 0;
 int _currentLindex;
-int isOpenL = 0;
+int isOpenL = 0; // For checking wether a list is open or not
 
 char filename[20] = "data.tdx";
 
@@ -89,9 +114,11 @@ int parse(char command[80]){
 
             isOpenL = 1;
         }
+
         else {
             cout << "No List found, create a new one with \'n\' or \'new\'" << endl;
         }
+
         success = 1;
     }
 
@@ -108,7 +135,7 @@ int parse(char command[80]){
     }
 
     else if (!(strcmp(command, "mark") * strcmp(command, "m"))) {
-        // Append a new Todo to the currently opened list
+        // Mark/(change status) a Todo with a given charater
         if (isOpenL) {
             int choice;
             currentL.indexView();
@@ -175,8 +202,22 @@ int parse(char command[80]){
 
     else if (!(strcmp(command, "save") * strcmp(command, "s"))) {
         // Save the data to the file
-        arrayL[_currentLindex] = currentL;
+        if (isOpenL) {
+            arrayL[_currentLindex] = currentL;
+        }
+
         finish();
+        success = 1;
+    }
+
+    else if (!(strcmp(command, "export") * strcmp(command, "exp"))) {
+        // Export the data to a text file
+        if (isOpenL) {
+            arrayL[_currentLindex] = currentL;
+        }
+
+        Export(arrayL, _arrayLindex);
+
         success = 1;
     }
 
@@ -315,7 +356,10 @@ int parse(char command[80]){
         // exit the program after saving it to the file
 
         if ( confirm() ) {
-            arrayL[_currentLindex] = currentL;
+            if (isOpenL) {
+                arrayL[_currentLindex] = currentL;
+            }
+
             finish();
             success = -1;
         }
@@ -333,6 +377,8 @@ int parse(char command[80]){
             helpfile.getline(line, sizeof(line));
             cout << line << endl;
         }
+
+        helpfile.close();
 
         success = 1;
     }
@@ -391,6 +437,8 @@ void finish() {
     for (int i = 0; i < _arrayLindex; i++) {
         file.write((char*)&arrayL[i], sizeof(arrayL[i]));
     }
+
+    file.close();
 }
 
 int main() {
@@ -398,7 +446,7 @@ int main() {
 
     cout << "=== --- --> \033[5;33;1m TodX \033[0;m <-- --- ===" << endl;
     cout << "Welcome to TodX the ultimate Todo list" << endl;
-    cout << "v0.02a = Linux Build, docs at -> http://todx.rtfd.io" << endl;
+    cout << "v0.03a = Linux Build, docs at -> http://todx.rtfd.io" << endl;
 
     char command[80];
 
@@ -411,12 +459,16 @@ int main() {
             continue;
 
         else if (result == 0) {
-            cout << "Internal Error" << endl;
+            cout << "Command not found, try `help` for help" << endl;
         }
 
         else if (result == -1) {
             cout << "Data Saved, Have a Great Day :)" << endl;
             break;
+        }
+
+        else {
+            cout << "Something went terribly wrong, we are sorry for it. :(" << endl;
         }
     }
 

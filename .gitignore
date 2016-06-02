@@ -32,3 +32,4 @@ compiling_error.txt
 docs/_build/*
 
 *.tdx
+*.tdexp
