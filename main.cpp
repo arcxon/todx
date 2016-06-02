@@ -207,7 +207,8 @@ int parse(char command[80]){
     else if (!(strcmp(command, "export") * strcmp(command, "exp"))) {
         // Export the data to a text file
         arrayL[_currentLindex] = currentL;
-        Export(arrayL);
+
+        Export(arrayL, _arrayLindex);
 
         success = 1;
     }
