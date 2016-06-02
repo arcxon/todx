@@ -21,6 +21,7 @@
 
 #include <fstream>
 #include <iostream>
+#include <cstring>
 
 // some local files
 #include "fabric.h"

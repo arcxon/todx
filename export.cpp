@@ -1,5 +1,9 @@
 #include <fstream>
+#include <iostream>
+#include <cstring>
 #include "fabric.h"
+
+using namespace std;
 
 void Export(List Array[20], int _arrayLindex){
     char fname[40];

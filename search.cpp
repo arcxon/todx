@@ -1,5 +1,10 @@
 #include "fabric.h"
 
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+
 // TODO
 //      [*] -> The Loop should repeat at every charecter <- hell wit the spelling
 
