@@ -30,5 +30,7 @@ void Export(List Array[20], int _arrayLindex){
         file << endl;
     }
 
+    cout << "File exported to : " << fname << " successfully :)" << endl;
+
     file.close();
 }
