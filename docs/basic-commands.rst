@@ -14,5 +14,8 @@ There are various Basic commands in the app. These commands are entered with the
     append
     mark
     search
+    save
+    export
     delete
     qdelete
+    quit

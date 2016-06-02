@@ -12,6 +12,6 @@ view    / v               View the contents of opened list
 status  / stat            View the currently opened list
 search  / grep            Search the Data for string
 delete  / del             Delete List, Todo or Tags
-save    / s               Save the lists to datafile
+export  / exp             Export the lists to a text file
 quit    / q               Save and quit the program
 > help    / -h                   View this Help
