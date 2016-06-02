@@ -37,7 +37,7 @@ List currentL;
 
 int _arrayLindex = 0;
 int _currentLindex;
-int isOpenL = 0;
+int isOpenL = 0; // For checking wether a list is open or not 
 
 char filename[20] = "data.tdx";
 

@@ -7,21 +7,10 @@ void Export(List Array[20], int _arrayLindex){
     cout << "Enter the Export file name " << endl << green << " +> " << normal;
     cin.getline(fname, sizeof(fname));
 
-    strcat(fname, ".txt");
+    strcat(fname, ".tdexp");
 
     ofstream file;
     file.open(fname);
-
-    while (file) {
-        cout << "File found, try another name" << endl;
-
-        cout << "Enter the Export file name " << endl << green << " +> " << normal;
-        cin.getline(fname, sizeof(fname));
-        strcat(fname, ".txt");
-
-        file.open(fname);
-    }
-
 
     for (int i = 0; i < _arrayLindex; i++) {
         file << Array[i].title << endl;
