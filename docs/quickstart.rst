@@ -4,7 +4,7 @@ Quick Start
 
 TodX is a great Todo app. But you need to first learn a tool to use it. Learn it below.
 
-For installation, refer to the :ref:`installation` .
+For installation, refer to the :ref:`installation` for install instructions.
 
 
 Basic Commands
