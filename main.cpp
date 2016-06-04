@@ -164,6 +164,23 @@ int parse(char command[80]){
         success = 1;
     }
 
+    else if (!(strcmp(command, "addtag") * strcmp(command, "addt"))) {
+        // Append a new Todo to the currently opened list
+        if (isOpenL) {
+            char newTag[40];
+
+            cout << "Enter the New Tag " << endl << green << " +> " << normal;
+            cin.getline(newTag, sizeof(newTag));
+            currentL.addTag(newTag);
+        }
+
+        else {
+            cout << "No List is opened, Open a list first" << endl;
+        }
+
+        success = 1;
+    }
+
     else if (!(strcmp(command, "view") * strcmp(command, "v"))) {
         // view todo's of the current list
         if (isOpenL) {
@@ -337,7 +354,7 @@ int parse(char command[80]){
 
     else if (!(strcmp(command, "clear") * strcmp(command, "clr"))) {
         // Refresh the data file
-        // WARN -> Strictly, Not to be used By users, It deletes all the data
+        // XXX WARN XXX -> Strictly, Not to be used By users Deletes all Data
 
         if ( confirm() ) {
             ofstream file(filename, ios::trunc|ios::binary|ios::out);
@@ -363,6 +380,7 @@ int parse(char command[80]){
             finish();
             success = -1;
         }
+
         else {
             success = 1;
         }
@@ -387,6 +405,7 @@ int parse(char command[80]){
 }
 
 void status(){
+    // Display wether a list is open or not
     if (isOpenL) {
         cout << "This List is open : " << currentL.title << endl;
     }
@@ -455,9 +474,10 @@ int main() {
         cin.getline(command, sizeof(command));
         int result = parse(command);
 
-        if(result > 0)
+        if(result > 0){
             continue;
-
+        }
+        
         else if (result == 0) {
             cout << "Command not found, try `help` for help" << endl;
         }
