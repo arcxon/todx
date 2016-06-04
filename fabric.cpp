@@ -1,7 +1,8 @@
-#include "fabric.h"
-
 #include <iostream>
 #include <cstring>
+
+#include "fabric.h"
+
 
 using namespace std;
 
@@ -26,13 +27,13 @@ void List::enter(){
     cin.getline(choice, sizeof(choice));
 
     if (!(strcmp(choice, "yes")*strcmp(choice, "y"))) {
-        char tagTemp[220];
+        char tagTemp[20];
 
         cout << "Enter the tag one at a time" << endl << "\'d\' when done " << endl;
         cout << green << " +> " << normal;
 
         while (1) {
-            cin.getline(tagTemp, 20);
+            cin.getline(tagTemp, sizeof(tagTemp));
 
             if (strcmp(tagTemp, "d") != 0) {
                 addTag(tagTemp);
@@ -120,7 +121,7 @@ void List::tagIndexView() {
 void List::append(){
     char Content[200];
     cout << "Enter the content of ToDo" << endl << green << " +> " << normal;
-    cin.getline(Content, 200);
+    cin.getline(Content, sizeof(Content));
 
     strcpy(list[_listIndex].content, Content);
 

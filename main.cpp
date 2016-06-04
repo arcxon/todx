@@ -413,7 +413,7 @@ int confirm() {
     // can be used as if( confirm() ) /// Improves yes/no prompts
     char confm[10];
     cout << "Enter \'yes\' to continue" << endl << Bred << " ?> " << normal;
-    cin.getline(confm, 10);
+    cin.getline(confm, sizeof(confm));
 
     if (!(strcmp(confm, "yes") * strcmp(confm, "y"))) {
         return 1;
@@ -452,7 +452,7 @@ int main() {
 
     while (1) {
         cout << yellow << "\n *> " << normal;
-        cin.getline(command, 80);
+        cin.getline(command, sizeof(command));
         int result = parse(command);
 
         if(result > 0)
