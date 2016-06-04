@@ -8,6 +8,6 @@ User Guide
     :maxdepth: 2
 
     installation
-    basic-commands
+    Basic-Commands/index.rst
     entry-modes
-    data-concepts
+    Data-Concepts/index.rst

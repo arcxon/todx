@@ -16,7 +16,7 @@ Contents
 --------
 
 .. toctree::
-    :maxdepth: 3
+    :maxdepth: 2
 
     quickstart
-    userguide
+    User-Guide/index.rst
