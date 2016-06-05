@@ -44,14 +44,14 @@ char filename[20] = "data.tdx";
 
 // Fxns Used
 
-void initiate();
-int parse(char []);
-void status();
-void openL(int);
-void displayL();
-int confirm();
-void empty();
-void finish();
+void    initiate();         // Initiate the data before user inteface
+int     parse(char []);     // run the command entered by the users
+void    status();           // display status of opened list
+void    openL(int);         // open the list specified by index
+void    displayL();         // display all the lists
+int     confirm();          // ask for confirmation (y/n)
+void    empty();            // remove data from the program & data-file
+void    finish();           // save the data to the data-file
 
 void initiate() {
     // Fxn to read data from external file int the array of Lists
@@ -72,7 +72,7 @@ int parse(char command[80]){
     /// to give zero. Mathematically it is quite accurate and syntactically
     /// beautiful.
 
-    int success = 0;
+    int success = 0; // to mark wether a command completed successfully
 
     if (!(strcmp(command, "new") * strcmp(command, "n"))) {
         // Create a new List
@@ -209,11 +209,11 @@ int parse(char command[80]){
 
     else if (!(strcmp(command, "search") * strcmp(command, "grep"))) {
         // Search the Database
-        char term[40];
+        char searchTerm[40];
 
         cout << "Enter the search term " << endl << green << " +> " << normal;
-        cin.getline(term, sizeof(term));
-        search(term, arrayL);
+        cin.getline(searchTerm, sizeof(searchTerm));
+        search(searchTerm, arrayL);
         success = 1;
     }
 
@@ -354,7 +354,7 @@ int parse(char command[80]){
 
     else if (!(strcmp(command, "clear") * strcmp(command, "clr"))) {
         // Refresh the data file
-        // XXX WARN XXX -> Strictly, Not to be used By users Deletes all Data
+        // XXX WARN XXX -> Strictly, Not to be used By users, Deletes all Data
 
         if ( confirm() ) {
             ofstream file(filename, ios::trunc|ios::binary|ios::out);
@@ -477,7 +477,7 @@ int main() {
         if(result > 0){
             continue;
         }
-        
+
         else if (result == 0) {
             cout << "Command not found, try `help` for help" << endl;
         }
@@ -488,7 +488,7 @@ int main() {
         }
 
         else {
-            cout << "Something went terribly wrong, we are sorry for it. :(" << endl;
+            cout << "Something went terribly wrong, we apologize :(" << endl;
         }
     }
 
