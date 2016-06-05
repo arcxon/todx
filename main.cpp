@@ -408,10 +408,14 @@ void status(){
     // Display wether a list is open or not
     if (isOpenL) {
         cout << "This List is open : " << currentL.title << endl;
+        cout << "Total No. of todos : " << currentL._listIndex << endl;
     }
+
     else {
         cout << "No list is open" << endl;
     }
+
+    cout << "Total lists = " << _arrayLindex << endl;
 }
 
 void openL(int index) {
