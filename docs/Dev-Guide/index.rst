@@ -9,3 +9,5 @@ This documentation is for the people who want to contribute to TodX by improving
 
 .. toctree::
     :maxdepth: 2
+
+    install-from-source
