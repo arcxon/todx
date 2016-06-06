@@ -38,6 +38,7 @@ class List {
 
     int _listIndex;     // Variable to count the filling of list
     int _tagIndex;      // Variable to count the filling of tags
+    int _hasTags;
 
     List();                 // Asks for #title(required) and #tags(can be skipped).
 
