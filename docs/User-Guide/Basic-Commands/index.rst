@@ -19,4 +19,5 @@ There are various Basic commands in the app. These commands are entered with the
     export
     delete
     qdelete
+    help
     quit

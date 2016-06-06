@@ -15,20 +15,12 @@ TodX is a simple and to the point ToDo list app which enhances productivity and 
 Contents
 ****************
 
-User Guide
-----------------
-
-
 .. toctree::
     :caption: User Guide
     :maxdepth: 2
 
     quickstart
     User-Guide/index.rst
-
-
-Developer's Guide
-----------------
 
 .. toctree::
     :caption: Developer's Guide

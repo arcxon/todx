@@ -5,19 +5,20 @@ Help
 ======
 
 Command
--------
+*******
 
 ``help`` or ``h``
 
 
 Function
---------
+********
 
-This saves the data to a readable text file.
+Displays Help file.
 
 Explanation
------------
+***********
 
-It saves the contents of Lists in an external human readable text file. The extension is ``.tdexp``. This file cannot be reread by the program.
+Displays the commonly used commands and the lisence info with link to the documentation.
 
-..  Warning::   If a file exists by the same name It is **Over Written**, Please later save your exported files to different location.
+
+..  Warning::   For Help to display, there should be ``help.txt`` in the directory of executable.
