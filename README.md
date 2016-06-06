@@ -1,6 +1,6 @@
 ![website screenshot](http://i.imgur.com/2MZxbAM.png)
 
-[official website](http://arcxon.github.io/todx)
+[website](http://arcxon.github.io/todx)
 
 [![Build Status](https://travis-ci.org/arcxon/todx.svg?branch=master)](https://travis-ci.org/arcxon/todx) [![Join the chat at https://gitter.im/arcxon/todx](https://badges.gitter.im/arcxon/todx.svg)](https://gitter.im/arcxon/todx?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
