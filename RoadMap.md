@@ -5,7 +5,7 @@ This file represents the stuff that is thought to be included in the app.
 ## Features
 
 - [ ] Beautiful html output for lists
-- [ ] Tag adding after creation
+- [x] Tag adding after creation
 
 ## Other stuff
 

@@ -10,6 +10,12 @@ It is highly configurable.
 
 Read the [Quick Start](http://todx.readthedocs.io/en/latest/quickstart.html) to get started.
 
+## Features
+
+- fast
+- easy to use
+- extensible
+
 ## Documentation
 
 [![Join the chat at https://gitter.im/arcxon/todx](https://badges.gitter.im/arcxon/todx.svg)](https://gitter.im/arcxon/todx?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
