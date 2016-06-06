@@ -1,4 +1,4 @@
-all: todx.out
+all: clean todx.out
 
 todx.out: fabric.o main.o
 	g++ -o todx.out main.o fabric.o

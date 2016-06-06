@@ -9,11 +9,13 @@ using namespace std;
 List::List(){
     _listIndex = 0;
     _tagIndex = 0;
+    _hasTags = 0;
 }
 
 List::List(char Title[100]) {
     _listIndex = 0;
     _tagIndex = 0;
+    _hasTags = 0;
 
     strcpy(title, Title);
 }
@@ -44,7 +46,11 @@ void List::enter(){
                 break;
             }
         }
+
+        _hasTags = 1;
     }
+
+    cout << "Has tags = " << _hasTags << endl;
 
 }
 
@@ -62,12 +68,14 @@ void List::view() {
     cout << title << endl;
     cout << "============" << endl;
 
-    cout << "Tags : ";
-    for (int i = 0; i < _tagIndex; i++) {
-        cout << tags[i] << " ";
-    }
+    if (_hasTags) {
+        cout << "Tags : ";
+        for (int i = 0; i < _tagIndex; i++) {
+            cout << tags[i] << " ";
+        }
 
-    cout << endl << endl;
+        cout << endl << endl;
+    }
 
     for (int i = 0; i < _listIndex; i++) {
         cout << "  [" << list[i].status << "]  ";
@@ -79,12 +87,14 @@ void List::indexView() {
     cout << title << endl;
     cout << "============" << endl;
 
-    cout << "Tags : ";
-    for (int i = 0; i < _tagIndex; i++) {
-        cout << tags[i] << " ";
-    }
+    if (_hasTags) {
+        cout << "Tags : ";
+        for (int i = 0; i < _tagIndex; i++) {
+            cout << tags[i] << " ";
+        }
 
-    cout << endl << endl;
+        cout << endl << endl;
+    }
 
     for (int i = 0; i < _listIndex; i++) {
         cout << " " << i << ". [" << list[i].status << "]  ";
@@ -95,12 +105,15 @@ void List::indexView() {
 void List::tagView() {
     cout << title << endl;
 
-    cout << "Tags : ";
-    for (int i = 0; i < _tagIndex; i++) {
-        cout << tags[i] << " ";
+    if (_hasTags) {
+        cout << "Tags : ";
+        for (int i = 0; i < _tagIndex; i++) {
+            cout << tags[i] << " ";
+        }
+
+        cout << endl;
     }
 
-    cout << endl;
 }
 
 void List::todoView(int index) {
@@ -112,9 +125,17 @@ void List::tagIndexView() {
     cout << title << endl;
     cout << "============" << endl;
 
-    cout << "Tags :" << endl;
-    for (int i = 0; i < _tagIndex; i++) {
-        cout << " " << i << ". " << tags[i] << endl;
+    if (_hasTags) {
+        cout << "Tags : ";
+        for (int i = 0; i < _tagIndex; i++) {
+            cout << tags[i] << " ";
+        }
+
+        cout << endl << endl;
+    }
+
+    else {
+        cout << "No tags here." << endl;
     }
 }
 
@@ -142,6 +163,9 @@ void List::removeTag(int index) {
         strcpy(tags[i], tags[i + 1]);
     }
     _tagIndex--;
+    if (_tagIndex == 0) {
+        _hasTags = 0;
+    }
 }
 
 void List::changeStatus(int index, char status){
