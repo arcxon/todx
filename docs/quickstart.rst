@@ -52,6 +52,12 @@ Command : ``mark`` or ``m``
 
 Mark a Todo as done using charcters like ``*`` or ``#``.
 
+:ref:`search`
+~~~~~~~~~~~~~
+Command : ``search`` or ``grep``
+
+Search the data for a search term.
+
 :ref:`export`
 ~~~~~~~~~~~~~
 Command : ``export`` or ``exp``
