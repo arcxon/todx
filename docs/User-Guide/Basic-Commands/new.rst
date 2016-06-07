@@ -5,17 +5,17 @@ New
 ===
 
 Command
--------
+*******
 
 ``new`` or ``n``
 
 Function
---------
+********
 
 Adds/Creates a new List.
 
 Explanation
------------
+***********
 
 It creates a new List, and when executed asks for the **title** (mandatory) and **tags**.
 

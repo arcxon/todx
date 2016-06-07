@@ -1,4 +1,4 @@
-.. _quick-start:
+.. _quick*start:
 
 ===========
 Quick Start
@@ -10,7 +10,7 @@ For installation, refer to the :ref:`installation` for install instructions.
 
 
 Basic Commands
---------------
+**************
 
 These commands are used in the app to do the root or basic actions like open, append etc. These are entered in the ``*>`` prompt.
 
@@ -66,7 +66,7 @@ Close the app. It also saves the notes to the data file.
 
 
 :ref:`entry-modes`
-------------------
+******************
 
 These are the prompts used in the app
 

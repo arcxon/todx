@@ -5,19 +5,19 @@ Qdelete
 =======
 
 Command
--------
+*******
 
 ``qdelete`` or ``qdel``
 
 ..  Warning:: You can use this command only when a list is open, use ``open`` to open a list.
 
 Function
---------
+********
 
 This deletes Todo specified
 
 Explanation
------------
+***********
 
 Like `delete` but skips the step for asking for **Todo**. Used to **Quickly** (thus qdelete) Delete a Todo.
 
