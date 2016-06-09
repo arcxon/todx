@@ -23,20 +23,31 @@ If you want the repo for just seeing the code. ::
 Compiling and running
 *********************
 
-You should have ``make`` and ``g++`` installed, although I don't think the compilation is dependent on platform since the code uses mostly standard c++. To compile the source use ``$ make``. To run it use ``make run``.
+You should have ``make`` and ``g++`` installed, although I don't think the compilation is dependent on platform since the code uses mostly standard c++. To compile the source use ``$ make``. To run it use ``make run``. As given below ::
+
+    $ make
+    $ make run
 
 ..  Note:: Makefile already has a command for ``make clean`` so run it to remove the object files.
 
 After successfull installation and running you can try out the program.
 
+The binary and object files are located at `build` directory.
+
+To clean/remove build directory eith object and executable binary, run ::
+
+    $ make clean
+
 Building the Docs
 *****************
+
+..  Note:: For Building Docs, You need `pip` installed.
 
 After installation, you might want to build the docs, for this you need to install the following:
 
 Sphinx
 ----------------
-Install the Documentation generator.::
+Install the Documentation generator. ::
 
     $ pip install sphinx sphinx-autobuild
 
