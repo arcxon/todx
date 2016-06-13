@@ -50,7 +50,7 @@ void List::enter(){
         _hasTags = 1;
     }
 
-    cout << "Has tags = " << _hasTags << endl;
+    // cout << "Has tags = " << _hasTags << endl;
 
 }
 
