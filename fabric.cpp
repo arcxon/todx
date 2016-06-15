@@ -147,7 +147,6 @@ void List::append(){
     strcpy(list[_listIndex].content, Content);
 
     list[_listIndex].status = ' ';
-    list[_listIndex]._index = _listIndex;
     _listIndex++;
 }
 

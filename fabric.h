@@ -26,7 +26,6 @@ class Todo{
   public:
     char content[200];
     char status;
-    int _index;
 };
 
 class List {
