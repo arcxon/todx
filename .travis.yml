@@ -9,4 +9,4 @@ branches:
   except:
     - gh-pages
 
-script: make clean all
+script: make all
