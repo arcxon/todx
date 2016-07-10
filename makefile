@@ -17,3 +17,4 @@ build-dir:
 
 clean:
 	rm -r build
+	rm -f data.tdx
