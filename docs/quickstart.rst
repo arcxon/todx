@@ -28,9 +28,9 @@ Open a list from previously created lists. The list that is opened with this com
 
 ..  Note::  Commands marked * work only when a list is open.
 
-:ref:`status`
+:ref:`stats`
 ~~~~~~~~~~~~~
-Command : ``status`` or ``stat``
+Command : ``stats`` or ``stat``
 
 View wether a list is opened or not.
 

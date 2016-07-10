@@ -1,13 +1,13 @@
-.. _status:
+.. _stats:
 
 ======
-Status
+Stats
 ======
 
 Command
 *******
 
-``status`` or ``stat``
+``stats`` or ``stat``
 
 Function
 ********

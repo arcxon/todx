@@ -19,7 +19,27 @@ Linux
 
 ..  Note:: You should also copy ``help.txt`` so that :ref:`help` command works.
 
+Windows
+****************
+
+1. Clone the repo using ``git clone https://github.com/arcxon/todx.git`` or Download the Source zip.
+
+2. Ensure ``g++`` is installed using the bellow command in the pallete :
+
+    g++ -v
+
+If it prints some strange stuff that relates to version number etc then all is well and good. If not, and it shows command not found, then download and install `MinGW`_.
+
+3. Now, We compile the code :
+
+    g++ main.cpp fabric.cpp -o todx.exe
+
+4. The binary ``todx.exe`` is ready to be executed. Move it to your desired folder to store the todo's. Don't forget to move the ``help.txt``, since the program requires it. Then simply execute ``todx.exe`` to enjoy it.
+
 Binary Executables
 ******************
 
 There is a plan to offer stable binary builds for both Linux and Windows. Please Remain Calm and use compilation till then.
+
+
+.. _MinGW: http://mingw.org/

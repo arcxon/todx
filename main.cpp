@@ -46,7 +46,7 @@ char filename[20] = "data.tdx";
 
 void    initiate();         // Initiate the data before user inteface
 int     parse(char []);     // run the command entered by the users
-void    status();           // display status of opened list
+void    stats();           // display stats of opened list
 void    openL(int);         // open the list specified by index
 void    displayL();         // display all the lists
 int     confirm();          // ask for confirmation (y/n)
@@ -80,9 +80,9 @@ int parse(char command[80]){
         success = 1;
     }
 
-    else if (!(strcmp(command, "status") * strcmp(command, "stat"))) {
-        // Display the status
-        status();
+    else if (!(strcmp(command, "stats") * strcmp(command, "stat"))) {
+        // Display the stats
+        stats();
         success = 1;
     }
 
@@ -404,7 +404,7 @@ int parse(char command[80]){
     return success;
 }
 
-void status(){
+void stats(){
     // Display wether a list is open or not
     if (isOpenL) {
         cout << "This List is open : " << currentL.title << endl;

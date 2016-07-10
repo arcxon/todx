@@ -19,7 +19,7 @@ Todo is the basic unit of the application it contains the following public data 
 
 - ``content`` a character array of 200 char elements.
 
-- ``status`` user defined char that stores the :ref:`status-def`.
+- ``status`` user defined char that stores the :ref:`status`.
 
 List
 ****************

@@ -6,12 +6,12 @@ ToDo
 
 This is the basic unit of the program. It stores the sentence that you would like to be reminded of with a status.
 
-.. _status-def:
+.. _status:
 
 Status
 ****************
 
-.. Note: Not to be confused with :ref:`status` command.
+.. Note: Not to be confused with :ref:`stats` command.
 
 This represents the *status* or what is the position of your Todo. This is set and maintained by the user using the :ref:`mark` command. It is a charater, Any character on your keyboard. Usually it is ``*`` or ``o`` for done. ``!`` for important, ``?`` for unknown. and ``=`` or ``-`` for doing.
 

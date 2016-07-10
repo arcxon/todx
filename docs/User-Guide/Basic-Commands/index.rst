@@ -9,7 +9,7 @@ There are various Basic commands in the app. These commands are entered with the
 
     new
     open
-    status
+    stats
     view
     append
     mark
