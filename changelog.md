@@ -1,5 +1,12 @@
 # Change Log :memo:
 
+## v1.00a Voltus _First Stable release_
+#### _Sunday, July 10 2016_
+
+- Executables
+- Removed ambiguity of stats
+- Stable docs
+
 ## v0.03a Principium
 #### _Thursday, June 02 2016_
 

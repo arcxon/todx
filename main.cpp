@@ -469,7 +469,7 @@ int main() {
 
     cout << "=== --- --> \033[5;33;1m TodX \033[0;m <-- --- ===" << endl;
     cout << "Welcome to TodX the ultimate Todo list" << endl;
-    cout << "v0.10a = Linux Build, docs at -> http://todx.rtfd.io" << endl;
+    cout << "v1.00a = Linux Build, docs at -> http://todx.rtfd.io" << endl;
 
     char command[80];
 

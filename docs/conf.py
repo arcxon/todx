@@ -56,7 +56,7 @@ author = 'AdiUltra'
 # built documents.
 #
 # The short X.Y version.
-version = '0.03'
+version = '1.00'
 # The full version, including alpha/beta/rc tags.
 release = 'a'
 

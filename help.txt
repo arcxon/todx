@@ -1,4 +1,4 @@
-TodX v0.01a, Build = Linux
+TodX v1.00a, Build = Linux
 ===========================
 Documentation at http://todx.rtfd.io , Licensed GPLv3
 
