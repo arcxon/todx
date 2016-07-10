@@ -9,7 +9,7 @@ This file represents the stuff that is thought to be included in the app.
 
 ## Other stuff
 
-- [ ] Better comprehensive Developer's Docs
+- [x] Better comprehensive Developer's Docs
 - [ ] Use Unit tests
 - [ ] Create a GUI (Highly Improbable)
-- [ ] Distribute prebuilt Binaries
+- [x] Distribute prebuilt Binaries
