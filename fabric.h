@@ -4,27 +4,28 @@
 
 // Color variables using ANSI sequences
 
-const char Bred[12] = "\033[1;31m";
-const char Bgreen[12] = "\033[1;32m";
-const char Byellow[12] = "\033[1;33m";
-const char Bblue[12] = "\033[1;34m";
-const char Bmagenta[12] = "\033[1;35m";
-const char Bcyan[12] = "\033[1;36m";
+const char Bred[12]     =   "\033[1;31m";
+const char Bgreen[12]   =   "\033[1;32m";
+const char Byellow[12]  =   "\033[1;33m";
+const char Bblue[12]    =   "\033[1;34m";
+const char Bmagenta[12] =   "\033[1;35m";
+const char Bcyan[12]    =   "\033[1;36m";
 
-const char red[12] = "\033[;31m";
-const char green[12] = "\033[;32m";
-const char yellow[12] = "\033[;33m";
-const char blue[12] = "\033[;34m";
-const char magenta[12] = "\033[;35m";
-const char cyan[12] = "\033[;36m";
+const char red[12]      =   "\033[;31m";
+const char green[12]    =   "\033[;32m";
+const char yellow[12]   =   "\033[;33m";
+const char blue[12]     =   "\033[;34m";
+const char magenta[12]  =   "\033[;35m";
+const char cyan[12]     =   "\033[;36m";
 
-const char normal[12]  = "\033[0;m";
+const char normal[12]   =   "\033[0;m";
+
+// Classes
 
 class Todo{
   public:
     char content[200];
     char status;
-    int _index;
 };
 
 class List {
@@ -36,6 +37,7 @@ class List {
 
     int _listIndex;     // Variable to count the filling of list
     int _tagIndex;      // Variable to count the filling of tags
+    int _hasTags;
 
     List();                 // Asks for #title(required) and #tags(can be skipped).
 

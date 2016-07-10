@@ -44,14 +44,14 @@ char filename[20] = "data.tdx";
 
 // Fxns Used
 
-void initiate();
-int parse(char []);
-void status();
-void openL(int);
-void displayL();
-int confirm();
-void empty();
-void finish();
+void    initiate();         // Initiate the data before user inteface
+int     parse(char []);     // run the command entered by the users
+void    stats();           // display stats of opened list
+void    openL(int);         // open the list specified by index
+void    displayL();         // display all the lists
+int     confirm();          // ask for confirmation (y/n)
+void    empty();            // remove data from the program & data-file
+void    finish();           // save the data to the data-file
 
 void initiate() {
     // Fxn to read data from external file int the array of Lists
@@ -72,7 +72,7 @@ int parse(char command[80]){
     /// to give zero. Mathematically it is quite accurate and syntactically
     /// beautiful.
 
-    int success = 0;
+    int success = 0; // to mark wether a command completed successfully
 
     if (!(strcmp(command, "new") * strcmp(command, "n"))) {
         // Create a new List
@@ -80,9 +80,9 @@ int parse(char command[80]){
         success = 1;
     }
 
-    else if (!(strcmp(command, "status") * strcmp(command, "stat"))) {
-        // Display the status
-        status();
+    else if (!(strcmp(command, "stats") * strcmp(command, "stat"))) {
+        // Display the stats
+        stats();
         success = 1;
     }
 
@@ -164,6 +164,23 @@ int parse(char command[80]){
         success = 1;
     }
 
+    else if (!(strcmp(command, "addtag") * strcmp(command, "addt"))) {
+        // Append a new Todo to the currently opened list
+        if (isOpenL) {
+            char newTag[40];
+
+            cout << "Enter the New Tag " << endl << green << " +> " << normal;
+            cin.getline(newTag, sizeof(newTag));
+            currentL.addTag(newTag);
+        }
+
+        else {
+            cout << "No List is opened, Open a list first" << endl;
+        }
+
+        success = 1;
+    }
+
     else if (!(strcmp(command, "view") * strcmp(command, "v"))) {
         // view todo's of the current list
         if (isOpenL) {
@@ -192,11 +209,11 @@ int parse(char command[80]){
 
     else if (!(strcmp(command, "search") * strcmp(command, "grep"))) {
         // Search the Database
-        char term[40];
+        char searchTerm[40];
 
         cout << "Enter the search term " << endl << green << " +> " << normal;
-        cin.getline(term, sizeof(term));
-        search(term, arrayL);
+        cin.getline(searchTerm, sizeof(searchTerm));
+        search(searchTerm, arrayL);
         success = 1;
     }
 
@@ -337,7 +354,7 @@ int parse(char command[80]){
 
     else if (!(strcmp(command, "clear") * strcmp(command, "clr"))) {
         // Refresh the data file
-        // WARN -> Strictly, Not to be used By users, It deletes all the data
+        // XXX WARN XXX -> Strictly, Not to be used By users, Deletes all Data
 
         if ( confirm() ) {
             ofstream file(filename, ios::trunc|ios::binary|ios::out);
@@ -363,6 +380,7 @@ int parse(char command[80]){
             finish();
             success = -1;
         }
+
         else {
             success = 1;
         }
@@ -386,13 +404,18 @@ int parse(char command[80]){
     return success;
 }
 
-void status(){
+void stats(){
+    // Display wether a list is open or not
     if (isOpenL) {
         cout << "This List is open : " << currentL.title << endl;
+        cout << "Total No. of todos : " << currentL._listIndex << endl;
     }
+
     else {
         cout << "No list is open" << endl;
     }
+
+    cout << "Total lists = " << _arrayLindex << endl;
 }
 
 void openL(int index) {
@@ -413,7 +436,7 @@ int confirm() {
     // can be used as if( confirm() ) /// Improves yes/no prompts
     char confm[10];
     cout << "Enter \'yes\' to continue" << endl << Bred << " ?> " << normal;
-    cin.getline(confm, 10);
+    cin.getline(confm, sizeof(confm));
 
     if (!(strcmp(confm, "yes") * strcmp(confm, "y"))) {
         return 1;
@@ -446,17 +469,18 @@ int main() {
 
     cout << "=== --- --> \033[5;33;1m TodX \033[0;m <-- --- ===" << endl;
     cout << "Welcome to TodX the ultimate Todo list" << endl;
-    cout << "v0.03a = Linux Build, docs at -> http://todx.rtfd.io" << endl;
+    cout << "v1.00a = Linux Build, docs at -> http://todx.rtfd.io" << endl;
 
     char command[80];
 
     while (1) {
         cout << yellow << "\n *> " << normal;
-        cin.getline(command, 80);
+        cin.getline(command, sizeof(command));
         int result = parse(command);
 
-        if(result > 0)
+        if(result > 0){
             continue;
+        }
 
         else if (result == 0) {
             cout << "Command not found, try `help` for help" << endl;
@@ -468,7 +492,7 @@ int main() {
         }
 
         else {
-            cout << "Something went terribly wrong, we are sorry for it. :(" << endl;
+            cout << "Something went terribly wrong, we apologize :(" << endl;
         }
     }
 
