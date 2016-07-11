@@ -476,6 +476,12 @@ int main() {
     while (1) {
         cout << yellow << "\n *> " << normal;
         cin.getline(command, sizeof(command));
+
+        if (!cin) {
+            cout << "Have a Great Day :)" << endl;
+            break;
+        }
+
         int result = parse(command);
 
         if(result > 0){
