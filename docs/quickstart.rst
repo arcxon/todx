@@ -54,7 +54,7 @@ Mark a Todo as done using charcters like ``*`` or ``#``.
 
 :ref:`search`
 ~~~~~~~~~~~~~
-Command : ``search`` or ``grep``
+Command : ``search`` or ``srch``
 
 Search the data for a search term.
 

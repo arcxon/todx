@@ -10,7 +10,7 @@ append  / a               Append a todo to the opened list
 mark    / m               Mark a todo with a symbol
 view    / v               View the contents of opened list
 stats   / stat            View the currently opened list
-search  / grep            Search the Data for string
+search  / srch            Search the Data for string
 delete  / del             Delete List, Todo or Tags
 export  / exp             Export the lists to a text file
 quit    / q               Save and quit the program

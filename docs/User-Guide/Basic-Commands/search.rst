@@ -7,7 +7,7 @@ Search
 Command
 *******
 
-``search`` or ``grep``
+``search`` or ``srch``
 
 
 Function

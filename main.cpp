@@ -207,7 +207,7 @@ int parse(char command[80]){
         success = 1;
     }
 
-    else if (!(strcmp(command, "search") * strcmp(command, "grep"))) {
+    else if (!(strcmp(command, "search") * strcmp(command, "srch"))) {
         // Search the Database
         char searchTerm[40];
 
