@@ -213,6 +213,11 @@ int parse(char command[80]){
 
         cout << "Enter the search term " << endl << green << " +> " << normal;
         cin.getline(searchTerm, sizeof(searchTerm));
+
+        if (isOpenL) {
+            arrayL[_currentLindex] = currentL;
+        }
+
         search(searchTerm, arrayL);
         success = 1;
     }
