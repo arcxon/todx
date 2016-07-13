@@ -333,6 +333,14 @@ html {
               font-size: 2em; }
             html body .page table.feature-list tbody tr td p {
               text-indent: 0; }
+      html body .page .asciicast {
+        text-align: center;
+        padding: 10px !important;
+        margin: 10px !important; }
+        html body .page .asciicast iframe {
+          box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+          padding: 10px;
+          margin: 10px; }
     html body .footer {
       padding: 1% 0%;
       text-align: center;
