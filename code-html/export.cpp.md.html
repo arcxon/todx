@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <title>Markdown to HTML</title>
+      <style>.markdown-preview:not([data-use-github-style]) { padding: 2em; font-size: 1.2em; color: rgb(74, 100, 87); overflow: auto; background-color: rgb(242, 243, 242); }
+.markdown-preview:not([data-use-github-style]) > :first-child { margin-top: 0px; }
+.markdown-preview:not([data-use-github-style]) h1, .markdown-preview:not([data-use-github-style]) h2, .markdown-preview:not([data-use-github-style]) h3, .markdown-preview:not([data-use-github-style]) h4, .markdown-preview:not([data-use-github-style]) h5, .markdown-preview:not([data-use-github-style]) h6 { line-height: 1.2; margin-top: 1.5em; margin-bottom: 0.5em; color: rgb(4, 6, 5); }
+.markdown-preview:not([data-use-github-style]) h1 { font-size: 2.4em; font-weight: 300; }
+.markdown-preview:not([data-use-github-style]) h2 { font-size: 1.8em; font-weight: 400; }
+.markdown-preview:not([data-use-github-style]) h3 { font-size: 1.5em; font-weight: 500; }
+.markdown-preview:not([data-use-github-style]) h4 { font-size: 1.2em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h5 { font-size: 1.1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h6 { font-size: 1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) strong { color: rgb(4, 6, 5); }
+.markdown-preview:not([data-use-github-style]) del { color: rgb(108, 147, 128); }
+.markdown-preview:not([data-use-github-style]) a, .markdown-preview:not([data-use-github-style]) a code { color: rgb(159, 168, 163); }
+.markdown-preview:not([data-use-github-style]) img { max-width: 100%; }
+.markdown-preview:not([data-use-github-style]) > p { margin-top: 0px; margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) > ul, .markdown-preview:not([data-use-github-style]) > ol { margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) blockquote { margin: 1.5em 0px; font-size: inherit; color: rgb(108, 147, 128); border-color: rgb(200, 203, 201); border-width: 4px; }
+.markdown-preview:not([data-use-github-style]) hr { margin: 3em 0px; border-top-width: 2px; border-top-style: dashed; border-top-color: rgb(200, 203, 201); background: none; }
+.markdown-preview:not([data-use-github-style]) table { margin: 1.5em 0px; }
+.markdown-preview:not([data-use-github-style]) th { color: rgb(4, 6, 5); }
+.markdown-preview:not([data-use-github-style]) th, .markdown-preview:not([data-use-github-style]) td { padding: 0.66em 1em; border: 1px solid rgb(200, 203, 201); }
+.markdown-preview:not([data-use-github-style]) code { color: rgb(4, 6, 5); background-color: rgb(226, 228, 227); }
+.markdown-preview:not([data-use-github-style]) pre.editor-colors { margin: 1.5em 0px; padding: 1em; font-size: 0.92em; border-radius: 3px; background-color: rgb(232, 233, 232); }
+.markdown-preview:not([data-use-github-style]) kbd { color: rgb(4, 6, 5); border-width: 1px 1px 2px; border-style: solid; border-color: rgb(200, 203, 201) rgb(200, 203, 201) rgb(185, 188, 186); background-color: rgb(226, 228, 227); }
+.markdown-preview[data-use-github-style] { font-family: 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif; line-height: 1.6; word-wrap: break-word; padding: 30px; font-size: 16px; color: rgb(51, 51, 51); overflow: scroll; background-color: rgb(255, 255, 255); }
+.markdown-preview[data-use-github-style] > :first-child { margin-top: 0px !important; }
+.markdown-preview[data-use-github-style] > :last-child { margin-bottom: 0px !important; }
+.markdown-preview[data-use-github-style] a:not([href]) { color: inherit; text-decoration: none; }
+.markdown-preview[data-use-github-style] .absent { color: rgb(204, 0, 0); }
+.markdown-preview[data-use-github-style] .anchor { position: absolute; top: 0px; left: 0px; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; }
+.markdown-preview[data-use-github-style] .anchor:focus { outline: none; }
+.markdown-preview[data-use-github-style] h1, .markdown-preview[data-use-github-style] h2, .markdown-preview[data-use-github-style] h3, .markdown-preview[data-use-github-style] h4, .markdown-preview[data-use-github-style] h5, .markdown-preview[data-use-github-style] h6 { position: relative; margin-top: 1em; margin-bottom: 16px; font-weight: bold; line-height: 1.4; }
+.markdown-preview[data-use-github-style] h1 .octicon-link, .markdown-preview[data-use-github-style] h2 .octicon-link, .markdown-preview[data-use-github-style] h3 .octicon-link, .markdown-preview[data-use-github-style] h4 .octicon-link, .markdown-preview[data-use-github-style] h5 .octicon-link, .markdown-preview[data-use-github-style] h6 .octicon-link { display: none; color: rgb(0, 0, 0); vertical-align: middle; }
+.markdown-preview[data-use-github-style] h1:hover .anchor, .markdown-preview[data-use-github-style] h2:hover .anchor, .markdown-preview[data-use-github-style] h3:hover .anchor, .markdown-preview[data-use-github-style] h4:hover .anchor, .markdown-preview[data-use-github-style] h5:hover .anchor, .markdown-preview[data-use-github-style] h6:hover .anchor { padding-left: 8px; margin-left: -30px; text-decoration: none; }
+.markdown-preview[data-use-github-style] h1:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h2:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h3:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h4:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h5:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h6:hover .anchor .octicon-link { display: inline-block; }
+.markdown-preview[data-use-github-style] h1 tt, .markdown-preview[data-use-github-style] h2 tt, .markdown-preview[data-use-github-style] h3 tt, .markdown-preview[data-use-github-style] h4 tt, .markdown-preview[data-use-github-style] h5 tt, .markdown-preview[data-use-github-style] h6 tt, .markdown-preview[data-use-github-style] h1 code, .markdown-preview[data-use-github-style] h2 code, .markdown-preview[data-use-github-style] h3 code, .markdown-preview[data-use-github-style] h4 code, .markdown-preview[data-use-github-style] h5 code, .markdown-preview[data-use-github-style] h6 code { font-size: inherit; }
+.markdown-preview[data-use-github-style] h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h1 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h2 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h3 { font-size: 1.5em; line-height: 1.43; }
+.markdown-preview[data-use-github-style] h3 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h4 { font-size: 1.25em; }
+.markdown-preview[data-use-github-style] h4 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h5 { font-size: 1em; }
+.markdown-preview[data-use-github-style] h5 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] h6 { font-size: 1em; color: rgb(119, 119, 119); }
+.markdown-preview[data-use-github-style] h6 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] p, .markdown-preview[data-use-github-style] blockquote, .markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol, .markdown-preview[data-use-github-style] dl, .markdown-preview[data-use-github-style] table, .markdown-preview[data-use-github-style] pre { margin-top: 0px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] hr { height: 4px; padding: 0px; margin: 16px 0px; border: 0px none; background-color: rgb(231, 231, 231); }
+.markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol { padding-left: 2em; }
+.markdown-preview[data-use-github-style] ul.no-list, .markdown-preview[data-use-github-style] ol.no-list { padding: 0px; list-style-type: none; }
+.markdown-preview[data-use-github-style] ul ul, .markdown-preview[data-use-github-style] ul ol, .markdown-preview[data-use-github-style] ol ol, .markdown-preview[data-use-github-style] ol ul { margin-top: 0px; margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] li > p { margin-top: 16px; }
+.markdown-preview[data-use-github-style] dl { padding: 0px; }
+.markdown-preview[data-use-github-style] dl dt { padding: 0px; margin-top: 16px; font-size: 1em; font-style: italic; font-weight: bold; }
+.markdown-preview[data-use-github-style] dl dd { padding: 0px 16px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] blockquote { padding: 0px 15px; color: rgb(119, 119, 119); border-left-width: 4px; border-left-style: solid; border-left-color: rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] blockquote > :first-child { margin-top: 0px; }
+.markdown-preview[data-use-github-style] blockquote > :last-child { margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] table { display: block; width: 100%; overflow: auto; word-break: keep-all; }
+.markdown-preview[data-use-github-style] table th { font-weight: bold; }
+.markdown-preview[data-use-github-style] table th, .markdown-preview[data-use-github-style] table td { padding: 6px 13px; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] table tr { border-top-width: 1px; border-top-style: solid; border-top-color: rgb(204, 204, 204); background-color: rgb(255, 255, 255); }
+.markdown-preview[data-use-github-style] table tr:nth-child(2n) { background-color: rgb(248, 248, 248); }
+.markdown-preview[data-use-github-style] img { max-width: 100%; box-sizing: border-box; }
+.markdown-preview[data-use-github-style] .emoji { max-width: none; }
+.markdown-preview[data-use-github-style] span.frame { display: block; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.frame > span { display: block; float: left; width: auto; padding: 7px; margin: 13px 0px 0px; overflow: hidden; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] span.frame span img { display: block; float: left; }
+.markdown-preview[data-use-github-style] span.frame span span { display: block; padding: 5px 0px 0px; clear: both; color: rgb(51, 51, 51); }
+.markdown-preview[data-use-github-style] span.align-center { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-center > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-center span img { margin: 0px auto; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-right { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-right > span { display: block; margin: 13px 0px 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] span.align-right span img { margin: 0px; text-align: right; }
+.markdown-preview[data-use-github-style] span.float-left { display: block; float: left; margin-right: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-left span { margin: 13px 0px 0px; }
+.markdown-preview[data-use-github-style] span.float-right { display: block; float: right; margin-left: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-right > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] code, .markdown-preview[data-use-github-style] tt { padding: 0.2em 0px; margin: 0px; font-size: 85%; border-radius: 3px; background-color: rgba(0, 0, 0, 0.0392157); }
+.markdown-preview[data-use-github-style] code::before, .markdown-preview[data-use-github-style] tt::before, .markdown-preview[data-use-github-style] code::after, .markdown-preview[data-use-github-style] tt::after { letter-spacing: -0.2em; content: " "; }
+.markdown-preview[data-use-github-style] code br, .markdown-preview[data-use-github-style] tt br { display: none; }
+.markdown-preview[data-use-github-style] del code { text-decoration: inherit; }
+.markdown-preview[data-use-github-style] pre > code { padding: 0px; margin: 0px; font-size: 100%; word-break: normal; white-space: pre; border: 0px; background: transparent; }
+.markdown-preview[data-use-github-style] .highlight { margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] .highlight pre, .markdown-preview[data-use-github-style] pre { padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; border-radius: 3px; background-color: rgb(247, 247, 247); }
+.markdown-preview[data-use-github-style] .highlight pre { margin-bottom: 0px; word-break: normal; }
+.markdown-preview[data-use-github-style] pre { word-wrap: normal; }
+.markdown-preview[data-use-github-style] pre code, .markdown-preview[data-use-github-style] pre tt { display: inline; max-width: initial; padding: 0px; margin: 0px; overflow: initial; line-height: inherit; word-wrap: normal; border: 0px; background-color: transparent; }
+.markdown-preview[data-use-github-style] pre code::before, .markdown-preview[data-use-github-style] pre tt::before, .markdown-preview[data-use-github-style] pre code::after, .markdown-preview[data-use-github-style] pre tt::after { content: normal; }
+.markdown-preview[data-use-github-style] kbd { display: inline-block; padding: 3px 5px; font-size: 11px; line-height: 10px; color: rgb(85, 85, 85); vertical-align: middle; border-style: solid; border-width: 1px; border-color: rgb(204, 204, 204) rgb(204, 204, 204) rgb(187, 187, 187); border-radius: 3px; box-shadow: rgb(187, 187, 187) 0px -1px 0px inset; background-color: rgb(252, 252, 252); }
+.markdown-preview[data-use-github-style] a { color: rgb(51, 122, 183); }
+.markdown-preview[data-use-github-style] code { color: inherit; }
+.markdown-preview[data-use-github-style] pre.editor-colors { padding: 0.8em 1em; margin-bottom: 1em; font-size: 0.85em; border-radius: 4px; overflow: auto; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors::shadow .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors::shadow .horizontal-scrollbar { visibility: hidden; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors:hover::shadow .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors:hover::shadow .horizontal-scrollbar { visibility: visible; }
+.markdown-preview { color: rgba(74, 100, 87, 0.8); background-color: rgb(247, 248, 247); }
+.markdown-preview code { color: rgba(74, 100, 87, 0.8); background-color: rgb(252, 253, 252); }
+.markdown-preview h1, .markdown-preview h2, .markdown-preview h3 { border-color: rgba(74, 100, 87, 0.0980392); }
+.markdown-preview table tr { border-color: rgb(255, 255, 255); background: none; }
+.markdown-preview table tr:nth-child(2n) { background-color: rgb(252, 253, 252); }
+.markdown-preview table th, .markdown-preview table td { border-color: rgb(255, 255, 255); }
+.markdown-preview table th { background-color: rgb(255, 255, 255); }
+:root {
+  font-size: 16px;
+}
+.conflict-resolved {
+  background: rgba(53, 146, 142, 0.1);
+}
+.conflict-ours {
+  background: rgba(200, 227, 170, 0.4);
+}
+.conflict-ours.cursor-line {
+  background: rgba(200, 227, 170, 0.3);
+}
+.conflict-theirs {
+  background: rgba(154, 207, 250, 0.4);
+}
+.conflict-theirs.cursor-line {
+  background: rgba(154, 207, 250, 0.3);
+}
+.conflict-base {
+  background: rgba(255, 240, 110, 0.4);
+}
+.conflict-base.cursor-line {
+  background: rgba(255, 240, 110, 0.3);
+}
+.conflict-dirty {
+  background: rgba(255, 235, 59, 0.4);
+}
+.conflict-dirty.cursor-line {
+  background: rgba(255, 235, 59, 0.3);
+}
+
+.bracket-matcher .region {
+  border-bottom: 1px dotted lime;
+  position: absolute;
+}
+
+.spell-check-misspelling .region {
+  border-bottom: 2px dotted rgba(255, 51, 51, 0.75);
+}
+
+pre.editor-colors,
+.host {
+  background-color: #f2f3f2;
+  color: #4a6457;
+}
+pre.editor-colors .wrap-guide,
+.host .wrap-guide {
+  background-color: #e4e7e6;
+}
+pre.editor-colors .indent-guide,
+.host .indent-guide {
+  color: #e4e7e6;
+}
+pre.editor-colors .invisible-character,
+.host .invisible-character {
+  color: #e4e7e6;
+}
+pre.editor-colors .line.cursor-line,
+.host .line.cursor-line {
+  background-color: rgba(99, 123, 156, 0.07);
+}
+pre.editor-colors .gutter,
+.host .gutter {
+  background-color: #f2f3f2;
+  color: #9fa8a3;
+}
+pre.editor-colors .gutter .line-number.cursor-line,
+.host .gutter .line-number.cursor-line {
+  background-color: #f2f3f2;
+  color: #577566;
+}
+pre.editor-colors .gutter .line-number.cursor-line-no-selection,
+.host .gutter .line-number.cursor-line-no-selection {
+  color: #577566;
+}
+pre.editor-colors .gutter .line-number.folded,
+.host .gutter .line-number.folded,
+pre.editor-colors .gutter .line-number:after,
+.host .gutter .line-number:after,
+pre.editor-colors .fold-marker:after,
+.host .fold-marker:after {
+  color: #e4e7e6;
+}
+pre.editor-colors .invisible,
+.host .invisible {
+  color: #4a6457;
+}
+pre.editor-colors .cursor,
+.host .cursor {
+  color: #9fa8a3;
+}
+pre.editor-colors .selection .region,
+.host .selection .region {
+  background-color: #e4e7e6;
+}
+pre.editor-colors .search-results .marker .region,
+.host .search-results .marker .region {
+  background-color: transparent;
+  border: 1px solid #e4e7e6;
+}
+pre.editor-colors .search-results .marker.current-result .region,
+.host .search-results .marker.current-result .region {
+  border: 1px solid #ffffff;
+}
+.comment {
+  color: #9fa8a3;
+}
+.keyword {
+  color: #c96999;
+}
+.keyword.control {
+  color: #c96999;
+}
+.keyword.operator {
+  color: #4a6457;
+}
+.keyword.other.special-method {
+  color: #5ab1d3;
+}
+.keyword.other.unit {
+  color: #e09952;
+}
+.storage {
+  color: #c96999;
+}
+.constant {
+  color: #e09952;
+}
+.constant.character.escape {
+  color: #fa757a;
+}
+.constant.numeric {
+  color: #e09952;
+}
+.constant.other.color {
+  color: #fa757a;
+}
+.constant.other.symbol {
+  color: #4fb0a9;
+}
+.variable {
+  color: #e2788e;
+}
+.variable.interpolation {
+  color: #da4e6a;
+}
+.variable.parameter.function {
+  color: #4a6457;
+}
+.invalid.illegal {
+  background-color: #e2788e;
+  color: #f2f3f2;
+}
+.string {
+  color: #4fb0a9;
+}
+.string.regexp {
+  color: #fa757a;
+}
+.string.regexp .source.ruby.embedded {
+  color: #e09952;
+}
+.string.other.link {
+  color: #e2788e;
+}
+.punctuation.definition.comment {
+  color: #9fa8a3;
+}
+.punctuation.definition.string {
+  color: #4fb0a9;
+}
+.punctuation.definition.variable,
+.punctuation.definition.parameters,
+.punctuation.definition.array {
+  color: #4a6457;
+}
+.punctuation.definition.heading,
+.punctuation.definition.identity {
+  color: #5ab1d3;
+}
+.punctuation.definition.bold {
+  color: #5ed9cb;
+  font-weight: bold;
+}
+.punctuation.definition.italic {
+  color: #c96999;
+  font-style: italic;
+}
+.punctuation.section.embedded {
+  color: #da4e6a;
+}
+.support.class {
+  color: #5ed9cb;
+}
+.support.function {
+  color: #fa757a;
+}
+.support.function.any-method {
+  color: #5ab1d3;
+}
+.entity.name.function {
+  color: #5ab1d3;
+}
+.entity.name.type {
+  color: #5ed9cb;
+  text-decoration: underline;
+}
+.entity.other.inherited-class {
+  color: #4fb0a9;
+}
+.entity.name.class,
+.entity.name.type.class {
+  color: #5ed9cb;
+}
+.entity.name.section {
+  color: #5ab1d3;
+}
+.entity.name.tag {
+  color: #e2788e;
+  text-decoration: underline;
+}
+.entity.other.attribute-name {
+  color: #e09952;
+}
+.entity.other.attribute-name.id {
+  color: #5ab1d3;
+}
+.meta.class {
+  color: #5ed9cb;
+}
+.meta.link {
+  color: #e09952;
+}
+.meta.require {
+  color: #5ab1d3;
+}
+.meta.selector {
+  color: #c96999;
+}
+.meta.separator {
+  background-color: #9fa8a3;
+  color: #4a6457;
+}
+.none {
+  color: #4a6457;
+}
+.markup.bold {
+  color: #e09952;
+  font-weight: bold;
+}
+.markup.changed {
+  color: #c96999;
+}
+.markup.deleted {
+  color: #e2788e;
+}
+.markup.italic {
+  color: #c96999;
+  font-style: italic;
+}
+.markup.heading .punctuation.definition.heading {
+  color: #5ab1d3;
+}
+.markup.inserted {
+  color: #4fb0a9;
+}
+.markup.list {
+  color: #e2788e;
+}
+.markup.quote {
+  color: #e09952;
+}
+.markup.raw.inline {
+  color: #4fb0a9;
+}
+.source.gfm .markup {
+  -webkit-font-smoothing: auto;
+}
+.source.gfm .markup.heading {
+  color: #4fb0a9;
+}
+pre.editor-colors[mini] .scroll-view,
+.host([mini]) .scroll-view {
+  padding-left: 1px;
+}
+
+body{
+    width: 210mm;
+    font-size: 0.8em !important;
+}
+
+</style>
+  </head>
+  <body class='markdown-preview' data-use-github-style><h1 id="export-cpp">export.cpp</h1>
+<pre class="editor-colors lang-c++"><div class="line"><span class="source cpp"><span class="meta preprocessor include c"><span class="keyword control directive include c"><span class="punctuation definition directive c"><span>#</span></span><span>include</span></span><span>&nbsp;</span><span class="string quoted other lt-gt include c"><span class="punctuation definition string begin c"><span>&lt;</span></span><span>fstream</span><span class="punctuation definition string end c"><span>&gt;</span></span></span></span></span></div><div class="line"><span class="source cpp"><span class="meta preprocessor include c"><span class="keyword control directive include c"><span class="punctuation definition directive c"><span>#</span></span><span>include</span></span><span>&nbsp;</span><span class="string quoted other lt-gt include c"><span class="punctuation definition string begin c"><span>&lt;</span></span><span>iostream</span><span class="punctuation definition string end c"><span>&gt;</span></span></span></span></span></div><div class="line"><span class="source cpp"><span class="meta preprocessor include c"><span class="keyword control directive include c"><span class="punctuation definition directive c"><span>#</span></span><span>include</span></span><span>&nbsp;</span><span class="string quoted other lt-gt include c"><span class="punctuation definition string begin c"><span>&lt;</span></span><span>cstring</span><span class="punctuation definition string end c"><span>&gt;</span></span></span></span></span></div><div class="line"><span class="source cpp"><span>&nbsp;</span></span></div><div class="line"><span class="source cpp"><span class="meta preprocessor include c"><span class="keyword control directive include c"><span class="punctuation definition directive c"><span>#</span></span><span>include</span></span><span>&nbsp;</span><span class="string quoted double include c"><span class="punctuation definition string begin c"><span>&quot;</span></span><span>fabric.h</span><span class="punctuation definition string end c"><span>&quot;</span></span></span></span></span></div><div class="line"><span class="source cpp"><span>&nbsp;</span></span></div><div class="line"><span class="source cpp"><span class="meta using-namespace-declaration cpp"><span class="keyword control cpp"><span>using</span></span><span>&nbsp;</span><span class="storage type cpp"><span>namespace</span></span><span>&nbsp;</span><span class="entity name type cpp"><span>std</span></span><span>;</span></span></span></div><div class="line"><span class="source cpp"><span>&nbsp;</span></span></div><div class="line"><span class="source cpp"><span class="storage type c"><span>void</span></span><span class="meta function c"><span class="punctuation whitespace function leading c"><span>&nbsp;</span></span><span class="entity name function c"><span>Export</span></span><span class="meta parens c"><span class="punctuation section parens begin c"><span>(</span></span><span>List&nbsp;Array[</span><span class="constant numeric c"><span>20</span></span><span>],&nbsp;</span><span class="storage type c"><span>int</span></span><span>&nbsp;_arrayLindex</span><span class="punctuation section parens end c"><span>)</span></span></span><span class="meta block c"><span class="punctuation section block begin c"><span>{</span></span></span></span></span></div><div class="line"><span class="source cpp"><span class="meta function c"><span class="meta block c"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="storage type c"><span>char</span></span><span>&nbsp;fname[</span><span class="constant numeric c"><span>40</span></span><span>];</span></span></span></span></div><div class="line"><span class="source cpp"><span class="meta function c"><span class="meta block c"><span>&nbsp;</span></span></span></span></div><div class="line"><span class="source cpp"><span class="meta function c"><span class="meta block c"><span>&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;</span><span class="string quoted double c"><span class="punctuation definition string begin c"><span>&quot;</span></span><span>Enter&nbsp;the&nbsp;Export&nbsp;file&nbsp;name&nbsp;</span><span class="punctuation definition string end c"><span>&quot;</span></span></span><span>&nbsp;&lt;&lt;&nbsp;endl&nbsp;&lt;&lt;&nbsp;green&nbsp;&lt;&lt;&nbsp;</span><span class="string quoted double c"><span class="punctuation definition string begin c"><span>&quot;</span></span><span>&nbsp;+&gt;&nbsp;</span><span class="punctuation definition string end c"><span>&quot;</span></span></span><span>&nbsp;&lt;&lt;&nbsp;normal;</span></span></span></span></div><div class="line"><span class="source cpp"><span class="meta function c"><span class="meta block c"><span>&nbsp;&nbsp;&nbsp;&nbsp;cin.</span><span class="meta function-call c"><span class="support function any-method c"><span>getline</span></span><span class="punctuation definition parameters c"><span>(</span></span></span><span>fname,&nbsp;</span><span class="keyword operator sizeof c"><span>sizeof</span></span><span>(fname));</span></span></span></span></div><div class="line"><span class="source cpp"><span class="meta function c"><span class="meta block c"><span>&nbsp;</span></span></span></span></div><div class="line"><span class="source cpp"><span class="meta function c"><span class="meta block c"><span class="punctuation whitespace support function leading c"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span></span><span class="support function C99 c"><span>strcat</span></span><span>(fname,&nbsp;</span><span class="string quoted double c"><span class="punctuation definition string begin c"><span>&quot;</span></span><span>.tdexp</span><span class="punctuation definition string end c"><span>&quot;</span></span></span><span>);</span></span></span></span></div><div class="line"><span class="source cpp"><span class="meta function c"><span class="meta block c"><span>&nbsp;</span></span></span></span></div><div class="line"><span class="source cpp"><span class="meta function c"><span class="meta block c"><span>&nbsp;&nbsp;&nbsp;&nbsp;ofstream&nbsp;file;</span></span></span></span></div><div class="line"><span class="source cpp"><span class="meta function c"><span class="meta block c"><span>&nbsp;&nbsp;&nbsp;&nbsp;file.</span><span class="meta function-call c"><span class="support function any-method c"><span>open</span></span><span class="punctuation definition parameters c"><span>(</span></span></span><span>fname);</span></span></span></span></div><div class="line"><span class="source cpp"><span class="meta function c"><span class="meta block c"><span>&nbsp;</span></span></span></span></div><div class="line"><span class="source cpp"><span class="meta function c"><span class="meta block c"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword control c"><span>for</span></span><span>&nbsp;(</span><span class="storage type c"><span>int</span></span><span>&nbsp;i&nbsp;=&nbsp;</span><span class="constant numeric c"><span>0</span></span><span>;&nbsp;i&nbsp;&lt;&nbsp;_arrayLindex;&nbsp;i++)&nbsp;</span><span class="meta block c"><span class="punctuation section block begin c"><span>{</span></span></span></span></span></span></div><div class="line"><span class="source cpp"><span class="meta function c"><span class="meta block c"><span class="meta block c"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file&nbsp;&lt;&lt;&nbsp;Array[i]</span><span class="punctuation separator variable-access c"><span>.</span></span><span class="variable other dot-access c"><span>title</span></span><span>&nbsp;&lt;&lt;&nbsp;endl;</span></span></span></span></span></div><div class="line"><span class="source cpp"><span class="meta function c"><span class="meta block c"><span class="meta block c"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file&nbsp;&lt;&lt;&nbsp;</span><span class="string quoted double c"><span class="punctuation definition string begin c"><span>&quot;</span></span><span>===============</span><span class="punctuation definition string end c"><span>&quot;</span></span></span><span>&nbsp;&lt;&lt;&nbsp;endl;</span></span></span></span></span></div><div class="line"><span class="source cpp"><span class="meta function c"><span class="meta block c"><span class="meta block c"><span>&nbsp;</span></span></span></span></span></div><div class="line"><span class="source cpp"><span class="meta function c"><span class="meta block c"><span class="meta block c"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file&nbsp;&lt;&lt;&nbsp;</span><span class="string quoted double c"><span class="punctuation definition string begin c"><span>&quot;</span></span><span>Tags&nbsp;:&nbsp;</span><span class="punctuation definition string end c"><span>&quot;</span></span></span><span>;</span></span></span></span></span></div><div class="line"><span class="source cpp"><span class="meta function c"><span class="meta block c"><span class="meta block c"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword control c"><span>for</span></span><span>&nbsp;(</span><span class="storage type c"><span>int</span></span><span>&nbsp;j&nbsp;=&nbsp;</span><span class="constant numeric c"><span>0</span></span><span>;&nbsp;j&nbsp;&lt;&nbsp;Array[i]</span><span class="punctuation separator variable-access c"><span>.</span></span><span class="variable other dot-access c"><span>_tagIndex</span></span><span>;&nbsp;j++)&nbsp;</span><span class="meta block c"><span class="punctuation section block begin c"><span>{</span></span></span></span></span></span></span></div><div class="line"><span class="source cpp"><span class="meta function c"><span class="meta block c"><span class="meta block c"><span class="meta block c"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file&nbsp;&lt;&lt;&nbsp;Array[i]</span><span class="punctuation separator variable-access c"><span>.</span></span><span class="variable other dot-access c"><span>tags</span></span><span>[j]&nbsp;&lt;&lt;&nbsp;</span><span class="string quoted double c"><span class="punctuation definition string begin c"><span>&quot;</span></span><span>&nbsp;</span><span class="punctuation definition string end c"><span>&quot;</span></span></span><span>;</span></span></span></span></span></span></div><div class="line"><span class="source cpp"><span class="meta function c"><span class="meta block c"><span class="meta block c"><span class="meta block c"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="punctuation section block end c"><span>}</span></span></span></span></span></span></span></div><div class="line"><span class="source cpp"><span class="meta function c"><span class="meta block c"><span class="meta block c"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file&nbsp;&lt;&lt;&nbsp;endl;</span></span></span></span></span></div><div class="line"><span class="source cpp"><span class="meta function c"><span class="meta block c"><span class="meta block c"><span>&nbsp;</span></span></span></span></span></div><div class="line"><span class="source cpp"><span class="meta function c"><span class="meta block c"><span class="meta block c"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword control c"><span>for</span></span><span>&nbsp;(</span><span class="storage type c"><span>int</span></span><span>&nbsp;k&nbsp;=&nbsp;</span><span class="constant numeric c"><span>0</span></span><span>;&nbsp;k&nbsp;&lt;&nbsp;Array[i]</span><span class="punctuation separator variable-access c"><span>.</span></span><span class="variable other dot-access c"><span>_listIndex</span></span><span>;&nbsp;k++)&nbsp;</span><span class="meta block c"><span class="punctuation section block begin c"><span>{</span></span></span></span></span></span></span></div><div class="line"><span class="source cpp"><span class="meta function c"><span class="meta block c"><span class="meta block c"><span class="meta block c"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file&nbsp;&lt;&lt;&nbsp;</span><span class="string quoted double c"><span class="punctuation definition string begin c"><span>&quot;</span></span><span>&nbsp;[</span><span class="punctuation definition string end c"><span>&quot;</span></span></span><span>&nbsp;&lt;&lt;&nbsp;Array[i]</span><span class="punctuation separator variable-access c"><span>.</span></span><span class="variable other dot-access c"><span>list</span></span><span>[k]</span><span class="punctuation separator variable-access c"><span>.</span></span><span class="variable other dot-access c"><span>status</span></span><span>&nbsp;&lt;&lt;&nbsp;</span><span class="string quoted double c"><span class="punctuation definition string begin c"><span>&quot;</span></span><span>]&nbsp;</span><span class="punctuation definition string end c"><span>&quot;</span></span></span><span>;</span></span></span></span></span></span></div><div class="line"><span class="source cpp"><span class="meta function c"><span class="meta block c"><span class="meta block c"><span class="meta block c"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file&nbsp;&lt;&lt;&nbsp;Array[i]</span><span class="punctuation separator variable-access c"><span>.</span></span><span class="variable other dot-access c"><span>list</span></span><span>[k]</span><span class="punctuation separator variable-access c"><span>.</span></span><span class="variable other dot-access c"><span>content</span></span><span>&nbsp;&lt;&lt;&nbsp;endl;</span></span></span></span></span></span></div><div class="line"><span class="source cpp"><span class="meta function c"><span class="meta block c"><span class="meta block c"><span class="meta block c"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="punctuation section block end c"><span>}</span></span></span></span></span></span></span></div><div class="line"><span class="source cpp"><span class="meta function c"><span class="meta block c"><span class="meta block c"><span>&nbsp;</span></span></span></span></span></div><div class="line"><span class="source cpp"><span class="meta function c"><span class="meta block c"><span class="meta block c"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file&nbsp;&lt;&lt;&nbsp;endl;</span></span></span></span></span></div><div class="line"><span class="source cpp"><span class="meta function c"><span class="meta block c"><span class="meta block c"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="punctuation section block end c"><span>}</span></span></span></span></span></span></div><div class="line"><span class="source cpp"><span class="meta function c"><span class="meta block c"><span>&nbsp;</span></span></span></span></div><div class="line"><span class="source cpp"><span class="meta function c"><span class="meta block c"><span>&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;</span><span class="string quoted double c"><span class="punctuation definition string begin c"><span>&quot;</span></span><span>File&nbsp;exported&nbsp;to&nbsp;:&nbsp;</span><span class="punctuation definition string end c"><span>&quot;</span></span></span><span>&nbsp;&lt;&lt;&nbsp;fname&nbsp;&lt;&lt;&nbsp;</span><span class="string quoted double c"><span class="punctuation definition string begin c"><span>&quot;</span></span><span>&nbsp;successfully&nbsp;:)</span><span class="punctuation definition string end c"><span>&quot;</span></span></span><span>&nbsp;&lt;&lt;&nbsp;endl;</span></span></span></span></div><div class="line"><span class="source cpp"><span class="meta function c"><span class="meta block c"><span>&nbsp;</span></span></span></span></div><div class="line"><span class="source cpp"><span class="meta function c"><span class="meta block c"><span>&nbsp;&nbsp;&nbsp;&nbsp;file.</span><span class="meta function-call c"><span class="support function any-method c"><span>close</span></span><span class="punctuation definition parameters c"><span>(</span></span></span><span>);</span></span></span></span></div><div class="line"><span class="source cpp"><span class="meta function c"><span class="meta block c"><span class="punctuation section block end c"><span>}</span></span></span></span></span></div></pre></body>
+</html>

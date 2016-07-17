@@ -1,3 +1,6 @@
+# search.cpp
+
+```c++
 #include <iostream>
 #include <cstring>
 
@@ -149,3 +152,5 @@ void search(char term[], List arrayL[20]){
 //
 //     return 0;
 // }
+
+```
