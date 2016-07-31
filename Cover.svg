@@ -72,10 +72,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.58"
-     inkscape:cx="362.50667"
-     inkscape:cy="555.33937"
+     inkscape:cx="331.62891"
+     inkscape:cy="531.04855"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g4221"
      showgrid="false"
      inkscape:snap-page="true"
      inkscape:object-paths="true"
@@ -89,10 +89,11 @@
      inkscape:snap-bbox-edge-midpoints="true"
      inkscape:snap-bbox-midpoints="true"
      inkscape:window-width="1600"
-     inkscape:window-height="870"
+     inkscape:window-height="864"
      inkscape:window-x="0"
      inkscape:window-y="1"
-     inkscape:window-maximized="1" />
+     inkscape:window-maximized="1"
+     inkscape:snap-global="false" />
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -101,7 +102,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -182,19 +183,51 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="341.57913"
-       y="911.69867"
+       x="77.786026"
+       y="847.70422"
        id="text4176"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4178"
-         x="341.57913"
-         y="911.69867"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Architects Daughter';-inkscape-font-specification:'Architects Daughter';fill:#ffffff;fill-opacity:0.75925927">Submited by:</tspan><tspan
+         x="77.786026"
+         y="847.70422"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:30px;font-family:'Architects Daughter';-inkscape-font-specification:'Architects Daughter';fill:#ffffff;fill-opacity:0.75925927">Submited by:</tspan><tspan
          sodipodi:role="line"
-         x="341.57913"
-         y="961.69867"
+         x="77.786026"
+         y="885.20422"
          id="tspan4180"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Architects Daughter';-inkscape-font-specification:'Architects Daughter';fill:#ffffff;fill-opacity:0.75925927">Aditya Vikram Singh</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:30px;font-family:'Architects Daughter';-inkscape-font-specification:'Architects Daughter';fill:#ffffff;fill-opacity:0.75925927">Aditya Vikram Singh</tspan><tspan
+         sodipodi:role="line"
+         x="77.786026"
+         y="922.70422"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:30px;font-family:'Architects Daughter';-inkscape-font-specification:'Architects Daughter';fill:#ffffff;fill-opacity:0.75925927"
+         id="tspan4154">Sagar Mishra</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:0.78235292;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       x="329.31036"
+       y="1005.8105"
+       id="text4155"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4157"
+         x="329.31036"
+         y="1005.8105"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-family:Lato;-inkscape-font-specification:'Lato Light';fill:#ffffff;fill-opacity:0.78235292;">todx.tk</tspan></text>
+    <g
+       style="fill:#000000"
+       id="g4221"
+       transform="matrix(1.8635643,0,0,1.8635643,282.29334,970.21532)">
+      <path
+         id="path4211"
+         d="M 0,0 24,0 24,24 0,24 Z"
+         inkscape:connector-curvature="0"
+         style="fill:none" />
+      <path
+         id="path4213"
+         d="M 12,2 C 6.48,2 2,6.48 2,12 2,17.52 6.48,22 12,22 17.52,22 22,17.52 22,12 22,6.48 17.52,2 12,2 Z M 16.5,16 8,16 C 6.34,16 5,14.66 5,13 5,11.34 6.34,10 8,10 l 0.14,0.01 C 8.58,8.28 10.13,7 12,7 c 2.21,0 4,1.79 4,4 l 0.5,0 c 1.38,0 2.5,1.12 2.5,2.5 0,1.38 -1.12,2.5 -2.5,2.5 z"
+         inkscape:connector-curvature="0"
+         style="fill:#ffffff;fill-opacity:0.62941176" />
+    </g>
   </g>
 </svg>
